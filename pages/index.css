@@ -18,3 +18,10 @@
 /* button */
 @import url(../blocks/button/__edition/button__edition.css);
 @import url(../blocks/button/__add/button__add.css);
+/* gallery */
+@import url(../blocks/gallery/gallery.css);
+/* place */
+@import url(../blocks/place/place.css);
+@import url(../blocks/place/__title/place__title.css);
+@import url(../blocks/place/__image/place__image.css);
+@import url(../blocks/place/__icon/place__icon.css);
