@@ -5,3 +5,18 @@
   border-radius: 10px;
   position: relative;
 }
+
+@media screen and ( max-width: 768px) {
+  .place {
+    width: 352px;
+    height: 431px
+  }
+}
+
+
+@media screen and ( max-width: 320px) {
+  .place {
+    width: 282px;
+    height: 361px;
+    }
+  }
