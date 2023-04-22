@@ -6,3 +6,10 @@ border: 1px solid #FFFFFF;
 background-color: #000000;
 position: relative;
 }
+
+@media screen and ( max-width: 320px) {
+  .button__edition{
+    width: 18px;
+    height: 18px;
+    }
+}

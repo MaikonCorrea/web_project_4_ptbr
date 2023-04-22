@@ -6,5 +6,18 @@
   justify-items: center;
   flex-direction: column;
   align-items: center;
- 
+
+  }
+
+  @media screen and ( max-width: 768px) {
+    .page {
+      max-width: 768px;
+      }
+  }
+
+
+  @media screen and ( max-width: 320px) {
+    .page {
+      max-width: 320px;
+      }
   }

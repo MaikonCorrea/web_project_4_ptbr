@@ -3,4 +3,21 @@
   margin-top: 68px;
   margin-bottom: 60px;
   }
-  
+
+  @media screen and ( max-width: 768px) {
+    .footer {
+      max-width: 733px;
+      max-height: 14px;
+      margin-top: 55px;
+      margin-bottom: 46px;
+      }
+  }
+
+  @media screen and ( max-width: 320px) {
+    .footer {
+      max-width: 282px;
+      max-height: 14px;
+      margin-top: 50px;
+      margin-bottom: 36px;
+      }
+  }

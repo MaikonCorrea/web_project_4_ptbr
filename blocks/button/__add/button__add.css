@@ -9,3 +9,9 @@
   justify-items: center;
   margin-left: auto;
 }
+
+@media screen and ( max-width: 320px) {
+  .button__add {
+    width: 282px;
+    height: 50px;    }
+}

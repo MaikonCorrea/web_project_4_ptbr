@@ -8,3 +8,14 @@
   color: #FFFFFF;
 }
 
+@media screen and ( max-width: 320px) {
+  .info__discription {
+    width: 282px;
+    height: 14px;
+    font-size: 0.875rem;
+    line-height: 1.062rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 36px;
+    }
+}

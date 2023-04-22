@@ -7,3 +7,14 @@
   grid-row-gap: 16px;
  margin-left: 3.75px;
 }
+
+@media screen and ( max-width: 320px) {
+  .info {
+      display: flex;
+      width: 282px;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 10px;
+      row-gap: 14px;
+    }
+}
