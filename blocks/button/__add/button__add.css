@@ -8,6 +8,12 @@
   align-items: center;
   justify-items: center;
   margin-left: auto;
+  cursor: pointer;
+}
+
+.button__add:hover {
+  opacity: 0.8;
+  border-radius: 2px;
 }
 
 @media screen and ( max-width: 320px) {
