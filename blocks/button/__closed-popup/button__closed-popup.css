@@ -1,0 +1,24 @@
+.button__closed-popup {
+  position: absolute;
+  right: -47px;
+  top: -47px;
+  height: 48.28px;
+  width: 48.28px;
+  background: #000000;
+  border: none;
+  cursor: pointer;
+
+}
+@media screen and ( max-width: 320px) {
+  .button__closed-popup {
+    width: 26px;
+    height: 26px;
+    right: 0px;
+    top: -39.62px;
+}
+}
+
+.button__closed-popup:hover {
+    opacity: 0.8;
+    border-radius: 2px;
+}

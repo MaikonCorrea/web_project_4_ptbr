@@ -1,0 +1,22 @@
+.place__data {
+  width: 246px;
+  height: 30px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 25px;
+  left: 21px;
+}
+
+@media screen and ( max-width: 768px) {
+  .place__data {
+    width: 314px;
+    }
+}
+
+@media screen and ( max-width: 320px) {
+  .place__data {
+    width: 246px;
+    }
+}

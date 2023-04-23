@@ -1,0 +1,16 @@
+.form__item {
+  border: none;
+  width: 358px;
+  height: 24px;
+  border-bottom: 1px solid #bcbcc4;
+  background-color: transparent;
+  margin-top: 30px;
+  font-size: 14px;
+  font-family: inherit;
+}
+@media screen and ( max-width: 320px) {
+  .form__item {
+    width: 238px;
+    height: 17px;
+    }
+}

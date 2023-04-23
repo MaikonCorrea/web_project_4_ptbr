@@ -18,13 +18,24 @@
 /* button */
 @import url(../blocks/button/__edition/button__edition.css);
 @import url(../blocks/button/__add/button__add.css);
+@import url(../blocks/button/__like/button__like.css);
+@import url(../blocks/button/__image-like/button__image-like.css);
+@import url(../blocks/button/__save/button__save.css);
+@import url(../blocks/button/__closed-popup/button__closed-popup.css);
 /* gallery */
 @import url(../blocks/gallery/gallery.css);
 /* place */
 @import url(../blocks/place/place.css);
 @import url(../blocks/place/__title/place__title.css);
 @import url(../blocks/place/__image/place__image.css);
-@import url(../blocks/place/__icon/place__icon.css);
+@import url(../blocks/place/__data/place__data.css);
 /* footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyrigth/footer__copyrigth.css);
+/* popup */
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__image-closed/popup__image-closed.css);
+/* form */
+@import url(../blocks/form/form.css);
+@import url(../blocks/form/__item/form__item.css);
