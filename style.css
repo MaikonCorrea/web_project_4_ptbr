@@ -1,7 +1,9 @@
 .avatar {
-width: 168.75px;
-height: 127.5px;
+width: 110px;
+min-width: 110px;
+height: 110px;
 background-image: url(../web_project_4_ptbr/images/image.jpg);
 background-size: cover;
 background-position: center;
+border-radius: 50%;
 }
