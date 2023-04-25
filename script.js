@@ -1,16 +1,13 @@
 const openPopupButton = document.querySelector('.button__edition');
 const popup = document.querySelector('.popup__container');
-const closePopupButton = document.querySelector('.button__image-close');
+const closePopupButton = document.querySelector('.button__close-popup');
 
 
-  
-
-/* openPopupButton.addEventListener('click', () => { // botão a ser clicado
-  popup.style.display = 'block'; // mudança de estado do bloco
-});
-
-popup.addEventListener('click', (event) => {
-  if (event.target === closePopupButton) {
-    popup.style.display = 'none';
-  }
-}); */
+openPopupButton.addEventListener('click', addDisplayBlockPopupClass);
+function addDisplayBlockPopupClass() {
+  popup.classList.add('popup_opened');
+}
+closePopupButton.addEventListener('click' , removeDisplayBlockPopupClass)
+function removeDisplayBlockPopupClass () {
+  popup.classList.remove('popup_opened');
+}
