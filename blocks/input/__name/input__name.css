@@ -9,9 +9,6 @@
   font-family: inherit;
 }
 
-.input__name:focus {
-  outline: none;
-}
 
 @media screen and ( max-width: 320px) {
   .input__name {
