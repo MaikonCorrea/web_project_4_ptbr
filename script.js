@@ -5,7 +5,7 @@ const buttonSave = document.querySelector('.button__save');
 const inputName = document.querySelector('.input__name');
 const inputSobre = document.querySelector('.input__sobre');
 const infoName = document.querySelector('.info__name');
-const infoSobre = document.querySelector('.info__discription')
+const infoSobre = document.querySelector('.info__discription');
 
 
 openPopupButton.addEventListener('click', addDisplayBlockPopupClass)
@@ -13,17 +13,17 @@ function addDisplayBlockPopupClass() {
   popup.classList.add('popup_opened');
 }
 closePopupButton.addEventListener('click' , removeDisplayBlockPopupClass)
-function removeDisplayBlockPopupClass () {
-  popup.classList.remove('popup_opened');
+function removeDisplayBlockPopupClass (event) {
+    popup.classList.remove('popup_opened');
+    event.preventDefault();
 }
 buttonSave.addEventListener('click' , saveNewImputValues)
 function saveNewImputValues (event) {
-  event.preventDfault();
+  event.preventDefault();
   if (inputName.value != '') {
 infoName.textContent = inputName.value
   }
-
-  if (inputSobre.value != "") {
+  if (inputSobre.value != '') {
     infoSobre.textContent = inputSobre.value
   }
   removeDisplayBlockPopupClass();
