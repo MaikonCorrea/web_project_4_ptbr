@@ -1,16 +1,16 @@
-# Projeto 4:  EUA Afora
+# Projeto 4:  Around The U.S.
+
+Este projeto foi elaborado pela [Practicum](https://practicum.com/pt-bra/), testando meus conhecimentos adquiridos neste período do curso.
 
 ### Visão geral
-
+* HTML5
+* CSS3
+* JavaScript
 * Figma
-* Imagens
 
 **Figma**
 
 * [Link para o projeto no Figma](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
 
-**Imagens**
+**Imagem do projeto**
 
-A maneira como você fará isso no trabalho é exportando imagens diretamente do Figma — recomendamos fazer isso para praticar mais. Não se esqueça de otimizá-los [aqui](https://tinypng.com/), para que seu projeto carregue mais rápido.
-
-Divirta-se com JavaScript!
