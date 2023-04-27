@@ -42,7 +42,7 @@ Usado layout do Figma com livre utilização das melhores práticas de desenvolv
 
 **Site Around the U.S.**
 
-* [Link para o site Around the U.S.]()
+* [Link para o site Around the U.S.](https://maikoncorrea.github.io/web_project_4_ptbr/)
 ---
 <img style="width:150px ; border-radius:50%" src="https://user-images.githubusercontent.com/121962633/224591932-aa530ce2-d507-4d6c-a467-b618587e2202.jpeg" alt="foto de maikon correa">
 
