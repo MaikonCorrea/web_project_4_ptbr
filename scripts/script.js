@@ -11,6 +11,9 @@ const infoSobre = document.querySelector('.info__discription');
 openPopupButton.addEventListener('click', addDisplayBlockPopupClass)
 function addDisplayBlockPopupClass() {
   popup.classList.add('popup_opened');
+  inputName.value = infoName.textContent;
+  inputSobre.value = infoSobre.textContent;
+
 }
 closePopupButton.addEventListener('click' , removeDisplayBlockPopupClass)
 function removeDisplayBlockPopupClass (event) {
