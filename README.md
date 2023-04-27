@@ -37,7 +37,7 @@ Usado layout do Figma com livre utilização das melhores práticas de desenvolv
 
 **Figma**
 
-* [Link para o projeto no Figma](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
+* [Link para o projeto no Figma](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt "target:_blank")
 
 
 **Site Around the U.S.**
