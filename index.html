@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="pages/index.css">
+  <link rel="stylesheet" href="style.css">
   <title>Around The U.S.</title>
 </head>
 
@@ -24,6 +25,7 @@
         </button>
         <p class="info__discription">Explorar</p>
       </div>
+      <!-- popup de edição perfil -->
         <div class="popup__container">
           <form class="popup">
             <h2 class="popup__title">Editar perfil</h2>
@@ -33,8 +35,20 @@
             <button class="button__close-popup"><img class="button__image-close" src="images/Close_Icon.png" alt="grande icone em xis para fechar o popup"></button>
           </form>
         </div>
+        <!-- popup adicionar cards -->
+      <div class="popup__card">
+          <form class="popup">
+            <h2 class="popup__title">Novo local</h2>
+            <input class="input__name" type="text" name="firstName" placeholder="Título">
+            <input class="input__sobre" url="url" name="link" placeholder="Link da imagem">
+            <button class="button__save" type="submit">Criar</button>
+            <button class="button__close-popup"><img class="button__image-close" src="images/Close_Icon.png" alt="grande icone em xis para fechar o popup"></button>
+          </form>
+        </div>
+        <!-- botão para adicionar cards -->
       <button class="button__add"><img src="images/vectoradd.png"
           alt="um sinal de mais na parte interna do botão de adicionar."></button>
+          <!-- galeria de fotos -->
     </section>
     <section class="gallery">
       <div class="place">

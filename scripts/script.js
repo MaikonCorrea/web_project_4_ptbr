@@ -7,7 +7,7 @@ const inputSobre = document.querySelector('.input__sobre');
 const infoName = document.querySelector('.info__name');
 const infoSobre = document.querySelector('.info__discription');
 
-
+//caixa de popup edição de perfil
 openPopupButton.addEventListener('click', addDisplayBlockPopupClass)
 function addDisplayBlockPopupClass() {
   popup.classList.add('popup_opened');
@@ -31,3 +31,15 @@ infoName.textContent = inputName.value
   }
   removeDisplayBlockPopupClass();
 }
+
+//botão para abertura do popup de adição de cards
+const openPopupButtonCard = document.querySelector('.button__add');
+const popupCard = document.querySelector('.popup__card');
+
+//caixa para adicionar os cards
+openPopupButtonCard.addEventListener('click', addDisplayBlockPopupClassCard)
+function addDisplayBlockPopupClassCard() {
+  popupCard.classList.add('popup_opened-card');
+}
+
+//verificar pois está abrindo o mesmo card
