@@ -35,11 +35,12 @@ infoName.textContent = inputName.value
 //botão para abertura do popup de adição de cards
 const openPopupButtonCard = document.querySelector('.button__add');
 const popupCard = document.querySelector('.popup__card');
+//botão de salvar card conferido
+const buttonAddCard = popupCard.querySelector('.button__save');
 
-//caixa para adicionar os cards
+
+//função de abertura do popup card
 openPopupButtonCard.addEventListener('click', addDisplayBlockPopupClassCard)
 function addDisplayBlockPopupClassCard() {
   popupCard.classList.add('popup_opened-card');
 }
-
-//verificar pois está abrindo o mesmo card
