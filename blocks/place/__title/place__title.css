@@ -13,12 +13,12 @@
 
 @media screen and ( max-width: 768px) {
   .place__title {
-    width: 288px;
+    width: 352px;
     }
 }
 
 @media screen and ( max-width: 320px) {
   .place__title {
-    width: 246px;
+    width: 282px;
     }
 }

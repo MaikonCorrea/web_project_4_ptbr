@@ -35,7 +35,7 @@ infoName.textContent = inputName.value
 //chamando o botão de abrir popup card
 const openPopupButtonCard = document.querySelector('.button__add');
 const popupCard = document.querySelector('.popup__card');
-const buttonAddCard = popupCard.querySelector('.button__save');
+const buttonSaveNewCard = popupCard.querySelector('.button__save');
 const closePopupCardButton = popupCard.querySelector('.button__close-popup');
 const inputTitle = popupCard.querySelector('.input__name');
 const inputImageURL = popupCard.querySelector('.input__sobre');
@@ -99,8 +99,8 @@ initialCards.forEach((card) => {
   cardsContainer.prepend(cardElement);
 });
 
-// função add card
-buttonAddCard.addEventListener('click', saveNewImputCards)
+// função add novo card
+buttonSaveNewCard.addEventListener('click', saveNewImputCards)
 function saveNewImputCards (event) {
   event.preventDefault();
  /*  if (inputTitle.value != '') {

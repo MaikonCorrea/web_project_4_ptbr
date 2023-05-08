@@ -11,12 +11,12 @@
 
 @media screen and ( max-width: 768px) {
   .place__data {
-    width: 314px;
+    width: 352px;
     }
 }
 
 @media screen and ( max-width: 320px) {
   .place__data {
-    width: 246px;
+    width: 282px;
     }
 }
