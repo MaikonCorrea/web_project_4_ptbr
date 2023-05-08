@@ -50,22 +50,9 @@ function addDisplayBlockPopupClassCard() {
 closePopupCardButton.addEventListener('click' , removeDisplayBlockPopupCardClass)
 function removeDisplayBlockPopupCardClass (event) {
   popupCard.classList.remove('popup_opened-card');
-    event.preventDefaultCards();
+    event.preventDefault();
 }
 
-// função add card
-buttonAddCard.addEventListener('click', saveNewImputCards)
-function saveNewImputCards (event) {
-  event.preventDefaultCards();
-  if (inputTitle.value != '') {
-    placeTitle.textContent = inputTitle.value
-  }
-
-  if (inputImageURL.value != '') {
-    inputImageURL.value
-  }
-  removeDisplayBlockPopupCardClass();
-}
 
 const initialCards = [
   {
@@ -111,5 +98,19 @@ initialCards.forEach((card) => {
   const cardElement = createCard(card);
   cardsContainer.prepend(cardElement);
 });
+
+// função add card
+buttonAddCard.addEventListener('click', saveNewImputCards)
+function saveNewImputCards (event) {
+  event.preventDefault();
+ /*  if (inputTitle.value != '') {
+    placeTitle.textContent = inputTitle.value
+  }
+
+  if (inputImageURL.value != '') {
+    inputImageURL.value
+  } */
+  removeDisplayBlockPopupCardClass();
+}
 
 
