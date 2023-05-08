@@ -1,12 +1,11 @@
 .place__title {
-  width: 246px;
+  max-width: 246px;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
+  margin-left: 25px;
   color: #000000;
-  bottom: 31px;
-  left: 21px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

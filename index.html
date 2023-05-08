@@ -50,7 +50,7 @@
           alt="um sinal de mais na parte interna do botão de adicionar."></button>
           <!-- galeria de fotos card-->
     </section>
-    <section class="gallery">
+    <ul class="gallery">
       <!-- <div class="place">
         <img class="place__image" src="images/vale_de_yosemite.jpg"
           alt="foto do vale de yousemite, um rio entre as florestas com uma grande montanha ao fundo">
@@ -99,15 +99,15 @@
           <button class="button__like"><img class="button__image-like" src="images/like.png" alt="uma imagem de coração para ser curtida"></button>
         </div>
       </div> -->
-    </section>
+    </ul>
   </main>
   <footer class="footer">
     <h2 class="footer__copyrigth">© 2023 Around The U.S.</h2>
   </footer>
 <!-- elemento tamplate para adicionar os cards -->
-<template class="gallery">
-  <li class="place__card">
-    <img class="place__image" src="" alt="">
+<template id="gallery__card">
+  <li class="place">
+    <img class="place__image"alt="">
     <button class="button__delete"><img class="button__image-delete" src="images/image_delete.png" alt="imagem de uma lixeira para excluir card"></button>
       <div class="place__data">
         <h3 class="place__title"></h3>
@@ -115,7 +115,6 @@
       </div>
   </li>
 </template>
-
   <script src= "./scripts/script.js"></script>
 </body>
 </html>

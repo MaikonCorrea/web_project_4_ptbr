@@ -1,9 +1,8 @@
 .place {
   width: 282px;
   height: 361px;
-  background: #FFFFFF;
-  border-radius: 10px;
   position: relative;
+  list-style: none;
 }
 
 @media screen and ( max-width: 768px) {

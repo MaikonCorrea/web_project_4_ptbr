@@ -1,12 +1,12 @@
 .place__data {
-  width: 246px;
-  height: 30px;
+  width: 282px;
+  height: 79px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  position: absolute;
-  bottom: 25px;
-  left: 21px;
+  position: relative;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
 }
 
 @media screen and ( max-width: 768px) {
