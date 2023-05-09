@@ -53,7 +53,7 @@ function removeDisplayBlockPopupCardClass (event) {
     event.preventDefault();
 }
 
-
+//cards iniciais da página
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -81,6 +81,7 @@ const initialCards = [
   },
 ];
 
+//função que cria e adiciona os cards já existentes na página
 function createCard(initialCards) {
   const cardTemplate = document.querySelector('#gallery__card').content;
   const cardElement = cardTemplate.querySelector('.place').cloneNode(true);
@@ -88,29 +89,30 @@ function createCard(initialCards) {
   const cardImageElement = cardElement.querySelector('.place__image');
   cardTitleElement.textContent = initialCards.name;
   cardImageElement.src = initialCards.link;
-
-  return cardElement;
+  cardImageElement.alt = initialCards.name;
+  return cardElement
 }
 
 const cardsContainer = document.querySelector('.gallery');
-
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
   cardsContainer.prepend(cardElement);
 });
 
-// função add novo card
-buttonSaveNewCard.addEventListener('click', saveNewImputCards)
-function saveNewImputCards (event) {
-  event.preventDefault();
- /*  if (inputTitle.value != '') {
-    placeTitle.textContent = inputTitle.value
-  }
-
-  if (inputImageURL.value != '') {
-    inputImageURL.value
-  } */
-  removeDisplayBlockPopupCardClass();
+function addNewCard(name, link) {
+  const newCard = {
+    name: name,
+    link: link
+  };
+  initialCards.push(newCard);
+  const cardElement = createCard(newCard);
+  cardsContainer.prepend(cardElement);
 }
 
-
+buttonSaveNewCard.addEventListener('click', (event)=> {
+  addNewCard(inputTitle.value,inputImageURL.value);
+   event.preventDefault();
+   inputTitle.value = '';
+   inputImageURL.value = '';
+   removeDisplayBlockPopupCardClass();
+  })
