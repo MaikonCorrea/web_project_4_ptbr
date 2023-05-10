@@ -20,11 +20,11 @@
       <img class="profile__image" src="images/profile_image.png" alt="imagen de perfil">
       <div class="info">
         <p class="info__name">Jacques Cousteau</p>
-        <button class="button__edition"><img src="images/vectoredition.png"
-            alt="uma caneta na parte interna do botão de edição.">
-        </button>
+        <button class="button__edition"></button>
         <p class="info__discription">Explorar</p>
       </div>
+      <!-- botão para para abrir popup card -->
+      <button class="button__add"></button>
       <!-- popup de edição perfil -->
         <div class="popup__container">
           <form class="popup">
@@ -32,7 +32,7 @@
             <input class="input__name" type="text" name="firstName" placeholder="Nome">
             <input class="input__sobre" type="text" name="aboutMe" placeholder="Sobre mim">
             <button class="button__save" type="submit">Salvar</button>
-            <button class="button__close-popup"><img class="button__image-close" src="images/Close_Icon.png" alt="grande icone em xis para fechar o popup"></button>
+            <button class="button__close-popup"></button>
           </form>
         </div>
         <!-- popup adicionar cards -->
@@ -42,13 +42,10 @@
             <input class="input__name" type="text" name="firstName" placeholder="Título">
             <input class="input__sobre" url="url" name="link" placeholder="Link da imagem">
             <button class="button__save" type="submit">Criar</button>
-            <button class="button__close-popup"><img class="button__image-close" src="images/Close_Icon.png" alt="grande icone em xis para fechar o popup"></button>
+            <button class="button__close-popup"></button>
           </form>
         </div>
-        <!-- botão para para abrir popup card -->
-      <button class="button__add"><img src="images/vectoradd.png"
-          alt="um sinal de mais na parte interna do botão de adicionar."></button>
-          <!-- galeria de fotos card-->
+        <!-- galeria de fotos card-->
     </section>
     <ul class="gallery"></ul>
   </main>
@@ -58,11 +55,11 @@
 <!-- elemento tamplate para adicionar os cards -->
 <template id="gallery__card">
   <li class="place">
-    <img class="place__image"alt="" alt="">
-    <button class="button__delete"><img class="button__image-delete" src="images/image_delete.png" alt="imagem de uma lixeira para excluir card"></button>
+    <div class="place__image"></div>
+      <button class="button__delete"></button>
       <div class="place__data">
         <h3 class="place__title"></h3>
-        <button class="button__like"><img class="button__image-like" src="images/like.png" alt="uma imagem de coração para ser curtida"></button>
+        <button class="button__like"></button>
       </div>
   </li>
 </template>

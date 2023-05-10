@@ -1,10 +1,14 @@
 .button__add {
   width: 150px;
   height: 50px;
+  background: url(../../../images/vectoradd.png);
+  background-repeat: no-repeat;
+  background-position: center;
   border: 2px solid #FFFFFF;
   background-color: #000000;
   margin-left: auto;
   cursor: pointer;
+
 }
 
 .button__add:hover {

@@ -2,9 +2,11 @@
   position: absolute;
   right: -47px;
   top: -47px;
+  background: url(../../../images/Close_Icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
   width: 40px;
   height: 40px;
-  background: hsla(0, 0%, 0%, 0);
   border: none;
   cursor: pointer;
 }
