@@ -16,6 +16,7 @@ const inputImageURL = popupCard.querySelector('.input__sobre');
 const cardTemplate = document.querySelector('#gallery__card').content;
 const cardElement = cardTemplate.querySelector('.place').cloneNode(true);
 const buttonDeleteCard = cardElement.querySelector('.button__delete');
+const cardImageElement = cardElement.querySelector('.place__image');
 
 //caixa de popup edição de perfil
 openPopupButton.addEventListener('click', addDisplayBlockPopupClass)
@@ -46,14 +47,14 @@ infoName.textContent = inputName.value
 openPopupButtonCard.addEventListener('click', addDisplayBlockPopupClassCard)
 
 function addDisplayBlockPopupClassCard() {
-  popupCard.classList.add('popup_opened-card');
+  popupCard.classList.add('popup__card_opened');
 }
 
 //função de fechamento do popup card
 closePopupCardButton.addEventListener('click' , removeDisplayBlockPopupCardClass)
 
 function removeDisplayBlockPopupCardClass (event) {
-  popupCard.classList.remove('popup_opened-card');
+  popupCard.classList.remove('popup__card_opened');
     event.preventDefault();
 }
 
@@ -135,4 +136,34 @@ buttonSaveNewCard.addEventListener('click', (event)=> {
    inputTitle.value = '';
    inputImageURL.value = '';
    removeDisplayBlockPopupCardClass();
+   return cardElement;
   })
+
+    // Adicione um evento de clique ao elemento pai
+    cardsContainer.addEventListener('click', function(event) {
+      // Verifique se o clique ocorreu em um card
+      if (event.target.classList.contains('place__image')) {
+        const url = event.target.style.backgroundImage.slice(5, -2);
+        const titleElement = event.target.closest('.place').querySelector('.place__title');
+        const title = titleElement.textContent;
+        openPopupImage(url, title);
+      }
+    });
+
+  function openPopupImage(url, title) {
+    const popupContainer = document.querySelector('.popup__container-image');
+    const popupImage = document.querySelector('.popup__image-screen');
+    const popupTitle = document.querySelector('.popup__title-screen');
+    const closePopupCardButton = popupContainer.querySelector('.button__close-popup');
+
+    // Defina a imagem do popup
+    popupImage.style.backgroundImage = `url(${url})`;
+    popupTitle.textContent = title;
+
+    // Exiba o popup
+    popupContainer.classList.add('popup__image-screen_opened');
+    // Função para remover o popup e fechar
+    closePopupCardButton.addEventListener('click' , removeClassOpenedPopupImage);
+    function removeClassOpenedPopupImage (event) {
+      popupContainer.classList.remove('popup__image-screen_opened');
+    }};
