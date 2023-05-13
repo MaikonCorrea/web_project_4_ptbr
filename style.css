@@ -77,8 +77,15 @@
   position: relative;
   color: #FFFFFF;
   bottom: -10px;
-
 }
+
+@media screen and ( max-width: 320px) {
+  .popup__title-screen {
+    width: 240px;
+}
+}
+
+
 .button__imagem-close-popup {
   border: none;
   cursor: pointer;
@@ -88,9 +95,6 @@
   top: -41px;
 }
 
-
-
-
   .button__imagem-close-popup:hover {
     opacity: 0.8;
     border-radius: 2px;
@@ -98,10 +102,10 @@
 
   @media screen and ( max-width: 320px) {
     .button__imagem-close-popup {
-      width: 26px;
-      height: 26px;
-      right: 0px;
-      top: -39.62px;
+      width: 30px;
+      height: 30px;
+      right: -30px;
+      top: -36px;
   }
   }
 
