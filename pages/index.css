@@ -1,5 +1,9 @@
+/* normalize */
 @import url(../vendor/normalize.css);
+/* fonts */
 @import url(../fonts/font.css);
+/* fadeOut */
+@import url(../blocks/fadeOut/fadeOut.css);
 /* page */
 @import url(../blocks/page/page.css);
 /* root */
@@ -37,6 +41,18 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container_opened/popup__container_opened.css);
+@import url(../blocks/popup/__card/popup__card.css);
+@import url(../blocks/popup/__container_closing/popup__container_closing.css);
+@import url(../blocks/popup/__card_opened/popup__card_opened.css);
+@import url(../blocks/popup/__card_closing/popup__card_closing.css);
+@import url(../blocks/popup/__container-image/popup__container-image.css);
+@import url(../blocks/popup/__image-screen_opened/popup__image-screen_opened\ .css);
+@import url(../blocks/popup/__image-screen_closing/popup__image-screen_closing.css);
+@import url(../blocks/popup/__image-screen/popup__image-screen.css);
+@import url(../blocks/popup/__image-dynamics/popup__image-dynamics.css);
+@import url(../blocks/popup/__title-screen/popup__title-screen.css);
+@import url(../blocks/popup/__image-screen-close-popup/button__image-screen-close-popup.css);
+
 /* input */
 @import url(../blocks/input/__name/input__name.css);
 @import url(../blocks/input/__sobre/input__sobre.css);

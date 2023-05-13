@@ -174,9 +174,9 @@ function extractImageUrl(backgroundImage) {
 
 function openPopupImage(url, title) {
   const popupContainer = document.querySelector('.popup__container-image');
-  const popupImage = document.querySelector('.popup__image-dinamic');
+  const popupImage = document.querySelector('.popup__image-dynamics');
   const popupTitle = document.querySelector('.popup__title-screen');
-  const closePopupScreenImage = popupContainer.querySelector('.button__imagem-close-popup');
+  const closePopupScreenImage = popupContainer.querySelector('.button__image-screen-close-popup');
 
   // Defina o atributo src da imagem do popup
   popupImage.setAttribute('src', url);
