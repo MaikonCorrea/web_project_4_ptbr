@@ -21,17 +21,23 @@ const cardImageElement = cardElement.querySelector('.place__image');
 //caixa de popup edição de perfil
 openPopupButton.addEventListener('click', addDisplayBlockPopupClass)
 function addDisplayBlockPopupClass() {
-  popup.classList.add('popup_opened');
+  popup.classList.add('popup__container_opened');
   inputName.value = infoName.textContent;
   inputSobre.value = infoSobre.textContent;
 
 }
-closePopupButton.addEventListener('click' , removeDisplayBlockPopupClass)
-function removeDisplayBlockPopupClass (event) {
-    popup.classList.remove('popup_opened');
+closePopupButton.addEventListener('click' , removeDisplayBlockPopupClass);
+
+//função adequada para transição fluída com atraso de 200ms
+function removeDisplayBlockPopupClass(event) {
+  popup.classList.add('popup__container_closing');
+  setTimeout(() => {
+    popup.classList.remove('popup__container_closing');
+    popup.classList.remove('popup__container_opened');
+  }, 200);
     event.preventDefault();
 }
-buttonSave.addEventListener('click' , saveNewImputValues)
+buttonSave.addEventListener('click' , saveNewImputValues);
 function saveNewImputValues (event) {
   event.preventDefault();
   if (inputName.value != '') {
@@ -44,17 +50,22 @@ infoName.textContent = inputName.value
 }
 
 //função de abertura do popup card
-openPopupButtonCard.addEventListener('click', addDisplayBlockPopupClassCard)
+openPopupButtonCard.addEventListener('click', addDisplayBlockPopupClassCard);
 
 function addDisplayBlockPopupClassCard() {
   popupCard.classList.add('popup__card_opened');
 }
 
 //função de fechamento do popup card
-closePopupCardButton.addEventListener('click' , removeDisplayBlockPopupCardClass)
+closePopupCardButton.addEventListener('click' , removeDisplayBlockPopupCardClass);
 
+//função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupCardClass (event) {
-  popupCard.classList.remove('popup__card_opened');
+  popupCard.classList.add('popup__card_closing');
+  setTimeout(() => {
+    popupCard.classList.remove('popup__card_closing');
+    popupCard.classList.remove('popup__card_opened');
+  }, 200);
     event.preventDefault();
 }
 
@@ -139,31 +150,52 @@ buttonSaveNewCard.addEventListener('click', (event)=> {
    return cardElement;
   })
 
-    // Adicione um evento de clique ao elemento pai
-    cardsContainer.addEventListener('click', function(event) {
-      // Verifique se o clique ocorreu em um card
-      if (event.target.classList.contains('place__image')) {
-        const url = event.target.style.backgroundImage.slice(5, -2);
-        const titleElement = event.target.closest('.place').querySelector('.place__title');
-        const title = titleElement.textContent;
-        openPopupImage(url, title);
-      }
-    });
+// Adicione um evento de clique ao elemento pai
+cardsContainer.addEventListener('click', function(event) {
+  // Verifique se o clique ocorreu em um card
+  if (event.target.classList.contains('place__image')) {
+    const style = window.getComputedStyle(event.target);
+    const backgroundImage = style.getPropertyValue('background-image');
+    const url = extractImageUrl(backgroundImage);
+    const titleElement = event.target.closest('.place').querySelector('.place__title');
+    const title = titleElement.textContent;
+    openPopupImage(url, title);
+  }
+});
+// Extrai a URL da string do estilo de fundo (background-image)
+function extractImageUrl(backgroundImage) {
+  const urlRegex = /url\("(.+)"\)/;
+  const match = backgroundImage.match(urlRegex);
+  if (match && match.length === 2) {
+    return match[1];
+  }
+  return null;
+}
 
-  function openPopupImage(url, title) {
-    const popupContainer = document.querySelector('.popup__container-image');
-    const popupImage = document.querySelector('.popup__image-screen');
-    const popupTitle = document.querySelector('.popup__title-screen');
-    const closePopupCardButton = popupContainer.querySelector('.button__close-popup');
+function openPopupImage(url, title) {
+  const popupContainer = document.querySelector('.popup__container-image');
+  const popupImage = document.querySelector('.popup__image-dinamic');
+  const popupTitle = document.querySelector('.popup__title-screen');
+  const closePopupScreenImage = popupContainer.querySelector('.button__imagem-close-popup');
 
-    // Defina a imagem do popup
-    popupImage.style.backgroundImage = `url(${url})`;
-    popupTitle.textContent = title;
+  // Defina o atributo src da imagem do popup
+  popupImage.setAttribute('src', url);
+  popupTitle.textContent = title;
 
-    // Exiba o popup
-    popupContainer.classList.add('popup__image-screen_opened');
-    // Função para remover o popup e fechar
-    closePopupCardButton.addEventListener('click' , removeClassOpenedPopupImage);
-    function removeClassOpenedPopupImage (event) {
+  // Exiba o popup
+  popupContainer.classList.add('popup__image-screen_opened');
+
+  // Função para remover a classe 'opened' do popup e fechar
+  closePopupScreenImage.addEventListener('click', removeClassOpenedPopupImage);
+
+  function removeClassOpenedPopupImage(event) {
+    popupContainer.classList.add('popup__image-screen_closing');
+
+    // Aguarda o término da transição e remove a classe
+    setTimeout(() => {
+      popupContainer.classList.remove('popup__image-screen_closing');
       popupContainer.classList.remove('popup__image-screen_opened');
-    }};
+    }, 200);
+  }
+}
+
