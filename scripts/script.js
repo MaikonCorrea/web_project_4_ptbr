@@ -1,4 +1,4 @@
-const openPopupButton = document.querySelector(".button__edition");
+const openPopupButton = document.querySelector(".button__edition-profile");
 const popup = document.querySelector(".popup__container");
 const closePopupButton = document.querySelector(".button__close-popup");
 const buttonSave = document.querySelector(".button__save");
@@ -6,7 +6,7 @@ const inputName = document.querySelector(".input__name");
 const inputSobre = document.querySelector(".input__sobre");
 const infoName = document.querySelector(".info__name");
 const infoSobre = document.querySelector(".info__discription");
-const openPopupButtonCard = document.querySelector(".button__add");
+const openPopupButtonCard = document.querySelector(".button__add-card");
 const popupCard = document.querySelector(".popup__card");
 const cardsContainer = document.querySelector(".gallery");
 const buttonSaveNewCard = popupCard.querySelector(".button__save");

@@ -1,4 +1,4 @@
-.button__edition {
+.button__edition-profile {
 width: 24px;
 height: 24px;
 background: url(../../../images/vectoredition.png);
@@ -10,13 +10,13 @@ position: relative;
 cursor: pointer;
 }
 
-.button__edition:hover {
+.button__edition-profile:hover {
   opacity: 0.8;
   border-radius: 2px;
 }
 
 @media screen and ( max-width: 320px) {
-  .button__edition{
+  .button__edition-profile{
     width: 18px;
     height: 18px;
     }
