@@ -1,4 +1,4 @@
-.button__like {
+.place__button-like {
   background: url('../../../images/button_Like_Desable.png') center no-repeat;
   background-size: 100%;
   width: 21px;
@@ -8,10 +8,6 @@
   margin-right: 18px;
 }
 
-.button__like:hover {
+.place__button-like:hover {
   opacity: 0.5;
-}
-.button__like_active {
-background: url('../../../images/button_Like_Able.png') center no-repeat;
-background-size: contain;
 }

@@ -15,7 +15,7 @@ const inputTitle = popupCard.querySelector(".include__input-title");
 const inputImageURL = popupCard.querySelector(".include__input-link");
 const cardTemplate = document.querySelector("#gallery__card").content;
 const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
-const buttonDeleteCard = cardElement.querySelector(".button__delete");
+const buttonDeleteCard = cardElement.querySelector(".place__button-delete");
 const cardImageElement = cardElement.querySelector(".place__image");
 
 //caixa de popup edição de perfil
@@ -102,14 +102,14 @@ function createCard(initialCards) {
   const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
   const cardTitleElement = cardElement.querySelector(".place__title");
   const cardImageElement = cardElement.querySelector(".place__image");
-  const buttonLikeElement = cardElement.querySelector(".button__like");
-  const buttonDeleteCard = cardElement.querySelector(".button__delete");
+  const buttonLikeElement = cardElement.querySelector(".place__button-like");
+  const buttonDeleteCard = cardElement.querySelector(".place__button-delete");
 
   cardTitleElement.textContent = initialCards.name;
   cardImageElement.style.backgroundImage = `url(${initialCards.link})`;
 
   buttonLikeElement.addEventListener("click", function (event) {
-    event.target.classList.toggle("button__like_active");
+    event.target.classList.toggle("place__button-like_active");
   });
 
   buttonDeleteCard.addEventListener("click", function (event) {
@@ -174,42 +174,32 @@ function extractImageUrl(backgroundImage) {
 }
 
 function openPopupImage(url, title) {
-  const popUpContainerTamplate = document.querySelector(
-    "#popup__container-image"
-  ).content;
-  const popupContainerContent = popUpContainerTamplate
-    .querySelector(".popup__image-screen")
-    .cloneNode(true);
-  const popupContainer = document.querySelector(".popup__container-image");
-  const popupImage = popupContainerContent.querySelector(
-    ".popup__image-dynamics"
-  );
-  const popupTitle = popupContainerContent.querySelector(
-    ".popup__title-screen"
-  );
-  const closePopupScreenImage = popupContainerContent.querySelector(
-    ".button__image-screen-close-popup"
-  );
+  const popUpContainerTamplate = document.querySelector("#screen").content;
+  const popupContainerContent = popUpContainerTamplate.querySelector(".screen__image-popup").cloneNode(true);
+  const popupContainerScreen = document.querySelector(".screen");
+  const popupImage = popupContainerContent.querySelector(".screen__image-dynamics");
+  const popupTitle = popupContainerContent.querySelector(".screen__popup-title");
+  const closePopupScreenImage = popupContainerContent.querySelector(".screen__button-close-popup");
 
   // Defina o atributo src da imagem do popup
   popupImage.setAttribute("src", url);
   popupTitle.textContent = title;
 
   // Exiba o popup
-  popupContainer.classList.add("popup__image-screen_opened");
-  popupContainer.innerHTML = ""; // Limpa o conteúdo existente
-  popupContainer.appendChild(popupContainerContent);
+  popupContainerScreen.classList.add("screen__image_opened");
+  popupContainerScreen.innerHTML = ""; // Limpa o conteúdo existente
+  popupContainerScreen.appendChild(popupContainerContent);
 
   // Função para remover a classe 'opened' do popup e fechar
   closePopupScreenImage.addEventListener("click", removeClassOpenedPopupImage);
 
   function removeClassOpenedPopupImage(event) {
-    popupContainer.classList.add("popup__image-screen_closing");
+    popupContainerScreen.classList.add("screen__image_closing");
 
     // Aguarda o término da transição e remove a classe
     setTimeout(() => {
-      popupContainer.classList.remove("popup__image-screen_closing");
-      popupContainer.classList.remove("popup__image-screen_opened");
+      popupContainerScreen.classList.remove("screen__image_closing");
+      popupContainerScreen.classList.remove("screen__image_opened");
     }, 200);
   }
 }

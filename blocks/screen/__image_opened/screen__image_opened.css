@@ -1,4 +1,4 @@
-.popup__image-screen_opened {
+.screen__image_opened {
   display: flex;
   opacity: 1;
   height: 100%;

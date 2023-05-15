@@ -1,4 +1,4 @@
-.button__image-screen-close-popup {
+.screen__button-close-popup {
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0);
@@ -7,13 +7,13 @@
   top: -41px;
 }
 
-  .button__image-screen-close-popup:hover {
+  .screen__button-close-popup:hover {
     opacity: 0.8;
     border-radius: 2px;
   }
 
   @media screen and ( max-width: 320px) {
-    .button__image-screen-close-popup {
+    .screen__button-close-popup {
       width: 30px;
       height: 30px;
       right: -30px;

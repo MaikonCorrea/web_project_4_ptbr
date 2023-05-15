@@ -1,4 +1,4 @@
-.button__delete{
+.place__button-delete {
   background: url('../../../images/image_delete.png');
   width: 18px;
   height: 19px;
@@ -9,6 +9,6 @@
   border: none;
 }
 
-.button__delete:hover {
+.place__button-delete {
   opacity: 0.8;
 }

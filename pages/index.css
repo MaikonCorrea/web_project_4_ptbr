@@ -36,17 +36,25 @@
 @import url(../blocks/include/__button-close-popup/include__button-close-popup.css);
 @import url(../blocks/include/__input-title/include__input-title.css);
 @import url(../blocks/include/__input-link/include__input-link.css);
-/* button */
-@import url(../blocks/button/__like/button__like.css);
-@import url(../blocks/button/__delete/botton__delete.css);
-@import url(../blocks/button/__image-screen-close-popup/);
 /* gallery */
 @import url(../blocks/gallery/gallery.css);
+/* screen */
+@import url(../blocks/screen/screen.css);
+@import url(../blocks/screen/__image-popup/screen__image-popup.css);
+@import url(../blocks/screen/__popup-title/screen__popup-title.css);
+@import url(../blocks/screen/__button-close-popup/screen__button-close-popup.css);
+@import url(../blocks/screen/__image-dynamics/screen__image-dynamics.css);
+@import url(../blocks/screen/__image_opened/screen__image_opened.css);
+@import url(../blocks/screen/__image_closing/screen__image_closing.css);
+
 /* place */
 @import url(../blocks/place/place.css);
 @import url(../blocks/place/__title/place__title.css);
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__data/place__data.css);
+@import url(../blocks/place/__button-delete/place__button-delete.css);
+@import url(../blocks/place/__button-like/place__button-like.css);
+@import url(../blocks/place/__button-like_active/place__button-like_active.css);
 /* footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyrigth/footer__copyrigth.css);
@@ -56,9 +64,3 @@
 @import url(../blocks/popup/__card_opened/popup__card_opened.css);
 @import url(../blocks/popup/__card_closing/popup__card_closing.css);
 @import url(../blocks/popup/__container-image/popup__container-image.css);
-@import url(../blocks/popup/__image-screen_opened/popup__image-screen_opened\ .css);
-@import url(../blocks/popup/__image-screen_closing/popup__image-screen_closing.css);
-@import url(../blocks/popup/__image-screen/popup__image-screen.css);
-@import url(../blocks/popup/__image-dynamics/popup__image-dynamics.css);
-@import url(../blocks/popup/__title-screen/popup__title-screen.css);
-@import url(../blocks/popup/__image-screen-close-popup/button__image-screen-close-popup.css);
