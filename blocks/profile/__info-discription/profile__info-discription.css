@@ -1,4 +1,4 @@
-.info__discription {
+.profile__info-discription {
   max-width: 415px;
   max-height: 22px;
   font-style: normal;
@@ -9,13 +9,13 @@
 }
 
 @media screen and ( max-width: 768px) {
-  .info__discription {
+  .profile__info-discription {
     font-size: 1rem;
     }
 }
 
 @media screen and ( max-width: 320px) {
-  .info__discription {
+  .profile__info-discription {
     width: 282px;
     height: 14px;
     font-size: 0.875rem;

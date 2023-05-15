@@ -1,4 +1,4 @@
-.info {
+.profile__info {
   display: grid;
   align-items: end;
   grid-template-columns: repeat(2, auto);
@@ -9,7 +9,7 @@
 }
 
 @media screen and ( max-width: 320px) {
-  .info {
+  .profile__info {
       display: flex;
       width: 282px;
       flex-wrap: wrap;
