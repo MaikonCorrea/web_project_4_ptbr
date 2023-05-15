@@ -21,7 +21,7 @@ const cardImageElement = cardElement.querySelector(".place__image");
 //caixa de popup edição de perfil
 openPopupButton.addEventListener("click", addDisplayBlockPopupClass);
 function addDisplayBlockPopupClass() {
-  popupEdit.classList.add("popup__container_opened");
+  popupEdit.classList.add("edit__popup_opened");
   inputName.value = infoName.textContent;
   inputSobre.value = infoSobre.textContent;
 }
@@ -29,10 +29,10 @@ closePopupButton.addEventListener("click", removeDisplayBlockPopupClass);
 
 //função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupClass(event) {
-  popupEdit.classList.add("popup__container_closing");
+  popupEdit.classList.add("edit__popup_closing");
   setTimeout(() => {
-    popupEdit.classList.remove("popup__container_closing");
-    popupEdit.classList.remove("popup__container_opened");
+    popupEdit.classList.remove("edit__popup_closing");
+    popupEdit.classList.remove("edit__popup_opened");
   }, 200);
   event.preventDefault();
 }
@@ -52,7 +52,7 @@ function saveNewImputValues(event) {
 openPopupButtonCard.addEventListener("click", addDisplayBlockPopupClassCard);
 
 function addDisplayBlockPopupClassCard() {
-  popupCard.classList.add("popup__card_opened");
+  popupCard.classList.add("include__card_opened");
 }
 
 //função de fechamento do popup card
@@ -60,10 +60,10 @@ closePopupCardButton.addEventListener("click", removeDisplayBlockPopupCardClass)
 
 //função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupCardClass(event) {
-  popupCard.classList.add("popup__card_closing");
+  popupCard.classList.add("include__card_closing");
   setTimeout(() => {
-    popupCard.classList.remove("popup__card_closing");
-    popupCard.classList.remove("popup__card_opened");
+    popupCard.classList.remove("include__card_closing");
+    popupCard.classList.remove("include__card_opened");
   }, 200);
   event.preventDefault();
 }
