@@ -56,10 +56,7 @@ function addDisplayBlockPopupClassCard() {
 }
 
 //função de fechamento do popup card
-closePopupCardButton.addEventListener(
-  "click",
-  removeDisplayBlockPopupCardClass
-);
+closePopupCardButton.addEventListener("click", removeDisplayBlockPopupCardClass);
 
 //função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupCardClass(event) {
