@@ -9,6 +9,6 @@
   border: none;
 }
 
-.place__button-delete {
+.place__button-delete:hover {
   opacity: 0.8;
 }
