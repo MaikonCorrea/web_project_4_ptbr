@@ -20,6 +20,8 @@
 @import url(../blocks/profile/__info-name/profile__info-name.css);
 @import url(../blocks/profile/__info-discription/profile__info-discription.css);
 @import url(../blocks/profile/__button-add-card/profile__button-add-card.css);
+@import url(../blocks/profile/__info-name_smaller/profile__info-name_smaller.css);
+@import url(../blocks/profile/__info-name_smallest/profile__info-name_smallest.css);
 /* edit */
 @import url(../blocks/edit/edit.css);
 @import url(../blocks/edit/__popup/edit__popup.css);

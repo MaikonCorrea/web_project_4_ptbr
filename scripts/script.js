@@ -41,7 +41,20 @@ function saveNewImputValues(event) {
   event.preventDefault();
   if (inputName.value != "") {
     infoName.textContent = inputName.value;
+
+    if (inputName.value.length > 17) {
+      infoName.classList.add("profile__info-name_smaller");
+    } else {
+      infoName.classList.remove("profile__info-name_smaller");
+    }
+    if (inputName.value.length > 16 && window.innerWidth <=320) {
+      
+      infoName.classList.add("profile__info-name_smallest");
+    } else {
+      infoName.classList.remove("profile__info-name_smallest");
   }
+}
+
   if (inputSobre.value != "") {
     infoSobre.textContent = inputSobre.value;
   }
