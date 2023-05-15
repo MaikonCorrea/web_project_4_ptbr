@@ -1,18 +1,18 @@
 const openPopupButton = document.querySelector(".profile__button-edition");
-const popup = document.querySelector(".popup__container");
-const closePopupButton = document.querySelector(".button__close-popup");
-const buttonSave = document.querySelector(".button__save");
-const inputName = document.querySelector(".input__name");
-const inputSobre = document.querySelector(".input__sobre");
+const popupEdit = document.querySelector(".edit");
+const closePopupButton = document.querySelector(".edit__button-close-popup");
+const buttonSave = document.querySelector(".edit__button-save");
+const inputName = document.querySelector(".edit__input-name");
+const inputSobre = document.querySelector(".edit__input-about");
 const infoName = document.querySelector(".profile__info-name");
 const infoSobre = document.querySelector(".profile__info-discription");
 const openPopupButtonCard = document.querySelector(".profile__button-add-card");
-const popupCard = document.querySelector(".popup__card");
+const popupCard = document.querySelector(".include");
 const cardsContainer = document.querySelector(".gallery");
-const buttonSaveNewCard = popupCard.querySelector(".button__save");
-const closePopupCardButton = popupCard.querySelector(".button__close-popup");
-const inputTitle = popupCard.querySelector(".input__name");
-const inputImageURL = popupCard.querySelector(".input__sobre");
+const buttonSaveNewCard = popupCard.querySelector(".include__button-save");
+const closePopupCardButton = popupCard.querySelector(".include__button-close-popup");
+const inputTitle = popupCard.querySelector(".include__input-title");
+const inputImageURL = popupCard.querySelector(".include__input-link");
 const cardTemplate = document.querySelector("#gallery__card").content;
 const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
 const buttonDeleteCard = cardElement.querySelector(".button__delete");
@@ -21,7 +21,7 @@ const cardImageElement = cardElement.querySelector(".place__image");
 //caixa de popup edição de perfil
 openPopupButton.addEventListener("click", addDisplayBlockPopupClass);
 function addDisplayBlockPopupClass() {
-  popup.classList.add("popup__container_opened");
+  popupEdit.classList.add("popup__container_opened");
   inputName.value = infoName.textContent;
   inputSobre.value = infoSobre.textContent;
 }
@@ -29,10 +29,10 @@ closePopupButton.addEventListener("click", removeDisplayBlockPopupClass);
 
 //função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupClass(event) {
-  popup.classList.add("popup__container_closing");
+  popupEdit.classList.add("popup__container_closing");
   setTimeout(() => {
-    popup.classList.remove("popup__container_closing");
-    popup.classList.remove("popup__container_opened");
+    popupEdit.classList.remove("popup__container_closing");
+    popupEdit.classList.remove("popup__container_opened");
   }, 200);
   event.preventDefault();
 }

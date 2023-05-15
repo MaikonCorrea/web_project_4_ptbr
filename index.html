@@ -27,29 +27,28 @@
       <button class="profile__button-add-card" type="button">
       </button>
       <!-- popup de edição perfil -->
-      <div class="popup__container">
-        <form class="popup">
-          <h2 class="popup__title">Editar perfil</h2>
-          <input class="input__name" type="text" name="firstName" placeholder="Nome">
-          <input class="input__sobre" type="text" name="aboutMe" placeholder="Sobre mim">
-          <button class="button__save" type="submit">Salvar</button>
-          <button class="button__close-popup"></button>
+      <div class="edit">
+        <form class="edit__popup">
+          <h2 class="edit__popup-title">Editar perfil</h2>
+          <input class="edit__input-name" type="text" name="firstName" placeholder="Nome">
+          <input class="edit__input-about" type="text" name="aboutMe" placeholder="Sobre mim">
+          <button class="edit__button-save" type="submit">Salvar</button>
+          <button class="edit__button-close-popup"></button>
         </form>
       </div>
       <!-- popup adicionar cards -->
-      <div class="popup__card">
-        <form class="popup">
-          <h2 class="popup__title">Novo local</h2>
-          <input class="input__name" type="text" name="firstName" placeholder="Título">
-          <input class="input__sobre" type="url" name="link" placeholder="Link da imagem">
-          <button class="button__save" type="submit">Criar</button>
-          <button class="button__close-popup"></button>
+      <div class="include">
+        <form class="include__popup">
+          <h2 class="include__popup-title">Novo local</h2>
+          <input class="include__input-title" type="text" name="firstName" placeholder="Título">
+          <input class="include__input-link" type="url" name="link" placeholder="Link da imagem">
+          <button class="include__button-save" type="submit">Criar</button>
+          <button class="include__button-close-popup"></button>
         </form>
       </div>
     </section>
     <!-- local do clone JS dos cards -->
     <ul class="gallery"></ul>
-
     <!-- popup imagem na tela -->
     <ul class="popup__container-image"></ul>
   </main>
@@ -57,7 +56,6 @@
   <footer class="footer">
     <h2 class="footer__copyrigth">© 2023 Around The U.S.</h2>
   </footer>
-
   <!-- elemento tamplate para abertura de popup na tela -->
   <template id="popup__container-image">
     <li class="popup__image-screen">

@@ -1,4 +1,4 @@
-.button__close-popup {
+.edit__button-close-popup {
   position: absolute;
   right: -47px;
   top: -47px;
@@ -11,18 +11,16 @@
   cursor: pointer;
 }
 
-.button__close-popup:hover {
+.edit__button-close-popup:hover {
   opacity: 0.8;
   border-radius: 2px;
 }
 
 @media screen and ( max-width: 320px) {
-  .button__close-popup {
+  .edit__button-close-popup {
     width: 26px;
     height: 26px;
     right: 0px;
     top: -39.62px;
 }
 }
-
-

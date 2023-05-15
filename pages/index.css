@@ -1,4 +1,4 @@
-/* normalize */
+/* vendor */
 @import url(../vendor/normalize.css);
 /* fonts */
 @import url(../fonts/font.css);
@@ -20,15 +20,26 @@
 @import url(../blocks/profile/__info-name/profile__info-name.css);
 @import url(../blocks/profile/__info-discription/profile__info-discription.css);
 @import url(../blocks/profile/__button-add-card/profile__button-add-card.css);
-/* info */
-@import url(../blocks/info/__name/info__name.css);
-@import url(../blocks/info/__discription/info__discription.css);
+/* edit */
+@import url(../blocks/edit/edit.css);
+@import url(../blocks/edit/__popup/edit__popup.css);
+@import url(../blocks/edit/__popup-title/edit__popup-title.css);
+@import url(../blocks/edit/__input-name/edit__input-name.css);
+@import url(../blocks/edit/__input-about/edit__input-about.css);
+@import url(../blocks/edit/__button-save/edit__button-save.css);
+@import url(../blocks/edit/__button-close-popup/edit__button-close-popup.css);
+/* include */
+@import url(../blocks/include/include.css);
+@import url(../blocks/include/__popup/include__popup.css);
+@import url(../blocks/include/__popup-title/include__popup-title.css);
+@import url(../blocks/include/__button-save/include__button-save.css);
+@import url(../blocks/include/__button-close-popup/include__button-close-popup.css);
+@import url(../blocks/include/__input-title/include__input-title.css);
+@import url(../blocks/include/__input-link/include__input-link.css);
 /* button */
-@import url(../blocks/button/__add-card/button__add-card.css);
 @import url(../blocks/button/__like/button__like.css);
-@import url(../blocks/button/__save/button__save.css);
-@import url(../blocks/button/__close-popup/button__close-popup.css);
 @import url(../blocks/button/__delete/botton__delete.css);
+@import url(../blocks/button/__image-screen-close-popup/);
 /* gallery */
 @import url(../blocks/gallery/gallery.css);
 /* place */
@@ -40,11 +51,7 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyrigth/footer__copyrigth.css);
 /* popup */
-@import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container_opened/popup__container_opened.css);
-@import url(../blocks/popup/__card/popup__card.css);
 @import url(../blocks/popup/__container_closing/popup__container_closing.css);
 @import url(../blocks/popup/__card_opened/popup__card_opened.css);
 @import url(../blocks/popup/__card_closing/popup__card_closing.css);
@@ -55,6 +62,3 @@
 @import url(../blocks/popup/__image-dynamics/popup__image-dynamics.css);
 @import url(../blocks/popup/__title-screen/popup__title-screen.css);
 @import url(../blocks/popup/__image-screen-close-popup/button__image-screen-close-popup.css);
-/* input */
-@import url(../blocks/input/__name/input__name.css);
-@import url(../blocks/input/__sobre/input__sobre.css);

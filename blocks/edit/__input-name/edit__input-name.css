@@ -1,4 +1,4 @@
-.input__sobre {
+.edit__input-name {
   border: none;
   width: 358px;
   height: 24px;
@@ -11,7 +11,7 @@
 
 
 @media screen and ( max-width: 320px) {
-  .input__sobre {
+  .edit__input-name {
     width: 238px;
     height: 17px;
     }
