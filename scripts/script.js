@@ -48,7 +48,6 @@ function saveNewImputValues(event) {
       infoName.classList.remove("profile__info-name_smaller");
     }
     if (inputName.value.length > 16 && window.innerWidth <=320) {
-      
       infoName.classList.add("profile__info-name_smallest");
     } else {
       infoName.classList.remove("profile__info-name_smallest");
