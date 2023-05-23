@@ -10,7 +10,9 @@ const openPopupButtonCard = document.querySelector(".profile__button-add-card");
 const popupCard = document.querySelector(".include");
 const cardsContainer = document.querySelector(".gallery");
 const buttonSaveNewCard = popupCard.querySelector(".include__button-save");
-const closePopupCardButton = popupCard.querySelector(".include__button-close-popup");
+const closePopupCardButton = popupCard.querySelector(
+  ".include__button-close-popup"
+);
 const inputTitle = popupCard.querySelector(".include__input-title");
 const inputImageURL = popupCard.querySelector(".include__input-link");
 const cardTemplate = document.querySelector("#gallery__card").content;
@@ -47,12 +49,12 @@ function saveNewImputValues(event) {
     } else {
       infoName.classList.remove("profile__info-name_smaller");
     }
-    if (inputName.value.length > 16 && window.innerWidth <=320) {
+    if (inputName.value.length > 16 && window.innerWidth <= 320) {
       infoName.classList.add("profile__info-name_smallest");
     } else {
       infoName.classList.remove("profile__info-name_smallest");
+    }
   }
-}
 
   if (inputSobre.value != "") {
     infoSobre.textContent = inputSobre.value;
@@ -68,7 +70,10 @@ function addDisplayBlockPopupClassCard() {
 }
 
 //função de fechamento do popup card
-closePopupCardButton.addEventListener("click", removeDisplayBlockPopupCardClass);
+closePopupCardButton.addEventListener(
+  "click",
+  removeDisplayBlockPopupCardClass
+);
 
 //função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupCardClass(event) {
@@ -187,11 +192,19 @@ function extractImageUrl(backgroundImage) {
 
 function openPopupImage(url, title) {
   const popUpContainerTamplate = document.querySelector("#screen").content;
-  const popupContainerContent = popUpContainerTamplate.querySelector(".screen__image-popup").cloneNode(true);
+  const popupContainerContent = popUpContainerTamplate
+    .querySelector(".screen__image-popup")
+    .cloneNode(true);
   const popupContainerScreen = document.querySelector(".screen");
-  const popupImage = popupContainerContent.querySelector(".screen__image-dynamics");
-  const popupTitle = popupContainerContent.querySelector(".screen__popup-title");
-  const closePopupScreenImage = popupContainerContent.querySelector(".screen__button-close-popup");
+  const popupImage = popupContainerContent.querySelector(
+    ".screen__image-dynamics"
+  );
+  const popupTitle = popupContainerContent.querySelector(
+    ".screen__popup-title"
+  );
+  const closePopupScreenImage = popupContainerContent.querySelector(
+    ".screen__button-close-popup"
+  );
 
   // Defina o atributo src da imagem do popup
   popupImage.setAttribute("src", url);
