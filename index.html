@@ -27,25 +27,29 @@
       <button class="profile__button-add-card" type="button">
       </button>
       <!-- popup de edição perfil -->
-      <form class="edit">
+      <form class="edit" name="edit" novalidate>
         <div class="edit__popup">
           <h2 class="edit__popup-title">Editar perfil</h2>
-          <input class="edit__input-name" type="text" name="firstName" placeholder="Nome">
-          <input class="edit__input-about" type="text" name="aboutMe" placeholder="Sobre mim">
+          <input minlength="2" maxlength="40" class="edit__input-name" type="text" name="name" placeholder=" Nome" required>
+          <span class="input__message input__name-message"></span>
+          <input name="about" minlength="2" maxlength="200" class="edit__input-about" type="text" name="aboutMe" placeholder="Sobre mim" required>
+          <span class="input__message input__about-message"></span>
           <button class="edit__button-save" type="submit">Salvar</button>
           <button class="edit__button-close-popup"></button>
         </div>
       </form>
       <!-- popup adicionar cards -->
-      <div class="include">
-        <form class="include__popup">
+      <form class="include" name="include" novalidate>
+        <div class="include__popup">
           <h2 class="include__popup-title">Novo local</h2>
-          <input class="include__input-title" type="text" name="firstName" placeholder="Título">
-          <input class="include__input-link" type="url" name="link" placeholder="Link da imagem">
+          <input minlength="2" maxlength="30" class="include__input-title" type="text" name="title" placeholder="Título" required>
+          <span class="input__message input__title-message"></span>
+          <input class="include__input-link" type="url" name="url" placeholder="URL da imagem" required>
+          <span class="input__message input__url-message"></span>
           <button class="include__button-save" type="submit">Criar</button>
           <button class="include__button-close-popup"></button>
-        </form>
-      </div>
+        </div>
+      </for>
     </section>
     <!-- local do clone JS dos cards -->
     <ul class="gallery"></ul>
@@ -78,7 +82,8 @@
     </li>
   </template>
   <script src="./scripts/script.js"></script>
-  <script></script>
+  <script src="./scripts/validation.js"></script>
+
 </body>
 
 </html>

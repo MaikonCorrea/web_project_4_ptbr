@@ -10,9 +10,7 @@ const openPopupButtonCard = document.querySelector(".profile__button-add-card");
 const popupCard = document.querySelector(".include");
 const cardsContainer = document.querySelector(".gallery");
 const buttonSaveNewCard = popupCard.querySelector(".include__button-save");
-const closePopupCardButton = popupCard.querySelector(
-  ".include__button-close-popup"
-);
+const closePopupCardButton = popupCard.querySelector(".include__button-close-popup");
 const inputTitle = popupCard.querySelector(".include__input-title");
 const inputImageURL = popupCard.querySelector(".include__input-link");
 const cardTemplate = document.querySelector("#gallery__card").content;
