@@ -10,13 +10,27 @@ const openPopupButtonCard = document.querySelector(".profile__button-add-card");
 const popupCard = document.querySelector(".include");
 const cardsContainer = document.querySelector(".gallery");
 const buttonSaveNewCard = popupCard.querySelector(".include__button-save");
-const closePopupCardButton = popupCard.querySelector(".include__button-close-popup");
+const closePopupCardButton = popupCard.querySelector(
+  ".include__button-close-popup"
+);
 const inputTitle = popupCard.querySelector(".include__input-title");
 const inputImageURL = popupCard.querySelector(".include__input-link");
 const cardTemplate = document.querySelector("#gallery__card").content;
 const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
 const buttonDeleteCard = cardElement.querySelector(".place__button-delete");
 const cardImageElement = cardElement.querySelector(".place__image");
+const popUpContainerTamplate = document.querySelector("#screen").content;
+const popupContainerContent = popUpContainerTamplate
+  .querySelector(".screen__image-popup")
+  .cloneNode(true);
+const popupContainerScreen = document.querySelector(".screen");
+const popupImage = popupContainerContent.querySelector(
+  ".screen__image-dynamics"
+);
+const popupTitle = popupContainerContent.querySelector(".screen__popup-title");
+const closePopupScreenImage = popupContainerContent.querySelector(
+  ".screen__button-close-popup"
+);
 
 //caixa de popup edição de perfil
 openPopupButton.addEventListener("click", addDisplayBlockPopupClass);
@@ -57,6 +71,7 @@ function saveNewImputValues(event) {
   if (inputSobre.value != "") {
     infoSobre.textContent = inputSobre.value;
   }
+
   removeDisplayBlockPopupClass();
 }
 
@@ -189,21 +204,6 @@ function extractImageUrl(backgroundImage) {
 }
 
 function openPopupImage(url, title) {
-  const popUpContainerTamplate = document.querySelector("#screen").content;
-  const popupContainerContent = popUpContainerTamplate
-    .querySelector(".screen__image-popup")
-    .cloneNode(true);
-  const popupContainerScreen = document.querySelector(".screen");
-  const popupImage = popupContainerContent.querySelector(
-    ".screen__image-dynamics"
-  );
-  const popupTitle = popupContainerContent.querySelector(
-    ".screen__popup-title"
-  );
-  const closePopupScreenImage = popupContainerContent.querySelector(
-    ".screen__button-close-popup"
-  );
-
   // Defina o atributo src da imagem do popup
   popupImage.setAttribute("src", url);
   popupTitle.textContent = title;
@@ -212,17 +212,30 @@ function openPopupImage(url, title) {
   popupContainerScreen.classList.add("screen__image_opened");
   popupContainerScreen.innerHTML = ""; // Limpa o conteúdo existente
   popupContainerScreen.appendChild(popupContainerContent);
-
-  // Função para remover a classe 'opened' do popup e fechar
-  closePopupScreenImage.addEventListener("click", removeClassOpenedPopupImage);
-
-  function removeClassOpenedPopupImage(event) {
-    popupContainerScreen.classList.add("screen__image_closing");
-
-    // Aguarda o término da transição e remove a classe
-    setTimeout(() => {
-      popupContainerScreen.classList.remove("screen__image_closing");
-      popupContainerScreen.classList.remove("screen__image_opened");
-    }, 200);
-  }
 }
+
+closePopupScreenImage.addEventListener("click", removeClassOpenedPopupImage);
+// Função para remover a classe 'opened' do popup e fechar
+function removeClassOpenedPopupImage(event) {
+  popupContainerScreen.classList.add("screen__image_closing");
+
+  // Aguarda o término da transição e remove a classe
+  setTimeout(() => {
+    popupContainerScreen.classList.remove("screen__image_closing");
+    popupContainerScreen.classList.remove("screen__image_opened");
+  }, 200);
+}
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    if (popupEdit.classList.contains("edit__popup_opened")) {
+      removeDisplayBlockPopupClass(event);
+    }
+    if (popupCard.classList.contains("include__card_opened")) {
+      removeDisplayBlockPopupCardClass(event);
+    }
+    if (popupContainerScreen.classList.contains("screen__image_opened")) {
+      removeClassOpenedPopupImage(event);
+    }
+  }
+});

@@ -32,6 +32,7 @@
 @import url(../blocks/edit/__button-close-popup/edit__button-close-popup.css);
 @import url(../blocks/edit/__popup_opened/edit__popup_opened.css);
 @import url(../blocks/edit/__popup_closing/edit__popup_closing.css);
+@import url(../blocks/edit/__button-save_disabled/edit__button-save_disabled.css);
 /* include */
 @import url(../blocks/include/include.css);
 @import url(../blocks/include/__popup/include__popup.css);
@@ -42,6 +43,7 @@
 @import url(../blocks/include/__input-link/include__input-link.css);
 @import url(../blocks/include/__card_opened/include__card_opened.css);
 @import url(../blocks/include/__card_closing/include__card_closing.css);
+@import url(../blocks/include/__button-save_disabled/include__button-save_disabled.css);
 /* gallery */
 @import url(../blocks/gallery/gallery.css);
 /* screen */

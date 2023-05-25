@@ -27,34 +27,34 @@
       <button class="profile__button-add-card" type="button">
       </button>
       <!-- popup de edição perfil -->
-      <form class="edit" name="edit" novalidate>
+      <form class="edit" id="edit" name="edit" novalidate>
         <div class="edit__popup">
           <h2 class="edit__popup-title">Editar perfil</h2>
           <input minlength="2" maxlength="40" class="edit__input-name" type="text" name="name" placeholder=" Nome" required>
           <span class="input__message input__name-message"></span>
           <input name="about" minlength="2" maxlength="200" class="edit__input-about" type="text" name="aboutMe" placeholder="Sobre mim" required>
           <span class="input__message input__about-message"></span>
-          <button class="edit__button-save" type="submit">Salvar</button>
-          <button class="edit__button-close-popup"></button>
+          <button name="button" class="edit__button-save edit__button-save_disabled" type="submit" disabled>Salvar</button>
+          <button id="edit-close-button" class="edit__button-close-popup"></button>
         </div>
       </form>
       <!-- popup adicionar cards -->
-      <form class="include" name="include" novalidate>
+      <form class="include" id="include" name="include" novalidate>
         <div class="include__popup">
           <h2 class="include__popup-title">Novo local</h2>
           <input minlength="2" maxlength="30" class="include__input-title" type="text" name="title" placeholder="Título" required>
           <span class="input__message input__title-message"></span>
           <input class="include__input-link" type="url" name="url" placeholder="URL da imagem" required>
           <span class="input__message input__url-message"></span>
-          <button class="include__button-save" type="submit">Criar</button>
-          <button class="include__button-close-popup"></button>
+          <button name="button" class="include__button-save include__button-save_disabled" type="submit" disabled>Criar</button>
+          <button id="include-close-button" class="include__button-close-popup"></button>
         </div>
       </for>
     </section>
     <!-- local do clone JS dos cards -->
     <ul class="gallery"></ul>
     <!-- popup imagem na tela -->
-    <ul class="screen"></ul>
+    <ul id="screenn" class="screen"></ul>
   </main>
   <!-- footer -->
   <footer class="footer">
@@ -74,7 +74,7 @@
    <!-- elemento tamplate para abertura de popup na tela -->
    <template id="screen">
     <li class="screen__image-popup">
-      <button class="screen__button-close-popup">
+      <button id="screen-close-button" class="screen__button-close-popup">
         <img src="images/Close_Icon.png" alt="grande xis para fechar a janela">
       </button>
       <img class="screen__image-dynamics" src=" " alt=" ">

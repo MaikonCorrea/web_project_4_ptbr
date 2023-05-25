@@ -12,6 +12,7 @@
   margin-top: 48px;
   margin-bottom: 36.51px;
   cursor: pointer;
+  border: none;
 
   }
   @media screen and ( max-width: 320px) {
@@ -24,7 +25,6 @@
       margin-bottom: 25px;
       }
   }
-  .button__save:hover {
-    opacity: 0.8;
-    border-radius: 2px;
+  .edit__button-save:hover {
+    background: rgba(0, 0, 0, 0.8);
   }
