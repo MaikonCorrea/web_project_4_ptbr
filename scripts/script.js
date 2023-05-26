@@ -10,9 +10,7 @@ const openPopupButtonCard = document.querySelector(".profile__button-add-card");
 const popupCard = document.querySelector(".include");
 const cardsContainer = document.querySelector(".gallery");
 const buttonSaveNewCard = popupCard.querySelector(".include__button-save");
-const closePopupCardButton = popupCard.querySelector(
-  ".include__button-close-popup"
-);
+const closePopupCardButton = popupCard.querySelector(".include__button-close-popup");
 const inputTitle = popupCard.querySelector(".include__input-title");
 const inputImageURL = popupCard.querySelector(".include__input-link");
 const cardTemplate = document.querySelector("#gallery__card").content;
@@ -20,17 +18,13 @@ const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
 const buttonDeleteCard = cardElement.querySelector(".place__button-delete");
 const cardImageElement = cardElement.querySelector(".place__image");
 const popUpContainerTamplate = document.querySelector("#screen").content;
-const popupContainerContent = popUpContainerTamplate
-  .querySelector(".screen__image-popup")
-  .cloneNode(true);
+const popupContainerContent = popUpContainerTamplate.querySelector(".screen__image-popup").cloneNode(true);
 const popupContainerScreen = document.querySelector(".screen");
-const popupImage = popupContainerContent.querySelector(
-  ".screen__image-dynamics"
-);
+const popupImage = popupContainerContent.querySelector(".screen__image-dynamics");
 const popupTitle = popupContainerContent.querySelector(".screen__popup-title");
-const closePopupScreenImage = popupContainerContent.querySelector(
-  ".screen__button-close-popup"
-);
+const closePopupScreenImage = popupContainerContent.querySelector(".screen__button-close-popup");
+
+
 
 //caixa de popup edição de perfil
 openPopupButton.addEventListener("click", addDisplayBlockPopupClass);
@@ -39,6 +33,7 @@ function addDisplayBlockPopupClass() {
   inputName.value = infoName.textContent;
   inputSobre.value = infoSobre.textContent;
 }
+
 closePopupButton.addEventListener("click", removeDisplayBlockPopupClass);
 
 //função adequada para transição fluída com atraso de 200ms
@@ -73,7 +68,9 @@ function saveNewImputValues(event) {
   }
 
   removeDisplayBlockPopupClass();
+
 }
+
 
 //função de abertura do popup card
 openPopupButtonCard.addEventListener("click", addDisplayBlockPopupClassCard);
@@ -82,11 +79,9 @@ function addDisplayBlockPopupClassCard() {
   popupCard.classList.add("include__card_opened");
 }
 
+
 //função de fechamento do popup card
-closePopupCardButton.addEventListener(
-  "click",
-  removeDisplayBlockPopupCardClass
-);
+closePopupCardButton.addEventListener("click", removeDisplayBlockPopupCardClass);
 
 //função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupCardClass(event) {
@@ -177,7 +172,9 @@ buttonSaveNewCard.addEventListener("click", (event) => {
   inputImageURL.value = "";
   removeDisplayBlockPopupCardClass();
   return cardElement;
+
 });
+
 
 // Adicione um evento de clique ao elemento pai
 cardsContainer.addEventListener("click", function (event) {
@@ -192,6 +189,7 @@ cardsContainer.addEventListener("click", function (event) {
     const title = titleElement.textContent;
     openPopupImage(url, title);
   }
+
 });
 // Extrai a URL da string do estilo de fundo (background-image)
 function extractImageUrl(backgroundImage) {
