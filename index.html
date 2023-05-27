@@ -30,9 +30,11 @@
       <form class="edit" id="edit" name="edit" novalidate>
         <div class="edit__popup">
           <h2 class="edit__popup-title">Editar perfil</h2>
-          <input minlength="2" maxlength="40" class="edit__input-name" type="text" name="name" placeholder="Nome" required>
+          <input minlength="2" maxlength="40" class="edit__input-name" type="text" name="name" placeholder="Nome"
+            required>
           <span class="input__message input__name-message"></span>
-          <input name="about" minlength="2" maxlength="200" class="edit__input-about" type="text" name="aboutMe" placeholder="Sobre mim" required>
+          <input minlength="2" maxlength="200" class="edit__input-about" type="text" name="about"
+            placeholder="Sobre mim" required>
           <span class="input__message input__about-message"></span>
           <button name="button" class="edit__button-save" type="submit">Salvar</button>
           <button id="edit-close-button" class="edit__button-close-popup"></button>
@@ -42,14 +44,16 @@
       <form class="include" id="include" name="include" novalidate>
         <div class="include__popup">
           <h2 class="include__popup-title">Novo local</h2>
-          <input minlength="2" maxlength="30" class="include__input-title" type="text" name="title" placeholder="Título" required>
+          <input minlength="2" maxlength="30" class="include__input-title" type="text" name="title" placeholder="Título"
+            required>
           <span class="input__message input__title-message"></span>
           <input class="include__input-link" type="url" name="url" placeholder="URL da imagem" required>
           <span class="input__message input__url-message"></span>
-          <button name="button" class="include__button-save include__button-save_disabled" type="submit" disabled>Criar</button>
+          <button name="button" class="include__button-save include__button-save_disabled" type="submit"
+            disabled>Criar</button>
           <button id="include-close-button" class="include__button-close-popup"></button>
         </div>
-      </for>
+      </form>
     </section>
     <!-- clones -->
     <ul class="gallery"></ul>
@@ -59,7 +63,7 @@
   <footer class="footer">
     <h2 class="footer__copyrigth">© 2023 Around The U.S.</h2>
   </footer>
-   <!-- elemento tamplate para adicionar os cards -->
+  <!-- elemento tamplate para adicionar os cards -->
   <template id="gallery__card">
     <li class="place">
       <div class="place__image"></div>
@@ -70,8 +74,8 @@
       </div>
     </li>
   </template>
-   <!-- elemento tamplate para abertura de popup na tela -->
-   <template id="screen">
+  <!-- elemento tamplate para abertura de popup na tela -->
+  <template id="screen">
     <li class="screen__image-popup">
       <button id="screen-close-button" class="screen__button-close-popup">
         <img src="images/Close_Icon.png" alt="grande xis para fechar a janela">

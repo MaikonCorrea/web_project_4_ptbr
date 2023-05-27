@@ -4,11 +4,13 @@ const enableValidation = ({
   includeButtonSave,
   inactiveButtonSaveClass,
   inactiveButtonincludeClass,
-}) =>{
+}) => {
   const inputFieldsValidation = (input) => {
     input.addEventListener("input", function (event) {
       const element = event.target;
-      const messageSpan = document.querySelector(`.input__${element.name}-message`);
+      const messageSpan = document.querySelector(
+        `.input__${element.name}-message`
+      );
       if (!element.validity.valid) {
         input.classList.add(inputErrorClass);
         messageSpan.textContent = element.validationMessage;
@@ -54,7 +56,7 @@ const enableValidation = ({
         } else {
           disableButtons();
         }
-    });
+      });
     });
   }
 };
