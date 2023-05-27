@@ -9,7 +9,7 @@ const enableValidation = ({
     input.addEventListener("input", function (event) {
       const element = event.target;
       const messageSpan = document.querySelector(
-        `.span__${element.name}-message`
+        `.span_${element.name}-message`
       );
       if (!element.validity.valid) {
         input.classList.add(inputErrorClass);
