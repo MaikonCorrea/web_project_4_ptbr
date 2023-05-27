@@ -1,4 +1,4 @@
-.input__message {
+.span {
   font-style: normal;
   font-weight: 400;
   margin-top: 5px;
@@ -11,7 +11,7 @@
 }
 
 @media screen and ( max-width: 320px) {
-  .input__message {
+  .span {
     width: 238px;
     font-size: 0.65rem;
 }

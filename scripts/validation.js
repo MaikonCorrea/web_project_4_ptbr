@@ -9,7 +9,7 @@ const enableValidation = ({
     input.addEventListener("input", function (event) {
       const element = event.target;
       const messageSpan = document.querySelector(
-        `.input__${element.name}-message`
+        `.span__${element.name}-message`
       );
       if (!element.validity.valid) {
         input.classList.add(inputErrorClass);
@@ -62,7 +62,7 @@ const enableValidation = ({
 };
 
 enableValidation({
-  inputErrorClass: "input__error",
+  inputErrorClass: "span__error",
   editButtonSave: ".edit__button-save",
   includeButtonSave: ".include__button-save",
   inactiveButtonSaveClass: "edit__button-save_disabled",
