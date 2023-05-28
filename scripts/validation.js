@@ -13,7 +13,11 @@ const enableValidation = ({
       );
       if (!element.validity.valid) {
         input.classList.add(inputErrorClass);
+        if (element.type === 'url' && element.value.trim() != '') {
+          messageSpan.textContent = 'Por favor, insira um endereço web.';
+        } else {
         messageSpan.textContent = element.validationMessage;
+        }
         disableButtons();
       } else {
         input.classList.remove(inputErrorClass);
