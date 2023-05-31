@@ -25,18 +25,13 @@ const popupContainerContent = popUpContainerTamplate
   .cloneNode(true);
 const popupContainerScreen = document.querySelector(".screen");
 const popupImage = popupContainerContent.querySelector(
-  ".screen__image-dynamics");
-//MCKSDOWNVOJDNWNVNDWONVLMDW
-//V JDN VNDSNVNDNSVKPDWNV PKWNLS
-//VMDKSVNMOWDNMVMDMWOMVPDW1
-//FECHAMENTO DO POP UP IMAGE SCRENN
-const popupTitle = popupContainerContent.querySelector(".screen__popup-title");
-const closePopupScreenImage = popupContainerContent.querySelector(".screen__button-close-popup");
+  ".screen__image-dynamics"
+);
 
-//MCKSDOWNVOJDNWNVNDWONVLMDW
-//V JDN VNDSNVNDNSVKPDWNV PKWNLS
-//VMDKSVNMOWDNMVMDMWOMVPDW1
-//FECHAMENTO DO POP UP IMAGE SCRENN
+const popupTitle = popupContainerContent.querySelector(".screen__popup-title");
+const closePopupScreenImage = popupContainerContent.querySelector(
+  ".screen__button-close-popup"
+);
 
 //caixa de popup edição de perfil
 openPopupButton.addEventListener("click", addDisplayBlockPopupClass);
@@ -90,7 +85,10 @@ function addDisplayBlockPopupClassCard() {
 }
 
 //função de fechamento do popup card
-closePopupCardButton.addEventListener("click", removeDisplayBlockPopupCardClass);
+closePopupCardButton.addEventListener(
+  "click",
+  removeDisplayBlockPopupCardClass
+);
 
 //função adequada para transição fluída com atraso de 200ms
 function removeDisplayBlockPopupCardClass(event) {
@@ -165,8 +163,8 @@ initialCards.forEach((card) => {
 
 function addNewCard(name, link) {
   const newCard = {
-    name: name,
-    link: link,
+    name,
+    link,
   };
 
   initialCards.push(newCard);
@@ -238,7 +236,7 @@ document.addEventListener("keydown", function (event) {
     }
     if (popupCard.classList.contains("include__card_opened")) {
       removeDisplayBlockPopupCardClass(event);
-    }
+    } 
     if (popupContainerScreen.classList.contains("screen__image_opened")) {
       removeClassOpenedPopupImage(event);
     }
@@ -249,7 +247,7 @@ document.addEventListener("click", function (event) {
   if (event.target.classList.contains("edit__popup_opened")) {
     removeDisplayBlockPopupClass();
   }
-  if (event.target.classList.contains("include__card_opened") ) {
+  if (event.target.classList.contains("include__card_opened")) {
     removeDisplayBlockPopupCardClass();
   }
   if (event.target.classList.contains("screen__image_opened")) {
