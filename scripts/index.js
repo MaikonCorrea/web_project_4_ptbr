@@ -14,7 +14,8 @@ initialCards.forEach((item) => {
   includeButtonSave: ".include__button-save",
   inactiveButtonSaveClass: "edit__button-save_disabled",
   inactiveButtonIncludeClass: "include__button-save_disabled",
+  editInputName: "edit__input-name",
+  editInputAbout: "edit__input-about",
 });
 
 validator.enableValidation();
-export {validator};

@@ -1,5 +1,4 @@
 import { Card } from "./Card.js";
-
 const eventListeners = (function () {
   const openPopupEditButton = document.querySelector(
     ".profile__button-edition"
@@ -85,8 +84,8 @@ const eventListeners = (function () {
   openPopupButtonCard.addEventListener("click", addDisplayBlockPopupClassCard);
   function addDisplayBlockPopupClassCard() {
     popupCard.classList.add("include__card_opened");
-    buttonSaveNewCard.setAttribute("disabled", true);/// ultima alteração superior foi para desabilitar o botão de salvar quando reabrir o popup
-    buttonSaveNewCard.classList.add("include__button-save_disabled");/// ultima alteração superior foi para desabilitar o botão de salvar quando reabrir o popup
+    buttonSaveNewCard.setAttribute("disabled", true);
+    buttonSaveNewCard.classList.add("include__button-save_disabled");
   }
 
   closePopupCardButton.addEventListener(
@@ -166,6 +165,7 @@ const eventListeners = (function () {
       }
       if (popupCard.classList.contains("include__card_opened")) {
         removeDisplayBlockPopupCardClass(event);
+        forms.reset()
       }
       if (popupContainerScreen.classList.contains("screen__image_opened")) {
         removeClassOpenedPopupImage(event);
