@@ -1,5 +1,6 @@
-import { Card, eventListeners, initialCards } from "./utils.js";
-import { FormValidation } from "./FormValidation.js";
+import FormValidation from "./FormValidation.js";
+import Card from "./Card.js";
+import { setEventListeners, initialCards } from "./utils.js";
 
 initialCards.forEach((item) => {
   const card = new Card(item.name, item.link);
@@ -14,8 +15,8 @@ initialCards.forEach((item) => {
   includeButtonSave: ".include__button-save",
   inactiveButtonSaveClass: "edit__button-save_disabled",
   inactiveButtonIncludeClass: "include__button-save_disabled",
-  editInputName: "edit__input-name",
-  editInputAbout: "edit__input-about",
 });
 
 validator.enableValidation();
+
+setEventListeners();

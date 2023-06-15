@@ -5,8 +5,6 @@ class FormValidation {
     this._includeButtonSave = options.includeButtonSave;
     this._inactiveButtonSaveClass = options.inactiveButtonSaveClass;
     this._inactiveButtonIncludeClass = options.inactiveButtonIncludeClass;
-    this._editInputName = options.editButtonName;
-    this._editInputAbout = options._editInputAbout;
   }
 
   enableValidation() {
@@ -14,7 +12,6 @@ class FormValidation {
       input.addEventListener("input", (event) => {
         const element = event.target;
         const messageSpan = document.querySelector(`.span_${element.name}-message`);
-        const editButtonName = document.querySelector(".edit__input-name");
         if (!element.validity.valid) {
           input.classList.add(this.inputErrorClass);
           if (element.type === "url" && element.value.trim() !== "") {
@@ -70,4 +67,4 @@ class FormValidation {
 }
 
 
-export { FormValidation };
+export default FormValidation;

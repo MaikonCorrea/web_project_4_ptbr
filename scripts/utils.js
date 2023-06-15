@@ -1,5 +1,6 @@
-import { Card } from "./Card.js";
-const eventListeners = (function () {
+import Card from "./Card.js";
+
+const setEventListeners = () => {
   const openPopupEditButton = document.querySelector(
     ".profile__button-edition"
   );
@@ -57,8 +58,8 @@ const eventListeners = (function () {
     event.preventDefault();
   }
 
-  buttonSave.addEventListener("click", saveNewImputValues);
-  function saveNewImputValues(event) {
+  buttonSave.addEventListener("click", saveNewInputValues);
+  function saveNewInputValues(event) {
     event.preventDefault();
     if (inputName.value != "") {
       infoName.textContent = inputName.value;
@@ -184,8 +185,7 @@ const eventListeners = (function () {
       removeClassOpenedPopupImage(event);
     }
   });
-
-}());
+};
 
 
 const initialCards = [
@@ -215,4 +215,4 @@ const initialCards = [
   },
 ];
 
-export { Card, eventListeners, initialCards };
+export { setEventListeners, initialCards };
