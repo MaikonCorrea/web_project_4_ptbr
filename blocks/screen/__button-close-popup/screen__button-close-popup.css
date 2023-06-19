@@ -1,10 +1,14 @@
 .screen__button-close-popup {
+  position: absolute;
+  right: -47px;
+  top: -47px;
+  background: url(../../../images/Close_Icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
   border: none;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0);
-  position: absolute;
-  right: -41px;
-  top: -41px;
 }
 
   .screen__button-close-popup:hover {
