@@ -1,5 +1,5 @@
 .place__button-delete {
-  background: url('../../../images/image_delete.png');
+  background: url('/src/images/image_delete.png');
   width: 18px;
   height: 19px;
   position: absolute;
