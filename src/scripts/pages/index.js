@@ -1,7 +1,7 @@
-import "./styles/index.css";
-import FormValidation from "../scripts/FormValidation.js";
-import Card from "../scripts/Card.js";
-import { setEventListeners, initialCards } from "../scripts/utils.js";
+import "../../styles/index.css";
+import FormValidation from "../components/FormValidation.js";
+import Card from "../components/Card.js";
+import { setEventListeners, initialCards } from "../utils/contents.js";
 
 initialCards.forEach((item) => {
   const card = new Card(item.name, item.link);
