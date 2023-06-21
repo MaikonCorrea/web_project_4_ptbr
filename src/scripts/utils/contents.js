@@ -1,43 +1,43 @@
 import Card from "../components/Card.js";
 
-const setEventListeners = () => {
-  const openPopupEditButton = document.querySelector(
+
+  export const openPopupEditButton = document.querySelector(
     ".profile__button-edition"
   );
-  const popupEdit = document.querySelector(".edit");
-  const closePopupEditButton = document.querySelector(
+  export const popupEdit = document.querySelector(".edit");
+  export const closePopupEditButton = document.querySelector(
     ".edit__button-close-popup"
   );
-  const buttonSave = document.querySelector(".edit__button-save");
-  const inputName = document.querySelector(".edit__input-name");
-  const inputAbout = document.querySelector(".edit__input-about");
-  const infoName = document.querySelector(".profile__info-name");
-  const infoAbout = document.querySelector(".profile__info-discription");
-  const openPopupButtonCard = document.querySelector(
+  export const buttonSave = document.querySelector(".edit__button-save");
+  export const inputName = document.querySelector(".edit__input-name");
+  export const inputAbout = document.querySelector(".edit__input-about");
+  export const infoName = document.querySelector(".profile__info-name");
+  export const infoAbout = document.querySelector(".profile__info-discription");
+  export const openPopupButtonCard = document.querySelector(
     ".profile__button-add-card"
   );
-  const popupCard = document.querySelector(".include");
-  const cardsContainer = document.querySelector(".gallery");
-  const buttonSaveNewCard = popupCard.querySelector(".include__button-save");
-  const closePopupCardButton = popupCard.querySelector(
+  export const popupCard = document.querySelector(".include");
+  export const cardsContainer = document.querySelector(".gallery");
+  export const buttonSaveNewCard = popupCard.querySelector(".include__button-save");
+  export const closePopupCardButton = popupCard.querySelector(
     ".include__button-close-popup"
   );
-  const inputTitle = popupCard.querySelector(".include__input-title");
-  const inputImageURL = popupCard.querySelector(".include__input-link");
-  const cardTemplate = document.querySelector("#gallery__card").content;
-  const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
-  const popUpContainerTamplate = document.querySelector("#screen").content;
-  const popupContainerContent = popUpContainerTamplate
+  export const inputTitle = popupCard.querySelector(".include__input-title");
+  export const inputImageURL = popupCard.querySelector(".include__input-link");
+  export const cardTemplate = document.querySelector("#gallery__card").content;
+  export const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
+  export const popUpContainerTamplate = document.querySelector("#screen").content;
+  export const popupContainerContent = popUpContainerTamplate
     .querySelector(".screen__image-popup")
     .cloneNode(true);
-  const popupContainerScreen = document.querySelector(".screen");
-  const popupImage = popupContainerContent.querySelector(
+  export const popupContainerScreen = document.querySelector(".screen");
+  export const popupImage = popupContainerContent.querySelector(
     ".screen__image-dynamics"
   );
-  const popupTitle = popupContainerContent.querySelector(
+  export const popupTitle = popupContainerContent.querySelector(
     ".screen__popup-title"
   );
-  const closePopupScreenImage = popupContainerContent.querySelector(
+  export const closePopupScreenImage = popupContainerContent.querySelector(
     ".screen__button-close-popup"
   );
 
@@ -185,10 +185,9 @@ const setEventListeners = () => {
       removeClassOpenedPopupImage(event);
     }
   });
-};
 
 
-const initialCards = [
+export const initialCards = [
   {
     name: "Yellostone National Park",
     link: "https://images.unsplash.com/photo-1565108150023-cc0fd1054149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
@@ -214,5 +213,3 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1558150503-0fdcce137289?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=715&q=80",
   },
 ];
-
-export { setEventListeners, initialCards };
