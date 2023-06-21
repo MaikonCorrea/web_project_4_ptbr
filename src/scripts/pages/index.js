@@ -1,9 +1,7 @@
 import "../../styles/index.css";
 import FormValidation from "../components/FormValidation.js";
 import Card from "../components/Card.js";
-import {
-initialCards,
- } from "../utils/contents.js";
+import { initialCards } from "../utils/constants.js";
 
 initialCards.forEach((item) => {
   const card = new Card(item.name, item.link);
@@ -21,5 +19,3 @@ initialCards.forEach((item) => {
 });
 
 validator.enableValidation();
-
-setEventListeners();
