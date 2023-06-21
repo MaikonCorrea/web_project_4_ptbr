@@ -1,4 +1,4 @@
-class Card {
+export default class Card {
   constructor(name, link) {
     this._name = name;
     this._link = link;
@@ -34,5 +34,3 @@ class Card {
     this._element.remove();
   }
 }
-
-export default Card;
