@@ -24,12 +24,13 @@ import Card from "../components/Card.js";
   );
   export const inputTitle = popupCard.querySelector(".include__input-title");
   export const inputImageURL = popupCard.querySelector(".include__input-link");
+
   export const cardTemplate = document.querySelector("#gallery__card").content;
   export const cardElement = cardTemplate.querySelector(".place").cloneNode(true);
+
   export const popUpContainerTamplate = document.querySelector("#screen").content;
-  export const popupContainerContent = popUpContainerTamplate
-    .querySelector(".screen__image-popup")
-    .cloneNode(true);
+  export const popupContainerContent = popUpContainerTamplate.querySelector(".screen__image-popup").cloneNode(true);
+
   export const popupContainerScreen = document.querySelector(".screen");
   export const popupImage = popupContainerContent.querySelector(
     ".screen__image-dynamics"
@@ -41,7 +42,9 @@ import Card from "../components/Card.js";
     ".screen__button-close-popup"
   );
 
-  openPopupEditButton.addEventListener("click", addDisplayBlockPopupClass);
+  openPopupEditButton.addEventListener("click", () => {
+    addDisplayBlockPopupClass(popupEdit, inputName, inputAbout, infoName, infoAbout);
+  });
   function addDisplayBlockPopupClass() {
     popupEdit.classList.add("edit__popup_opened");
     inputName.value = infoName.textContent;

@@ -1,10 +1,10 @@
 export default class FormValidation {
-  constructor(options) {
-    this._inputErrorClass = options.inputErrorClass;
-    this._editButtonSave = options.editButtonSave;
-    this._includeButtonSave = options.includeButtonSave;
-    this._inactiveButtonSaveClass = options.inactiveButtonSaveClass;
-    this._inactiveButtonIncludeClass = options.inactiveButtonIncludeClass;
+  constructor({inputErrorClass, editButtonSave, includeButtonSave, inactiveButtonSaveClass, inactiveButtonIncludeClass}) {
+    this._inputErrorClass = inputErrorClass;
+    this._editButtonSave = editButtonSave;
+    this._includeButtonSave = includeButtonSave;
+    this._inactiveButtonSaveClass =inactiveButtonSaveClass;
+    this._inactiveButtonIncludeClass =inactiveButtonIncludeClass;
   }
 
   enableValidation() {
@@ -15,7 +15,7 @@ export default class FormValidation {
         if (!element.validity.valid) {
           input.classList.add(this.inputErrorClass);
           if (element.type === "url" && element.value.trim() !== "") {
-            messageSpan.textContent = "Por favor, insira um endereÃ§o web.";
+            messageSpan.textContent = "Por favor, insira um endereço web.";
           } else {
             messageSpan.textContent = element.validationMessage;
           }

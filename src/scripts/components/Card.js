@@ -14,9 +14,7 @@ export default class Card {
       this.deleteCard();
     });
 
-    this._element.querySelector(
-      ".place__image"
-    ).style.backgroundImage = `url(${this._link})`;
+    this._element.querySelector(".place__image").style.backgroundImage = `url(${this._link})`;
     this._element.querySelector(".place__title").textContent = this._name;
   }
 
@@ -28,6 +26,7 @@ export default class Card {
 
   generateCard() {
     return this._element;
+
   }
 
   deleteCard() {
