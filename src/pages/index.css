@@ -1,7 +1,7 @@
 /* vendor */
 @import url(../vendor/normalize.css);
 /* fonts */
-@import url(/src/fonts/font.css);
+@import url(../vendor/fonts/font.css);
 /* fadeOut */
 @import url(../blocks/fadeOut/fadeOut.css);
 /* page */

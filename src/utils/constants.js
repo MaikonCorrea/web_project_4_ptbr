@@ -105,7 +105,7 @@ import Card from "../components/Card.js";
     }, 200);
     event.preventDefault();
   }
-
+//função do popup include
   function generateCard(name, link) {
     const card = new Card(name, link);
     const cardElement = card.generateCard();

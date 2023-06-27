@@ -65,3 +65,14 @@ export default class FormValidation {
     }
   }
 }
+
+
+const validator = new FormValidation({
+  inputErrorClass: "span__error",
+  editButtonSave: ".edit__button-save",
+  includeButtonSave: ".include__button-save",
+  inactiveButtonSaveClass: "edit__button-save_disabled",
+  inactiveButtonIncludeClass: "include__button-save_disabled",
+});
+
+validator.enableValidation();
