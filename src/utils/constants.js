@@ -42,7 +42,7 @@ import Card from "../components/Card.js";
     ".screen__button-close-popup"
   );
 
-  openPopupEditButton.addEventListener("click", () => {
+  /* openPopupEditButton.addEventListener("click", () => {
     addDisplayBlockPopupClass(popupEdit, inputName, inputAbout, infoName, infoAbout);
   });
   function addDisplayBlockPopupClass() {
@@ -106,13 +106,13 @@ import Card from "../components/Card.js";
     event.preventDefault();
   }
 //função do popup include
-  function generateCard(name, link) {
+/*   function generateCard(name, link) {
     const card = new Card(name, link);
     const cardElement = card.generateCard();
     initialCards.push(card);
     cardsContainer.prepend(cardElement);
-  }
-
+  } */
+/*
   buttonSaveNewCard.addEventListener("click", (event) => {
     generateCard(inputTitle.value, inputImageURL.value);
     event.preventDefault();
@@ -188,7 +188,7 @@ import Card from "../components/Card.js";
       removeClassOpenedPopupImage(event);
     }
   });
-
+  */
 
 export const initialCards = [
   {
