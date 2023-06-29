@@ -1,5 +1,6 @@
 import "./index.css";
 
+import FormValidation from "../components/FormValidation";
 import PopupWithForm from "../components/PopupWithForm";
 import Popup from "../components/Popup";
 import Section from "../components/Section.js";
@@ -20,3 +21,13 @@ cardList.renderItems();
 const popupForm = new PopupWithForm('.include');
 popupForm.setEventListeners();
 
+
+const validator = new FormValidation({
+  inputErrorClass: "span__error",
+  editButtonSave: ".edit__button-save",
+  includeButtonSave: ".include__button-save",
+  inactiveButtonSaveClass: "edit__button-save_disabled",
+  inactiveButtonIncludeClass: "include__button-save_disabled",
+});
+
+validator.enableValidation();
