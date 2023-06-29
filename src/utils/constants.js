@@ -42,11 +42,11 @@ import Card from "../components/Card.js";
     ".screen__button-close-popup"
   );
 
-  /* openPopupEditButton.addEventListener("click", () => {
+   /*openPopupEditButton.addEventListener("click", () => {
     addDisplayBlockPopupClass(popupEdit, inputName, inputAbout, infoName, infoAbout);
   });
   function addDisplayBlockPopupClass() {
-    popupEdit.classList.add("edit__popup_opened");
+    popupEdit.classList.add("popup_opened");
     inputName.value = infoName.textContent;
     inputAbout.value = infoAbout.textContent;
   }
@@ -175,20 +175,15 @@ import Card from "../components/Card.js";
         removeClassOpenedPopupImage(event);
       }
     }
-  });
+  });*/
 
-  document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("edit__popup_opened")) {
+/*   document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("popup_opened")) {
       removeDisplayBlockPopupClass(event);
+      event.preventDefault()
     }
-    if (event.target.classList.contains("include__card_opened")) {
-      removeDisplayBlockPopupCardClass(event);
-    }
-    if (event.target.classList.contains("screen__image_opened")) {
-      removeClassOpenedPopupImage(event);
-    }
-  });
-  */
+  }); */
+
 
 export const initialCards = [
   {

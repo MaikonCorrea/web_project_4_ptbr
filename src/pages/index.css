@@ -68,3 +68,5 @@
 /* span */
 @import url(../blocks/span/span.css);
 @import url(../blocks/span/__error/span__error.css);
+/* popup_opened */
+@import url(../blocks/popup/popup_opened.css);

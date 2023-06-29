@@ -36,12 +36,12 @@
             placeholder="Sobre mim" required>
           <span class="span span_about-message"></span>
           <button name="button" class="edit__button-save" type="submit">Salvar</button>
-          <button id="edit-close-button" class="edit__button-close-popup"></button>
+          <button id="edit-close-button" class="edit__button-close-popup close-button"></button>
         </div>
       </form>
       <!-- popup adicionar cards -->
       <form class="include" id="include" name="include" novalidate>
-        <div class="include__popup">
+        <div class="include__popup ">
           <h2 class="include__popup-title">Novo local</h2>
           <input minlength="2" maxlength="30" class="include__input-title" type="text" name="title" placeholder="Título"
             required>
@@ -50,7 +50,7 @@
           <span class="span span_url-message"></span>
           <button name="button" class="include__button-save include__button-save_disabled" type="submit"
             disabled>Criar</button>
-          <button id="include-close-button" class="include__button-close-popup"></button>
+          <button id="include-close-button" class="include__button-close-popup close-button"></button>
         </div>
       </form>
     </section>
@@ -76,7 +76,7 @@
   <!-- elemento tamplate para abertura de popup na tela -->
   <template id="screen">
     <li class="screen__image-popup">
-      <button id="screen-close-button" class="screen__button-close-popup"></button>
+      <button id="screen-close-button" class="screen__button-close-popup close-button"></button>
       <img class="screen__image-dynamics" src=" " alt=" ">
       <h3 class="screen__popup-title"></h3>
     </li>
