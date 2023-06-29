@@ -1,34 +1,39 @@
 import Popup from "./Popup";
-
+import { inputTitle, inputImageURL } from "../utils/constants.js";
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, submitCallback) {
     super(popupSelector);
-    this._popupSelector = document.querySelector(".include");
-    this._inputTitle = this._popupSelector.querySelector(".include__input-title");
-    this._inputLink = this._popupSelector.querySelector(".include__input-link");
-    this._submitButton = this._popupSelector.querySelector(".include__button-save");
-    this._openPopupInclude = document.querySelector(".profile__button-add-card");
+    this._form = document.querySelector('.include');
+    this._submitCallback = submitCallback;
+    this._submitButton = document.querySelector('.include__button-save');
+    this._openPopupInclude = document.querySelector('.profile__button-add-card')
   }
 
   _getInputValues() {
     return {
-      title: this._inputTitle.value,
-      url: this._inputLink.value,
+      title: inputTitle.value,
+      url: inputImageURL.value
     };
+  }
+
+   close() {
+    super.close();
+    this._form.reset();
+  }
+
+  open() {
+    super.open();
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this._popupSelector.addEventListener("submit", (event) => {
+    this._form.addEventListener('submit', (event) => {
       event.preventDefault();
-      const formValues = this._getInputValues();
     });
+    this._openPopupInclude.addEventListener('click', this.open.bind(this));
+    this._submitButton.addEventListener('click', this.close.bind(this));
   }
 
-  close() {
-    super.close();
-  }
-  open() {
-    super.open();
-  }
 }
+
+

@@ -1,11 +1,11 @@
 import "./index.css";
 
-import FormValidation from "../components/FormValidation";
-import PopupWithForm from "../components/PopupWithForm";
-import Popup from "../components/Popup";
+import FormValidation from "../components/FormValidation.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import Card from "../components/Card.js";
 import {initialCards, cardTemplate, cardsContainer} from "../utils/constants.js"
+import UserInfo from "../components/UserInfo.js";
 
 const cardList = new Section({
   items: initialCards,
@@ -21,6 +21,8 @@ cardList.renderItems();
 const popupForm = new PopupWithForm('.include');
 popupForm.setEventListeners();
 
+const popupUserInfo = new UserInfo('.edit');
+popupUserInfo.setEventListeners();
 
 const validator = new FormValidation({
   inputErrorClass: "span__error",
