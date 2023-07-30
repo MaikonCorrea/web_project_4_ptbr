@@ -1,4 +1,4 @@
-import "../index.css";
+import "./index.css";
 
 import FormValidation from "../../scripts/FormValidation.js";
 import Card from "../../scripts/Card.js";
