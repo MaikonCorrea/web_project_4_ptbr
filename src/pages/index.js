@@ -1,17 +1,17 @@
-import "../pages/index.css";
+import "../index.css";
 
-import FormValidation from "../scripts/FormValidation.js";
-import Card from "../scripts/Card.js";
-import Section from "../scripts/Section.js";
-import PopupWhithForm from "../scripts/PopupWithForm.js";
-import PopupWithImage from '../scripts/PopupWithImage.js';
-import UserInfo from "../scripts/UserInfo";
+import FormValidation from "../../scripts/FormValidation.js";
+import Card from "../../scripts/Card.js";
+import Section from "../../scripts/Section.js";
+import PopupWhithForm from "../../scripts/PopupWithForm.js";
+import PopupWithImage from '../../scripts/PopupWithImage.js';
+import UserInfo from "../../scripts/UserInfo";
 import {
   initialCards,
   cardsContainer,
   popupCard,
   popupContainerScreen,
-  popupEdit} from "../scripts/utils.js";
+  popupEdit} from "../../scripts/utils.js";
 
 const cardList = new Section({items: initialCards,
   render: (item) => {
