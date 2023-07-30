@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
   <title>Around The U.S.</title>
 </head>
 
@@ -20,10 +21,10 @@
       <div class="profile__image"></div>
       <div class="profile__info">
         <p class="profile__info-name" id="profileName">Jacques Cousteau</p>
-        <button class="profile__button-edition" type="button"></button>
+        <button class="profile__button-info" type="button"></button>
         <p class="profile__info-discription">Explorar</p>
       </div>
-      <button class="profile__button-add-card" type="button">
+      <button class="profile__button-include" type="button">
       </button>
       <!-- popup de edição perfil -->
       <form class="edit" id="edit" name="edit" novalidate>
@@ -36,27 +37,34 @@
             placeholder="Sobre mim" required>
           <span class="span span_about-message"></span>
           <button name="button" class="edit__button-save" type="submit">Salvar</button>
-          <button id="edit-close-button" class="edit__button-close-popup close-button"></button>
+          <button id="edit-close-button" class="edit__button-close-popup button__close"></button>
+        </div>
+      </form>
+      <!-- popup imagem na tela -->
+      <form class="screen">
+        <div class="screen__image-popup">
+          <button id="screen-close-button" class="screen__button-close-popup button__close">
+          </button>
+          <img class="screen__image-dynamics" src="" alt="Imagem em tela cheia">
+          <h3 class="screen__popup-title"></h3>
         </div>
       </form>
       <!-- popup adicionar cards -->
       <form class="include" id="include" name="include" novalidate>
-        <div class="include__popup ">
+        <div class="include__popup">
           <h2 class="include__popup-title">Novo local</h2>
-          <input minlength="2" maxlength="30" class="include__input-title" type="text" name="title" placeholder="Título"
+          <input minlength="2" maxlength="30" class="include__input-title popup__input" type="text" name="title" placeholder="Título"
             required>
           <span class="span span_title-message"></span>
-          <input class="include__input-link" type="url" name="url" placeholder="URL da imagem" required>
+          <input class="include__input-link popup__input" type="url" name="url" placeholder="URL da imagem" required>
           <span class="span span_url-message"></span>
           <button name="button" class="include__button-save include__button-save_disabled" type="submit"
             disabled>Criar</button>
-          <button id="include-close-button" class="include__button-close-popup close-button"></button>
+          <button id="include-close-button" class="include__button-close-popup button__close"></button>
         </div>
       </form>
     </section>
-    <!-- clones -->
     <ul class="gallery"></ul>
-    <ul class="screen"></ul>
   </main>
   <!-- footer -->
   <footer class="footer">
@@ -71,14 +79,6 @@
         <h3 class="place__title"></h3>
         <button class="place__button-like"></button>
       </div>
-    </li>
-  </template>
-  <!-- elemento tamplate para abertura de popup na tela -->
-  <template id="screen__card">
-    <li class="screen__image-popup">
-      <button id="screen-close-button" class="screen__button-close-popup close-button"></button>
-      <div class="screen__image-dynamics"></div>
-      <h3 class="screen__popup-title"></h3>
     </li>
   </template>
 </body>
