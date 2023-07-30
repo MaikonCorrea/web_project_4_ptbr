@@ -1,5 +1,5 @@
 import Popup from "./Popup.js"
-import {buttonSaveNewCard, openPopupButtonCard} from "./utils.js"
+import {buttonSaveNewCard, openPopupButtonCard} from "../utils/constants.js"
 
 
 export default class PopupWhithForm extends Popup {

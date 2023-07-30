@@ -11,7 +11,7 @@ import {
   cardsContainer,
   popupCard,
   popupContainerScreen,
-  popupEdit} from "../components/utils.js";
+  popupEdit} from "../utils/constants.js";
 
 const cardList = new Section({items: initialCards,
   render: (item) => {

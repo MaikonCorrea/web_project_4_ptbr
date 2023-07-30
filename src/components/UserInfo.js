@@ -5,7 +5,7 @@ import {
   infoAbout,
   openPopupEditButton,
   closePopupEditButton,
-  buttonSave} from './utils.js'
+  buttonSave} from '../utils/constants.js'
 
 export default class UserInfo {
   constructor(popupSelector) {
