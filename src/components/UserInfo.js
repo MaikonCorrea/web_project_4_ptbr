@@ -4,13 +4,13 @@ import {
   inputAbout,
   infoAbout,
   openPopupEditButton,
-  closePopupEditButton,
   buttonSave} from '../utils/constants.js'
 
 export default class UserInfo {
   constructor(popupSelector) {
     this._handleEscClose = this._handleEscClose.bind(this);
     this._popup = document.querySelector('.edit');
+    this._closePopup = this._popup.querySelector('.button__close')
   };
 
   getUserInfo() {
@@ -54,7 +54,7 @@ open() {
       this.open()
     });
 
-    closePopupEditButton.addEventListener('click', (evt)=> {
+    this._closePopup.addEventListener('click', (evt)=> {
       this.close(evt)
     });
 
