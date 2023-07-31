@@ -38,7 +38,6 @@ const popupWithImage = new PopupWithImage(popupContainerScreen);
 
 
 const userInfo = new UserInfo(popupEdit);
-userInfo.setEventListeners();
 
 const validator = new FormValidator({
   inputErrorClass: "span__error",

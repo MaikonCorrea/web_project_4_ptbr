@@ -12,6 +12,7 @@ export default class UserInfo {
     this._handleEscClose = this._handleEscClose.bind(this);
     this._popup = document.querySelector(".edit");
     this._closePopup = this._popup.querySelector(".button-close-popup");
+    this.setEventListeners();
   }
 
   getUserInfo() {
