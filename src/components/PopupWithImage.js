@@ -9,7 +9,7 @@ export default class PopupWithImage extends Popup {
     this.url = null;
     this.title = null;
     this._container = document.querySelector('.screen');
-    this._closePopup = this._popup.querySelector('.button__close');
+    this._closePopup = this._popup.querySelector('.button-close-popup');
   };
 
   _extractImageUrl(backgroundImage) {

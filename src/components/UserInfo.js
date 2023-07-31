@@ -10,7 +10,7 @@ export default class UserInfo {
   constructor(popupSelector) {
     this._handleEscClose = this._handleEscClose.bind(this);
     this._popup = document.querySelector('.edit');
-    this._closePopup = this._popup.querySelector('.button__close')
+    this._closePopup = this._popup.querySelector('.button-close-popup')
   };
 
   getUserInfo() {
