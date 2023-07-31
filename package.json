@@ -4,7 +4,7 @@
   "description": "Este projeto foi elaborado pela [Practicum](https://practicum.com/pt-bra/), testando meus conhecimentos adquiridos neste período do curso.",
   "main": "./src/pages/index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "rm -rf dist && webpack --mode production",
     "dev": "webpack serve"
   },
   "author": "",
