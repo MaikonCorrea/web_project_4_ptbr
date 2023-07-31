@@ -1,57 +1,55 @@
 import Popup from "./Popup.js";
-import {cardsContainer,
-  popupImage,
-  popupTitle} from '../utils/constants.js'
+import { cardsContainer, popupImage, popupTitle } from "../utils/constants.js";
 
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
     this.url = null;
     this.title = null;
-    this._container = document.querySelector('.screen');
-    this._closePopup = this._popup.querySelector('.button-close-popup');
-  };
+    this._container = document.querySelector(".screen");
+    this._closePopup = this._popup.querySelector(".button-close-popup");
+  }
 
   _extractImageUrl(backgroundImage) {
     const urlRegex = /url\("(.+)"\)/;
     const match = backgroundImage.match(urlRegex);
     if (match && match.length === 2) {
       return match[1];
-    };
+    }
     return null;
-  };
+  }
 
   _handleEscClose(evt) {
-    if(evt.key === 'Escape') {
+    if (evt.key === "Escape") {
       this.close(evt);
-    };
-  };
+    }
+  }
 
   clear() {
-    this._container.innerHTML = ''
-  };
+    this._container.innerHTML = "";
+  }
 
   open() {
-    this._popup.classList.add('screen__image_opened');
-    document.addEventListener('keydown', this._handleEscClose);
+    this._popup.classList.add("screen__image_opened");
+    document.addEventListener("keydown", this._handleEscClose);
     popupImage.src = this._url;
     popupImage.alt = this._title;
     popupTitle.textContent = this._title;
-  };
+  }
 
   close(evt) {
-    this._popup.classList.add('screen__image_closing');
+    this._popup.classList.add("screen__image_closing");
     setTimeout(() => {
       this._popup.classList.remove("screen__image_closing");
       this._popup.classList.remove("screen__image_opened");
     }, 200);
     evt.preventDefault();
-    document.removeEventListener('keydown', this._handleEscClose);
-  };
+    document.removeEventListener("keydown", this._handleEscClose);
+  }
 
   setEventListeners() {
-    cardsContainer.addEventListener('click', (event)=> {
-      if(event.target.classList.contains('place__image')){
+    cardsContainer.addEventListener("click", (event) => {
+      if (event.target.classList.contains("place__image")) {
         const style = window.getComputedStyle(event.target);
         const backgroundImage = style.getPropertyValue("background-image");
         this._url = this._extractImageUrl(backgroundImage);
@@ -63,15 +61,15 @@ export default class PopupWithImage extends Popup {
       }
     });
 
-    this._closePopup.addEventListener('click', (evt)=> {
+    this._closePopup.addEventListener("click", (evt) => {
       this.close(evt);
     });
 
-    this._popup.addEventListener('click', (evt) => {
+    this._popup.addEventListener("click", (evt) => {
       const elementStyle = window.getComputedStyle(evt.target);
-      if (elementStyle.backgroundColor === 'rgba(0, 0, 0, 0.5)') {
+      if (elementStyle.backgroundColor === "rgba(0, 0, 0, 0.5)") {
         this.close(evt);
-      };
+      }
     });
-  };
+  }
 }

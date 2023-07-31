@@ -1,23 +1,22 @@
-import Popup from "./Popup.js"
-import {buttonSaveNewCard, openPopupButtonCard} from "../utils/constants.js"
-
+import Popup from "./Popup.js";
+import { buttonSaveNewCard, openPopupButtonCard } from "../utils/constants.js";
 
 export default class PopupWhithForm extends Popup {
   constructor(submitCallback, popupSelector) {
     super(popupSelector);
     this._submitCallback = submitCallback;
     this._getInputValues = this._getInputValues.bind(this);
-    this._container = document.querySelector(".gallery")
+    this._container = document.querySelector(".gallery");
   }
 
   addItem(element) {
-    this._container.prepend(element)
+    this._container.prepend(element);
   }
 
   _getInputValues() {
-    const inputs = this._popup.querySelectorAll('.input');
+    const inputs = this._popup.querySelectorAll(".input");
     const values = {};
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
       values[input.name] = input.value;
     });
     return values;
@@ -33,15 +32,13 @@ export default class PopupWhithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
 
-    openPopupButtonCard.addEventListener('click', ()=> {
+    openPopupButtonCard.addEventListener("click", () => {
       this.open();
     });
-    buttonSaveNewCard.addEventListener('click', (evt)=> {
+    buttonSaveNewCard.addEventListener("click", (evt) => {
       super.close(evt);
       const formData = this._getInputValues();
       this._submitCallback(formData);
     });
   }
 }
-
-
