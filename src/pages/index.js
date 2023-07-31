@@ -33,7 +33,6 @@ const popupWhithForm = new PopupWhithForm((item) => {
   const cardElement = newCard.generateCard();
   popupWhithForm.addItem(cardElement);
 }, popupCard);
-popupWhithForm.setEventListeners();
 
 const popupWithImage = new PopupWithImage(popupContainerScreen);
 popupWithImage.setEventListeners();

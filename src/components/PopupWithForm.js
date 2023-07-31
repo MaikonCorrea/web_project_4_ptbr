@@ -7,6 +7,7 @@ export default class PopupWhithForm extends Popup {
     this._submitCallback = submitCallback;
     this._getInputValues = this._getInputValues.bind(this);
     this._container = document.querySelector(".gallery");
+    this.setEventListeners();
   }
 
   addItem(element) {
