@@ -1,6 +1,6 @@
 import "./index.css";
 
-import FormValidation from "../components/FormValidation.js";
+import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import PopupWhithForm from "../components/PopupWithForm.js";
@@ -41,7 +41,7 @@ popupWithImage.setEventListeners();
 const userInfo = new UserInfo(popupEdit);
 userInfo.setEventListeners();
 
-const validator = new FormValidation({
+const validator = new FormValidator({
   inputErrorClass: "span__error",
   editButtonSave: ".edit__button-save",
   includeButtonSave: ".include__button-save",

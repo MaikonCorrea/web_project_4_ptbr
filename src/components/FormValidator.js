@@ -1,4 +1,4 @@
-export default class FormValidation {
+export default class FormValidator {
   constructor(options) {
     this._inputErrorClass = options.inputErrorClass;
     this._editButtonSave = options.editButtonSave;
