@@ -48,6 +48,9 @@ Implementado o fechamento dos popups ao acionar a tecla ESC, as validações dos
 Começamos a trabalhar com Programação Orientada a Objetos em  JavaScript e JavaScript Modular. <br>
 Precisei refatorar o código para a utilização de classes, já no JS modular, precisei separar o código e aplicar os conhecimentos adquiridos sobre exportação e importação, para que tudo funcionar da forma correta.
 
+#### _Na quinta parte:_
+Trabalhado com classes JS, precisei refatorar o código já existente para que a implementação de cada classe ocorrece da forma desejada, refatorado a classe Section para que ela tivessem um acoplamento fraco, sendo mais flexível, funcionando em diferentes situações.
+Trabalhado os conceitos de Herança, Encapsulamento e Polimorfismo.
 ---
 
 **Figma**
