@@ -8,6 +8,7 @@ export default class PopupWithImage extends Popup {
     this.title = null;
     this._container = document.querySelector(".screen");
     this._closePopup = this._popup.querySelector(".button-close-popup");
+    this.setEventListeners();
   }
 
   _extractImageUrl(backgroundImage) {

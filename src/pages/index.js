@@ -35,7 +35,7 @@ const popupWhithForm = new PopupWhithForm((item) => {
 }, popupCard);
 
 const popupWithImage = new PopupWithImage(popupContainerScreen);
-popupWithImage.setEventListeners();
+
 
 const userInfo = new UserInfo(popupEdit);
 userInfo.setEventListeners();
