@@ -15,7 +15,7 @@ export default class PopupWhithForm extends Popup {
   }
 
   _getInputValues() {
-    const inputs = this._popup.querySelectorAll('.popup__input');
+    const inputs = this._popup.querySelectorAll('.input');
     const values = {};
     inputs.forEach(input => {
       values[input.name] = input.value;
