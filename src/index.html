@@ -11,20 +11,19 @@
 <body class="page">
   <!-- header -->
   <header class="header">
-    <div class="header__logo"></div>
+    <img class="header__logo" src="<%=require('./images/Vector_Around.png')%>" alt="logo do site">
     <div class="header__line"></div>
   </header>
   <main class="content">
     <!-- profile com identificação do usuário -->
     <section class="profile">
-      <img class="profile__image" src="<%=require("./images/profile_image.png")%>" alt="imagem de perfil do usuário">
+      <img class="profile__image" src="<%= require('./images/profile_image.png')%>" alt="imagem de perfil do usuário">
       <div class="profile__info">
         <p class="profile__info-name" id="profileName">Jacques Cousteau</p>
-        <button class="profile__button-info" type="button"></button>
+        <button class="profile__button-info" type="button"><img src="<%= require('./images/vectoredition.png')%>" alt="botão para alterar perfil"></button>
         <p class="profile__info-discription">Explorar</p>
       </div>
-      <button class="profile__button-include" type="button">
-      </button>
+      <button class="profile__button-include" type="button"><img src="<%= require('./images/vectoradd.png')%>" alt="botão para adicionar nava imagem"></button>
       <!-- popup de edição perfil -->
       <form class="edit" id="edit" name="edit" novalidate>
         <div class="edit__popup">
@@ -75,10 +74,10 @@
   <template id="gallery__card">
     <li class="place">
       <img class="place__image" src="" alt="">
-      <button class="place__button-delete"></button>
+      <button class="place__button-delete"><img src="<%= require('./images/image_delete.png')%>" alt="botão para excluir postagem"></button>
       <div class="place__data">
         <h3 class="place__title"></h3>
-        <button class="place__button-like"></button>
+        <button class="place__button-like"><img src="<%= require('./images/button_Like_Desable.png')%>" alt="botão para curtir postagem"></button>
       </div>
     </li>
   </template>

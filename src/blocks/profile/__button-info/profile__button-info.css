@@ -1,9 +1,8 @@
 .profile__button-info {
 width: 24px;
 height: 24px;
-background: url(../../../images/vectoredition.png);
-  background-repeat: no-repeat;
-  background-position: center;
+background-repeat: no-repeat;
+background-position: center;
 border: 1px solid #FFFFFF;
 background-color: #000000;
 position: relative;

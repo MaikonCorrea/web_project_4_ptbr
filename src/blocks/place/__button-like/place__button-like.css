@@ -1,5 +1,5 @@
 .place__button-like {
-  background: url('../../../images/button_Like_Desable.png') center no-repeat;
+  background-color: rgba(0, 0, 0, 0);
   background-size: 100%;
   width: 21px;
   height: 19px;
