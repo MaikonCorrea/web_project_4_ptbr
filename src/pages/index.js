@@ -36,15 +36,26 @@ const popupWhithForm = new PopupWhithForm((item) => {
 
 const popupWithImage = new PopupWithImage(popupContainerScreen);
 
-
 const userInfo = new UserInfo(popupEdit);
 
-const validator = new FormValidator({
-  inputErrorClass: "span__error",
-  editButtonSave: ".edit__button-save",
-  includeButtonSave: ".include__button-save",
-  inactiveButtonSaveClass: "edit__button-save_disabled",
-  inactiveButtonIncludeClass: "include__button-save_disabled",
-});
+const formValidatorEdit = new FormValidator(
+  {
+    inputErrorClass: "span__error",
+    editButtonSave: ".edit__button-save",
+    includeButtonSave: ".include__button-save",
+    inactiveButtonSaveClass: "edit__button-save_disabled",
+    inactiveButtonIncludeClass: "include__button-save_disabled",
+  },
+  popupEdit
+);
 
-validator.enableValidation();
+const formValidatorCard = new FormValidator(
+  {
+    inputErrorClass: "span__error",
+    editButtonSave: ".edit__button-save",
+    includeButtonSave: ".include__button-save",
+    inactiveButtonSaveClass: "edit__button-save_disabled",
+    inactiveButtonIncludeClass: "include__button-save_disabled",
+  },
+  popupCard
+);

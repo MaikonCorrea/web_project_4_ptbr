@@ -1,10 +1,11 @@
 export default class FormValidator {
-  constructor(options) {
+  constructor(options, popupContainer) {
     this._inputErrorClass = options.inputErrorClass;
     this._editButtonSave = options.editButtonSave;
     this._includeButtonSave = options.includeButtonSave;
     this._inactiveButtonSaveClass = options.inactiveButtonSaveClass;
     this._inactiveButtonIncludeClass = options.inactiveButtonIncludeClass;
+    this.enableValidation();
   }
 
   enableValidation() {
