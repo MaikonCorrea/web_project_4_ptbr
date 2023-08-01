@@ -12,7 +12,8 @@ export default class Card {
 
   generateCard() {
     this._element = this.getTemplate();
-    this._element.querySelector(".place__image").style.backgroundImage = `url(${this._link})`;
+    this._element.querySelector(".place__image").src = `${this._link}`;
+    this._element.querySelector(".place__image").alt = `${this._name}`
     this._element.querySelector(".place__title").textContent = this._name;
     this._buttonLikeElement = this._element.querySelector(".place__button-like");
     this._buttonDeleteCard = this._element.querySelector(".place__button-delete");

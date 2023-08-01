@@ -11,15 +11,6 @@ export default class PopupWithImage extends Popup {
     this.setEventListeners();
   }
 
-  _extractImageUrl(backgroundImage) {
-    const urlRegex = /url\("(.+)"\)/;
-    const match = backgroundImage.match(urlRegex);
-    if (match && match.length === 2) {
-      return match[1];
-    }
-    return null;
-  }
-
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this.close(evt);
@@ -51,13 +42,11 @@ export default class PopupWithImage extends Popup {
   setEventListeners() {
     cardsContainer.addEventListener("click", (event) => {
       if (event.target.classList.contains("place__image")) {
-        const style = window.getComputedStyle(event.target);
-        const backgroundImage = style.getPropertyValue("background-image");
-        this._url = this._extractImageUrl(backgroundImage);
-        const titleElement = event.target
-          .closest(".place")
-          .querySelector(".place__title");
+        const imageURL = event.target.src;
+        this._url = imageURL;
+        const titleElement = event.target.closest(".place").querySelector(".place__title");
         this._title = titleElement.textContent;
+
         this.open();
       }
     });
