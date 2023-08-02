@@ -1,5 +1,5 @@
 .profile__info-discription {
-  max-width: 415px;
+  max-width: 350px;
   max-height: 22px;
   font-style: normal;
   font-weight: 400;
@@ -14,17 +14,18 @@
 @media screen and ( max-width: 768px) {
   .profile__info-discription {
     font-size: 1rem;
+    max-width: 282px;
+
     }
 }
 
 @media screen and ( max-width: 320px) {
   .profile__info-discription {
-    width: 282px;
-    height: 14px;
+    max-width: 200px;
+    height: 17px;
     font-size: 0.875rem;
     line-height: 1.062rem;
     display: flex;
-    justify-content: center;
-    margin-bottom: 36px;
+    margin-bottom: 19px;
     }
 }
