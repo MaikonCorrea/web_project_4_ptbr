@@ -7,10 +7,3 @@
   line-height: 1.375rem;
   color: #545454;
   }
-
-  @media screen and ( max-width: 320px) {
-    .footer__copyrigth {
-      font-size: 0.875rem;
-      line-height: 1.062rem;
-      }
-  }

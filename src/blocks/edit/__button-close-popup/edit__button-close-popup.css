@@ -16,7 +16,7 @@
   border-radius: 2px;
 }
 
-@media screen and ( max-width: 320px) {
+@media screen and ( max-width: 588px) {
   .edit__button-close-popup {
     width: 26px;
     height: 26px;

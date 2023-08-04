@@ -14,11 +14,11 @@
 
 @media screen and ( max-width: 768px) {
   .place__title {
-    width: 352px;
+    max-width: 347px;
     }
 }
 
-@media screen and ( max-width: 320px) {
+@media screen and ( max-width: 588px) {
   .place__title {
     width: 282px;
     }

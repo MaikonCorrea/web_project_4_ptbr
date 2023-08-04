@@ -10,7 +10,7 @@
 
 }
 
-@media screen and ( max-width: 320px) {
+@media screen and ( max-width: 588px) {
   .span {
     width: 238px;
     font-size: 0.65rem;

@@ -11,7 +11,7 @@
 }
 
 
-@media screen and ( max-width: 320px) {
+@media screen and ( max-width: 588px) {
   .edit__input-about {
     width: 238px;
     height: 17px;

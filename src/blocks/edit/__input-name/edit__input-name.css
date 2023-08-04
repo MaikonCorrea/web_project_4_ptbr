@@ -11,7 +11,7 @@
   outline: none;
 }
 
-@media screen and ( max-width: 320px) {
+@media screen and ( max-width: 588px) {
   .edit__input-name {
     width: 238px;
     height: 17px;

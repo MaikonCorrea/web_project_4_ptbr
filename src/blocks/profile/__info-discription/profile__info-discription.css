@@ -19,13 +19,13 @@
     }
 }
 
-@media screen and ( max-width: 320px) {
+@media screen and ( max-width: 588px) {
   .profile__info-discription {
     max-width: 200px;
     height: 17px;
     font-size: 0.875rem;
     line-height: 1.062rem;
-    display: flex;
-    margin-bottom: 19px;
+    margin-bottom: 30px;
+    grid-column-start: -3;
     }
 }

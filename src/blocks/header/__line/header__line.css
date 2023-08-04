@@ -9,13 +9,13 @@
 
   @media screen and ( max-width: 768px) {
     .header__line {
-        width: 733px;
+      max-width: 733px;
       }
   }
 
-  @media screen and ( max-width: 320px) {
+ @media screen and ( max-width: 588px) {
     .header__line {
-      max-width: 288px;
+      max-width: 578px;
       margin-top: 32px;
       }
   }

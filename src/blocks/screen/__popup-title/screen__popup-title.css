@@ -10,7 +10,7 @@
   bottom: -10px;
 }
 
-@media screen and ( max-width: 320px) {
+@media screen and ( max-width: 588px) {
   .screen__popup-title {
     width: 240px;
 }
