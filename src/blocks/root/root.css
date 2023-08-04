@@ -5,8 +5,23 @@
 }
 
 
-body {
-  min-height: 100vh;
-  font-family: "Inter", sans-serif;
-  background-color: #000000;
+
+.content {
+  border: 1px solid red;
+  max-width: 880px;
+  width: 100%;
+  margin: auto;
+}
+
+@media screen and ( max-width: 768px) {
+  body {
+    min-width: 770px;
+    }
+}
+
+
+@media screen and ( max-width: 320px) {
+  body {
+    min-width: 320px;
+    }
 }

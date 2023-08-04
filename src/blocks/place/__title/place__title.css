@@ -1,5 +1,5 @@
 .place__title {
-  width: 246px;
+  max-width: 246px;
   height: 30px;
   font-style: normal;
   font-weight: 900;

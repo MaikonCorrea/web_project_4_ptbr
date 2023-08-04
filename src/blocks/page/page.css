@@ -1,30 +1,9 @@
 .page {
   max-width: 1280px;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  background-color: #000000;
+  border: 1px solid white;
   margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-items: center;
-  flex-direction: column;
-  align-items: center;
-
-  }
-
-
-  @media screen and ( max-width: 1024px) {
-    .page {
-      min-width: 910px;
-      }
-  }
-
-  @media screen and ( max-width: 768px) {
-    .page {
-      min-width: 770px;
-      }
-  }
-
-
-  @media screen and ( max-width: 320px) {
-    .page {
-      min-width: 320px;
-      }
-  }
+}

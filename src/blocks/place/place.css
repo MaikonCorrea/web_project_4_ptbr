@@ -1,11 +1,12 @@
 .place {
-  width: 282px;
-  height: 361px;
+  max-width: 282px;
+  width: 100%;
   position: relative;
   list-style: none;
+  border: 1px solid white;
 }
 
-@media screen and ( max-width: 768px) {
+/* @media screen and ( max-width: 768px) {
   .place {
     width: 352px;
     height: 431px;
@@ -19,3 +20,4 @@
     height: 361px;
     }
   }
+ */

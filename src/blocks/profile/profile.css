@@ -1,9 +1,11 @@
 .profile {
-width: 880px;
-height: 120px;
+width: 100%;
+max-width: 880px;
+height: 100%;
 display: flex;
 align-items: center;
 margin-top: 36.25px;
+margin: auto;
 }
 
 @media screen and ( max-width: 768px) {
