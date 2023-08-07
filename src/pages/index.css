@@ -18,6 +18,7 @@
 @import url(../blocks/profile/__info-name/profile__info-name.css);
 @import url(../blocks/profile/__info-discription/profile__info-discription.css);
 @import url(../blocks/profile/__button-include/profile__button-include.css);
+@import url(../blocks/profile/__button-edit-image/profile__button-edit-image.css);
 @import url(../blocks/profile/__info-name_smaller/profile__info-name_smaller.css);
 @import url(../blocks/profile/__info-name_smallest/profile__info-name_smallest.css);
 /* edit */
@@ -36,8 +37,8 @@
 @import url(../blocks/photograph/__popup/photograph__popup.css);
 @import url(../blocks/photograph/__popup-title/photograph__popup-title.css);
 @import url(../blocks/photograph/__input-link/photograph__input-link.css);
-@import url(../blocks/photograph/__button-save_disabled/photograph__button-save_disabled.css);
 @import url(../blocks/photograph/__button-save/photograph__button-save.css);
+@import url(../blocks/photograph/__button-save_disabled/photograph__button-save_disabled.css);
 @import url(../blocks/photograph/__button-close-popup/photograph__button-close-popup.css);
 /* include */
 @import url(../blocks/include/include.css);
