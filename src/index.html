@@ -17,7 +17,7 @@
   <main class="content">
     <!-- profile com identificação do usuário -->
     <section class="profile">
-      <img class="profile__image" src="<%= require('./images/profile_image.png')%>" alt="imagem de perfil do usuário">
+      <button class="profile__button-edit-image"><img class="profile__image" src="<%= require('./images/profile_image.png')%>" alt="imagem de perfil do usuário"></button>
       <div class="profile__info">
         <p class="profile__info-name" id="profileName">Jacques Cousteau</p>
         <button class="profile__button-info" type="button"><img src="<%= require('./images/vectoredition.png')%>" alt="botão para alterar perfil"></button>
@@ -31,8 +31,8 @@
           <h2 class="photograph__popup-title">Alterar a foto do perfil</h2>
           <input class="photograph__input-link input" type="url" name="url" placeholder="URL da imagem" required>
           <span class="span span_url-message"></span>
-          <button name="button" class="photograph__button-save include__button-save_disabled" type="submit"
-            disabled>Salvar</button>
+          <button name="button" class="photograph__button-save photograph__button-save_disabled" type="submit"
+          disabled="true">Criar</button>
             <button id="photograph" class="photograph__button-close-popup button-close-popup"></button>
         </div>
       </form>
