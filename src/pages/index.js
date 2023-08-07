@@ -6,7 +6,9 @@ import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import PopupWhithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import UserInfo from "../components/UserInfo";
+import UserInfo from "../components/UserInfo.js";
+//import PopupDeleteCard from "../components/PopupDeletCard.js";
+
 import {
   initialCards,
   cardsContainer,
@@ -15,6 +17,7 @@ import {
   popupEdit,
   photographPopup,
   configValidator,
+  /* popupDelete, */
 } from "../utils/constants.js";
 
 const cardList = new Section(
@@ -42,6 +45,8 @@ const popupWithImage = new PopupWithImage(popupContainerScreen);
 const userInfo = new UserInfo(popupEdit);
 
 const userInfoImage = new UserInfoImage(photographPopup);
+
+//const popupDeleteCard = new PopupDeleteCard(popupDelete);
 
 const formValidatorEdit = new FormValidator(configValidator, popupEdit);
 
