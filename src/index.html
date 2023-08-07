@@ -24,6 +24,19 @@
         <p class="profile__info-discription">Explorar</p>
       </div>
       <button class="profile__button-include" type="button"><img src="<%= require('./images/vectoradd.png')%>" alt="botão para adicionar nava imagem"></button>
+
+      <!-- popup alterar foto de perfil -->
+      <form class="photograph" id="photograph" name="photograph" novalidate>
+        <div class="photograph__popup">
+          <h2 class="photograph__popup-title">Alterar a foto do perfil</h2>
+          <input class="photograph__input-link input" type="url" name="url" placeholder="URL da imagem" required>
+          <span class="span span_url-message"></span>
+          <button name="button" class="photograph__button-save include__button-save_disabled" type="submit"
+            disabled>Salvar</button>
+            <button id="photograph" class="photograph__button-close-popup button-close-popup"></button>
+        </div>
+      </form>
+
       <!-- popup de edição perfil -->
       <form class="edit" id="edit" name="edit" novalidate>
         <div class="edit__popup">
