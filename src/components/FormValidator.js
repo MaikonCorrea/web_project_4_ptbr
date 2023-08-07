@@ -3,8 +3,10 @@ export default class FormValidator {
     this._inputErrorClass = options.inputErrorClass;
     this._editButtonSave = options.editButtonSave;
     this._includeButtonSave = options.includeButtonSave;
+    this._photographButtonSave = options.photographButtonSave;
     this._inactiveButtonSaveClass = options.inactiveButtonSaveClass;
     this._inactiveButtonIncludeClass = options.inactiveButtonIncludeClass;
+    this._inactiveButtonPhotographClass = options.inactiveButtonPhotographClass;
     this.enableValidation();
   }
 
@@ -16,7 +18,7 @@ export default class FormValidator {
         if (!element.validity.valid) {
           input.classList.add(this.inputErrorClass);
           if (element.type === "url" && element.value.trim() !== "") {
-            messageSpan.textContent = "Por favor, insira um endereÃ§o web.";
+            messageSpan.textContent = "Por favor, insira um endereço web.";
           } else {
             messageSpan.textContent = element.validationMessage;
           }
@@ -34,19 +36,28 @@ export default class FormValidator {
     const disableButtons = () => {
       const saveButtonEdit = document.querySelector(this._editButtonSave);
       const saveButtonInclude = document.querySelector(this._includeButtonSave);
+      const saveButtonPhotograph = document.querySelector(this._photographButtonSave);
       saveButtonEdit.setAttribute("disabled", true);
       saveButtonInclude.setAttribute("disabled", true);
+      saveButtonPhotograph.setAttribute("disabled", true);
       saveButtonEdit.classList.add(this._inactiveButtonSaveClass);
       saveButtonInclude.classList.add(this._inactiveButtonIncludeClass);
+      saveButtonPhotograph.classList.add(this._inactiveButtonPhotographClass);
+
     };
 
     const enableButtons = () => {
       const saveButtonEdit = document.querySelector(this._editButtonSave);
       const saveButtonInclude = document.querySelector(this._includeButtonSave);
+      const saveButtonPhotograph = document.querySelector(this._photographButtonSave);
       saveButtonEdit.removeAttribute("disabled");
       saveButtonInclude.removeAttribute("disabled");
+      saveButtonPhotograph.removeAttribute("disabled");
       saveButtonEdit.classList.remove(this._inactiveButtonSaveClass);
       saveButtonInclude.classList.remove(this._inactiveButtonIncludeClass);
+      saveButtonPhotograph.classList.remove(this._inactiveButtonPhotographClass);
+
+
     };
 
     const allForms = Array.from(document.forms);

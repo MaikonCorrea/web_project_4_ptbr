@@ -1,5 +1,6 @@
 import "./index.css";
 
+import UserInfoImage from "../components/UserInfoImage.js"
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
@@ -12,6 +13,7 @@ import {
   popupCard,
   popupContainerScreen,
   popupEdit,
+  photographPopup,
 } from "../utils/constants.js";
 
 const cardList = new Section(
@@ -38,13 +40,17 @@ const popupWithImage = new PopupWithImage(popupContainerScreen);
 
 const userInfo = new UserInfo(popupEdit);
 
+const userInfoImage = new UserInfoImage(photographPopup);
+
 const formValidatorEdit = new FormValidator(
   {
     inputErrorClass: "span__error",
     editButtonSave: ".edit__button-save",
     includeButtonSave: ".include__button-save",
+    photographButtonSave: ".photograph__button-save",
     inactiveButtonSaveClass: "edit__button-save_disabled",
     inactiveButtonIncludeClass: "include__button-save_disabled",
+    inactiveButtonPhotographClass: "photograph__button-save_disabled",
   },
   popupEdit
 );
@@ -54,8 +60,26 @@ const formValidatorCard = new FormValidator(
     inputErrorClass: "span__error",
     editButtonSave: ".edit__button-save",
     includeButtonSave: ".include__button-save",
+    photographButtonSave: ".photograph__button-save",
     inactiveButtonSaveClass: "edit__button-save_disabled",
     inactiveButtonIncludeClass: "include__button-save_disabled",
+    inactiveButtonPhotographClass: "photograph__button-save_disabled",
+
   },
   popupCard
 );
+
+const formValidatorPhotograph = new FormValidator(
+  {
+    inputErrorClass: "span__error",
+    editButtonSave: ".edit__button-save",
+    includeButtonSave: ".include__button-save",
+    photographButtonSave: ".photograph__button-save",
+    inactiveButtonSaveClass: "edit__button-save_disabled",
+    inactiveButtonIncludeClass: "include__button-save_disabled",
+    inactiveButtonPhotographClass: "photograph__button-save_disabled",
+  },
+  photographPopup
+);
+
+
