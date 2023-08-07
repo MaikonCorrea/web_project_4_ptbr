@@ -37,6 +37,16 @@
         </div>
       </form>
 
+      <!-- popup confirmação exclusão cartão -->
+      <form class="delete popup_opened" id="delete" name="delete" novalidate>
+        <div class="delete__popup">
+          <h2 class="delete__popup-title">Tem certeza?</h2>
+          <button name="button" class="delete__button-save" type="submit"
+          disabled="true">Sim</button>
+            <button id="delete" class="delete__button-close-popup button-close-popup"></button>
+        </div>
+      </form>
+
       <!-- popup de edição perfil -->
       <form class="edit" id="edit" name="edit" novalidate>
         <div class="edit__popup">
