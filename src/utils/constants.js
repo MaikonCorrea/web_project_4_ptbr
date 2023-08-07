@@ -21,6 +21,11 @@ export const popupImage = document.querySelector(".screen__image-dynamics");
 export const popupTitle = document.querySelector(".screen__popup-title");
 export const popupImagescrenn = document.querySelector(".place__image");
 export const popupTitleScreen = document.querySelector(".place__title");
+export const buttonOpenEditImageProfile = document.querySelector(".profile__button-edit-image");
+export const inputImageProfile = document.querySelector(".photograph__input-link");
+export const buttonSaveImageProfile = document.querySelector(".photograph__button-save");
+export const photographPopup = document.querySelector(".photograph");
+
 
 export const initialCards = [
   {
