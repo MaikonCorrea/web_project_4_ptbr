@@ -14,6 +14,7 @@ import {
   popupContainerScreen,
   popupEdit,
   photographPopup,
+  configValidator,
 } from "../utils/constants.js";
 
 const cardList = new Section(
@@ -42,44 +43,10 @@ const userInfo = new UserInfo(popupEdit);
 
 const userInfoImage = new UserInfoImage(photographPopup);
 
-const formValidatorEdit = new FormValidator(
-  {
-    inputErrorClass: "span__error",
-    editButtonSave: ".edit__button-save",
-    includeButtonSave: ".include__button-save",
-    photographButtonSave: ".photograph__button-save",
-    inactiveButtonSaveClass: "edit__button-save_disabled",
-    inactiveButtonIncludeClass: "include__button-save_disabled",
-    inactiveButtonPhotographClass: "photograph__button-save_disabled",
-  },
-  popupEdit
-);
+const formValidatorEdit = new FormValidator(configValidator, popupEdit);
 
-const formValidatorCard = new FormValidator(
-  {
-    inputErrorClass: "span__error",
-    editButtonSave: ".edit__button-save",
-    includeButtonSave: ".include__button-save",
-    photographButtonSave: ".photograph__button-save",
-    inactiveButtonSaveClass: "edit__button-save_disabled",
-    inactiveButtonIncludeClass: "include__button-save_disabled",
-    inactiveButtonPhotographClass: "photograph__button-save_disabled",
+const formValidatorCard = new FormValidator(configValidator, popupCard);
 
-  },
-  popupCard
-);
-
-const formValidatorPhotograph = new FormValidator(
-  {
-    inputErrorClass: "span__error",
-    editButtonSave: ".edit__button-save",
-    includeButtonSave: ".include__button-save",
-    photographButtonSave: ".photograph__button-save",
-    inactiveButtonSaveClass: "edit__button-save_disabled",
-    inactiveButtonIncludeClass: "include__button-save_disabled",
-    inactiveButtonPhotographClass: "photograph__button-save_disabled",
-  },
-  photographPopup
-);
+const formValidatorPhotograph = new FormValidator(configValidator,photographPopup);
 
 
