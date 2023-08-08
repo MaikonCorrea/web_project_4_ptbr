@@ -25,8 +25,25 @@ export const buttonOpenEditImageProfile = document.querySelector(".profile__butt
 export const inputImageProfile = document.querySelector(".photograph__input-link");
 export const buttonSaveImageProfile = document.querySelector(".photograph__button-save");
 export const photographPopup = document.querySelector(".photograph");
+export const owner = {
+  id: "e2bad784-3e1f-478a-b640-635d640e7341",
+  cohort: " web_ptbr_05"
+}
 
 
+export const configValidator = {
+  inputErrorClass: "span__error",
+  editButtonSave: ".edit__button-save",
+  includeButtonSave: ".include__button-save",
+  photographButtonSave: ".photograph__button-save",
+  inactiveButtonSaveClass: "edit__button-save_disabled",
+  inactiveButtonIncludeClass: "include__button-save_disabled",
+  inactiveButtonPhotographClass: "photograph__button-save_disabled",
+}
+
+
+
+/*
 export const initialCards = [
   {
     name: "Yellostone National Park",
@@ -52,14 +69,5 @@ export const initialCards = [
     name: "Golden Gate Bridge",
     link: "https://images.unsplash.com/photo-1558150503-0fdcce137289?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=715&q=80",
   },
-];
+]; */
 
-export const configValidator = {
-  inputErrorClass: "span__error",
-  editButtonSave: ".edit__button-save",
-  includeButtonSave: ".include__button-save",
-  photographButtonSave: ".photograph__button-save",
-  inactiveButtonSaveClass: "edit__button-save_disabled",
-  inactiveButtonIncludeClass: "include__button-save_disabled",
-  inactiveButtonPhotographClass: "photograph__button-save_disabled",
-}
