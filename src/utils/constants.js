@@ -27,7 +27,7 @@ export const buttonSaveImageProfile = document.querySelector(".photograph__butto
 export const photographPopup = document.querySelector(".photograph");
 export const owner = {
   id: "e2bad784-3e1f-478a-b640-635d640e7341",
-  cohort: " web_ptbr_05"
+  cohort: "web_ptbr_05"
 }
 
 

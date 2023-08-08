@@ -15,7 +15,7 @@ export default class Api {
     })
   }
 
-  getCards( ) {
+  getCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: {
