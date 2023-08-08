@@ -1,4 +1,8 @@
-import {buttonSaveImageProfile, buttonOpenEditImageProfile, inputImageProfile} from "../utils/constants.js"
+import {
+  buttonSaveImageProfile,
+  buttonOpenEditImageProfile,
+  inputImageProfile
+} from "../utils/constants.js"
 
 export default class UserInfoImage {
   constructor(popupSelector) {
