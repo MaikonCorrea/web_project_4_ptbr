@@ -20,7 +20,6 @@ import {
   inputTitleInclude,
   inputUrlInclude,
   popupDelete,
-  buttonDeleteCard,
 } from "../utils/constants.js";
 import PopupDeleteCard from "../components/PopupDeleteCard";
 
@@ -33,7 +32,13 @@ let cardList;
 
 clientAPI
   .getCards()
-  .then((res) => res.json())
+  .then((res) => {
+    if(res.ok) {
+      return res.json();
+    }else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  })
   .then((res) => {
     cardList = new Section(
       {
@@ -50,13 +55,18 @@ clientAPI
       cardsContainer
     );
     cardList.renderer();
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 clientAPI
   .getUsers()
   .then((res) => {
-    if (res.ok) {
+    if(res.ok) {
       return res.json();
+    }else {
+      return Promise.reject(`Error: ${res.status}`);
     }
   })
   .then((res) => {
@@ -66,6 +76,9 @@ clientAPI
     imagePerfil.src = res.avatar;
     profileName.textContent = res.name;
     profileAbout.textContent = res.about;
+  })
+  .catch((err) => {
+    console.log(err); 
   });
 
 const popupWhithForm = new PopupWhithForm((item) => {
@@ -78,10 +91,10 @@ const popupWhithForm = new PopupWhithForm((item) => {
       createdAt: new Date().toISOString(),
     })
     .then((res) => {
-      if (res.ok) {
+      if(res.ok) {
         return res.json();
-      } else {
-        return Promise.reject(res.status);
+      }else {
+        return Promise.reject(`Error: ${res.status}`);
       }
     })
     .then((res) => {
@@ -99,7 +112,7 @@ const popupWhithForm = new PopupWhithForm((item) => {
     })
     .catch((err) => {
       alert(`Error: ${err}`);
-    });
+    })
 }, popupCard);
 
 let idItem;
@@ -118,6 +131,8 @@ export function confirmDelete() {
         const elementToRemove = document.getElementById(idItem);
         if (elementToRemove) {
           elementToRemove.remove();
+        }else {
+          return Promise.reject(`Error: ${res.status}`);
         }
       }
     })
@@ -138,10 +153,10 @@ export function getUrlNewAvatar() {
   clientAPI
     .getProfilePicture(newAvatarData)
     .then((res) => {
-      if (res.ok) {
+      if(res.ok) {
         return res.json();
-      } else {
-        return Promise.reject(`Erro na solicitação PATCH: ${res.status}`);
+      }else {
+        return Promise.reject(`Error: ${res.status}`);
       }
     })
     .catch((error) => {
@@ -159,14 +174,14 @@ export function getDescriptionPerfil() {
   clientAPI
     .updateDescriptionPerfil(newDescriptionrData)
     .then((res) => {
-      if (res.ok) {
+      if(res.ok) {
         return res.json();
-      } else {
-        return Promise.reject(`Erro na solicitação PATCH: ${res.status}`);
+      }else {
+        return Promise.reject(`Error: ${res.status}`);
       }
     })
     .catch((error) => {
-      alert("Erro ao alterar a foto do perfil:", `${error}`);
+      alert("Erro ao alterar a descrição do perfil:", `${error}`);
     });
 }
 

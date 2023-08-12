@@ -99,7 +99,10 @@
       <button class="place__button-delete"><img src="<%= require('./images/image_delete.png')%>" alt="botão para excluir postagem"></button>
       <div class="place__data">
         <h3 class="place__title"></h3>
-        <button class="place__button-like"><img src="<%= require('./images/button_Like_Desable.png')%>" alt="botão para curtir postagem"></button>
+        <div class="place__like">
+          <button class="place__button-like"><img src="<%= require('./images/button_Like_Desable.png')%>" alt="botão para curtir postagem"></button>
+          <p class="place__like-number">0</p>
+        </div>
       </div>
     </li>
   </template>
