@@ -37,7 +37,7 @@ export default class Api {
     })
   }
 
-  updateCards(data) {
+  updateDescriptionPerfil(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: {
@@ -54,8 +54,19 @@ export default class Api {
       headers: {
                   authorization: this._token,
                 "Content-Type": "application/json" },
-  })
- }
+    })
+  }
+
+  getProfilePicture(data) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: {
+        authorization: this._token,
+        "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+  }
 
 }
 

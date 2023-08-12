@@ -24,8 +24,6 @@ import {
 } from "../utils/constants.js";
 import PopupDeleteCard from "../components/PopupDeleteCard";
 
-
-
 const clientAPI = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05",
   token: "e2bad784-3e1f-478a-b640-635d640e7341",
@@ -54,6 +52,22 @@ clientAPI
     cardList.renderer();
   });
 
+clientAPI
+  .getUsers()
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+  })
+  .then((res) => {
+    const imagePerfil = document.querySelector(".profile__image");
+    const profileName = document.querySelector(".profile__info-name");
+    const profileAbout = document.querySelector(".profile__info-discription");
+    imagePerfil.src = res.avatar;
+    profileName.textContent = res.name;
+    profileAbout.textContent = res.about;
+  });
+
 const popupWhithForm = new PopupWhithForm((item) => {
   clientAPI
     .createCards({
@@ -77,8 +91,9 @@ const popupWhithForm = new PopupWhithForm((item) => {
           name: res.name,
           link: res.link,
           owner,
-        },templateSelector: ".place"
-      })
+        },
+        templateSelector: ".place",
+      });
       const card = newCard.generateCard();
       cardList.addItem(card);
     })
@@ -86,7 +101,6 @@ const popupWhithForm = new PopupWhithForm((item) => {
       alert(`Error: ${err}`);
     });
 }, popupCard);
-
 
 let idItem;
 export function handleDeletCardId(event) {
@@ -112,6 +126,50 @@ export function confirmDelete() {
     });
 }
 
+export function getUrlNewAvatar() {
+  const newUrl = document.querySelector(".photograph__input-link").value;
+  const profileName = document.querySelector(".edit__input-name").value;
+  const profileAbout = document.querySelector(".edit__input-about").value;
+  const newAvatarData = {
+    avatar: newUrl,
+    name: profileName,
+    about: profileAbout,
+  };
+  clientAPI
+    .getProfilePicture(newAvatarData)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Erro na solicitação PATCH: ${res.status}`);
+      }
+    })
+    .catch((error) => {
+      alert("Erro ao alterar a foto do perfil:", `${error}`);
+    });
+}
+
+export function getDescriptionPerfil() {
+  const profileName = document.querySelector(".edit__input-name").value;
+  const profileAbout = document.querySelector(".edit__input-about").value;
+  const newDescriptionrData = {
+    name: profileName,
+    about: profileAbout,
+  };
+  clientAPI
+    .updateDescriptionPerfil(newDescriptionrData)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Erro na solicitação PATCH: ${res.status}`);
+      }
+    })
+    .catch((error) => {
+      alert("Erro ao alterar a foto do perfil:", `${error}`);
+    });
+}
+
 const popupWithImage = new PopupWithImage(popupContainerScreen);
 
 const userInfo = new UserInfo(popupEdit);
@@ -124,4 +182,7 @@ const formValidatorEdit = new FormValidator(configValidator, popupEdit);
 
 const formValidatorCard = new FormValidator(configValidator, popupCard);
 
-const formValidatorPhotograph = new FormValidator(configValidator,photographPopup);
+const formValidatorPhotograph = new FormValidator(
+  configValidator,
+  photographPopup
+);

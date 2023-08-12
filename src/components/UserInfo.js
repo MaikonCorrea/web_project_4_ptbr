@@ -1,3 +1,5 @@
+import {getDescriptionPerfil} from "../pages/index.js"
+
 import {
   inputName,
   infoName,
@@ -64,6 +66,7 @@ export default class UserInfo {
       this.close(evt);
       this.getUserInfo();
       this.setUserInfo();
+      getDescriptionPerfil();
     });
 
     this._popup.addEventListener("click", (evt) => {

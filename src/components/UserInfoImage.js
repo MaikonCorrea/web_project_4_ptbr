@@ -3,6 +3,7 @@ import {
   buttonOpenEditImageProfile,
   inputImageProfile
 } from "../utils/constants.js"
+import {getUrlNewAvatar} from "../pages/index.js"
 
 export default class UserInfoImage {
   constructor(popupSelector) {
@@ -12,10 +13,6 @@ export default class UserInfoImage {
     this.setEventListeners();
   }
 
-  getUserInfo() {
-    const userImage = document.querySelector(".photograph__input-link").value;
-    return userImage;
-  }
   open() {
     this._popup.classList.add("popup_opened");
     buttonSaveImageProfile.classList.add("photograph__button-save_disabled")
@@ -49,6 +46,7 @@ export default class UserInfoImage {
     });
 
     buttonSaveImageProfile.addEventListener("click", (evt) => {
+      getUrlNewAvatar()
       this.close(evt)
     });
 
