@@ -34,16 +34,19 @@ clientAPI
   .getCards()
   .then((res) => {
     if(res.ok) {
+
       return res.json();
     }else {
       return Promise.reject(`Error: ${res.status}`);
     }
   })
   .then((res) => {
+    console.log(res)
     cardList = new Section(
       {
         items: res,
         render: (item) => {
+
           const card = new Card({
             item: item,
             templateSelector: ".place",
@@ -78,17 +81,17 @@ clientAPI
     profileAbout.textContent = res.about;
   })
   .catch((err) => {
-    console.log(err); 
+    console.log(err);
   });
 
 const popupWhithForm = new PopupWhithForm((item) => {
   clientAPI
     .createCards({
-      likes: [],
-      name: inputTitleInclude.value,
-      link: inputUrlInclude.value,
-      owner: owner,
-      createdAt: new Date().toISOString(),
+      "likes": [],
+      "name": inputTitleInclude.value,
+      "link": inputUrlInclude.value,
+      "owner": owner,
+      "createdAt": new Date().toISOString(),
     })
     .then((res) => {
       if(res.ok) {
@@ -100,6 +103,7 @@ const popupWhithForm = new PopupWhithForm((item) => {
     .then((res) => {
       const newCard = new Card({
         item: {
+          likes: res.likes,
           _id: res._id,
           name: res.name,
           link: res.link,

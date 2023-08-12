@@ -6,6 +6,7 @@ import { owner, popupDelete } from "../utils/constants.js";
 export default class Card {
   constructor({item, templateSelector}) {
     this._templateSelector = templateSelector;
+    this._like = item.likes;
     this._id = item._id;
     this._title = item.name;
     this._url = item.link;
@@ -26,6 +27,7 @@ export default class Card {
     this._element.querySelector(".place__image").setAttribute('src', this._url);
     this._element.querySelector(".place__image").setAttribute('alt', this._title);
     this._element.querySelector(".place__title").textContent = this._title;
+    this._element.querySelector(".place__like-number").textContent =  this._like.length.toString();
     this._buttonLikeElement = this._element.querySelector(".place__button-like");
     this._buttonDeleteCard = this._element.querySelector(".place__button-delete");
 
