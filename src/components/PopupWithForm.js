@@ -10,10 +10,6 @@ export default class PopupWhithForm extends Popup {
     this.setEventListeners();
   }
 
-  addItem(element) {
-    this._container.prepend(element);
-  }
-
   _getInputValues() {
     const inputs = this._popup.querySelectorAll(".input");
     const values = {};

@@ -1,13 +1,16 @@
-import {owner} from "../utils/constants.js"
+import {handleDeletCardId} from "../pages/index.js"
+
+import { owner, popupDelete } from "../utils/constants.js";
+
 
 export default class Card {
-  constructor({item, templateSelector, deleteCard}) {
+  constructor({item, templateSelector}) {
     this._templateSelector = templateSelector;
     this._id = item._id;
     this._title = item.name;
     this._url = item.link;
     this._owner = item.owner;
-    this.deleteCard = deleteCard;
+    this._handleEscClose = this._handleEscClose.bind(this);
   };
 
   getTemplate() {
@@ -19,23 +22,35 @@ export default class Card {
   generateCard() {
     this._element = this.getTemplate();
     this._element.setAttribute("id", this._id);
-    this._element.setAttribute("owner.id", this._owner._id)
+    this._element.setAttribute("owner._id", this._owner._id)
     this._element.querySelector(".place__image").setAttribute('src', this._url);
     this._element.querySelector(".place__image").setAttribute('alt', this._title);
     this._element.querySelector(".place__title").textContent = this._title;
     this._buttonLikeElement = this._element.querySelector(".place__button-like");
     this._buttonDeleteCard = this._element.querySelector(".place__button-delete");
+
+    if (this._owner._id === owner._id) {
+      this._buttonDeleteCard.style.display = "block";
+    } else {
+      this._buttonDeleteCard.style.display = "none";
+    }
     this.setEventListeners();
     return this._element;
-  };
+  }
 
-  _removeCard(event) {
-    const checkId = owner.id == event.target.parentElement.getAttribute("owner_id");
-    if(!checkId) {
-      alert("Você só pode remover os seus Cards")
-      return
+  _handleEscClose(evt) {
+    if (evt.key === "Escape") {
+      this.close(evt);
     }
-    this.deleteCard()
+  }
+  close(evt) {
+    popupDelete.classList.add("popup_closing");
+    setTimeout(() => {
+      popupDelete.classList.remove("popup_closing");
+      popupDelete.classList.remove("popup_opened");
+    }, 200);
+    evt.preventDefault();
+    document.removeEventListener("keydown", this._handleEscClose);
   }
 
   setEventListeners() {
@@ -43,12 +58,11 @@ export default class Card {
       this._buttonLikeElement.classList.toggle("place__button-like_active");
     });
 
-    this._buttonDeleteCard.addEventListener("click", () => {
-      this.deleteCard();
-    });
-  };
+    this._buttonDeleteCard.addEventListener("click", (event)=> {
+      popupDelete.classList.add("popup_opened")
+      document.addEventListener("keydown", this._handleEscClose);
+      handleDeletCardId(event)
+    })
 
-  deleteCard() {
-    this._element.remove();
   };
 };

@@ -17,12 +17,20 @@ import {
   popupEdit,
   photographPopup,
   configValidator,
+  inputTitleInclude,
+  inputUrlInclude,
+  popupDelete,
+  buttonDeleteCard,
 } from "../utils/constants.js";
+import PopupDeleteCard from "../components/PopupDeleteCard";
+
+
 
 const clientAPI = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05",
   token: "e2bad784-3e1f-478a-b640-635d640e7341",
 });
+
 let cardList;
 
 clientAPI
@@ -36,7 +44,6 @@ clientAPI
           const card = new Card({
             item: item,
             templateSelector: ".place",
-            deleteCard: () => deleteCard(item),
           });
           const cardElement = card.generateCard();
           cardList.addItem(cardElement);
@@ -48,10 +55,62 @@ clientAPI
   });
 
 const popupWhithForm = new PopupWhithForm((item) => {
-  const newCard = new Card({ name: item.title, link: item.url });
-  const cardElement = newCard.generateCard();
-  popupWhithForm.addItem(cardElement);
+  clientAPI
+    .createCards({
+      likes: [],
+      name: inputTitleInclude.value,
+      link: inputUrlInclude.value,
+      owner: owner,
+      createdAt: new Date().toISOString(),
+    })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(res.status);
+      }
+    })
+    .then((res) => {
+      const newCard = new Card({
+        item: {
+          _id: res._id,
+          name: res.name,
+          link: res.link,
+          owner,
+        },templateSelector: ".place"
+      })
+      const card = newCard.generateCard();
+      cardList.addItem(card);
+    })
+    .catch((err) => {
+      alert(`Error: ${err}`);
+    });
 }, popupCard);
+
+
+let idItem;
+export function handleDeletCardId(event) {
+  const ElementId = event.target.closest(".place");
+  if (ElementId) {
+    idItem = ElementId.getAttribute("id");
+  }
+}
+
+export function confirmDelete() {
+  clientAPI
+    .deleteCard(idItem)
+    .then((res) => {
+      if (res.ok) {
+        const elementToRemove = document.getElementById(idItem);
+        if (elementToRemove) {
+          elementToRemove.remove();
+        }
+      }
+    })
+    .catch((error) => {
+      alert("Erro ao excluir o item:", error);
+    });
+}
 
 const popupWithImage = new PopupWithImage(popupContainerScreen);
 
@@ -59,28 +118,10 @@ const userInfo = new UserInfo(popupEdit);
 
 const userInfoImage = new UserInfoImage(photographPopup);
 
+const popupDeleteCard = new PopupDeleteCard(popupDelete);
+
 const formValidatorEdit = new FormValidator(configValidator, popupEdit);
 
 const formValidatorCard = new FormValidator(configValidator, popupCard);
 
-const formValidatorPhotograph = new FormValidator(
-  configValidator,
-  photographPopup
-);
-
-const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05",
-  headers: {
-    authorization: "e2bad784-3e1f-478a-b640-635d640e7341",
-    "Content-Type": "application/json",
-  },
-});
-fetch("https://around.nomoreparties.co/v1/web_ptbr_05/cards", {
-  headers: {
-    authorization: "e2bad784-3e1f-478a-b640-635d640e7341",
-  },
-})
-  .then((res) => res.json())
-  .then((result) => {
-    console.log(result);
-  });
+const formValidatorPhotograph = new FormValidator(configValidator,photographPopup);
