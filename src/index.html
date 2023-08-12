@@ -29,8 +29,8 @@
       <form class="photograph" id="photograph" name="photograph" novalidate>
         <div class="photograph__popup">
           <h2 class="photograph__popup-title">Alterar a foto do perfil</h2>
-          <input class="photograph__input-link input" type="url" name="url" placeholder="URL da imagem" required>
-          <span class="span span_url-message"></span>
+          <input class="photograph__input-link input" type="url" name="urlPhoto" placeholder="URL da imagem" required>
+          <span class="span span_urlPhoto-message"></span>
           <button name="button" class="photograph__button-save photograph__button-save_disabled" type="submit"
           disabled="true">Salvar</button>
             <button id="photograph" class="photograph__button-close-popup button-close-popup"></button>
@@ -94,7 +94,7 @@
   </footer>
   <!-- elemento tamplate para adicionar os cards -->
   <template id="gallery__card">
-    <li class="place">
+    <li class="place" id="000">
       <img class="place__image" src="https://images.unsplash.com/photo-1565108150023-cc0fd1054149?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Yellostone National Park">
       <button class="place__button-delete"><img src="<%= require('./images/image_delete.png')%>" alt="botão para excluir postagem"></button>
       <div class="place__data">
