@@ -1,4 +1,4 @@
-import { updatePageData } from "../pages/index.js";
+import { updateLikeData, updatePageData } from "../pages/index.js";
 import Popup from "./Popup.js";
 import { buttonSaveNewCard, openPopupButtonCard } from "../utils/constants.js";
 
@@ -29,17 +29,15 @@ export default class PopupWhithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-
     openPopupButtonCard.addEventListener("click", () => {
       this.open();
     });
     buttonSaveNewCard.addEventListener("click", (evt) => {
+      setTimeout(updatePageData, 100);
+      setTimeout(updateLikeData,110)
       super.close(evt);
       const formData = this._getInputValues();
       this._submitCallback(formData);
-      setTimeout(() => {
-          updatePageData();
-      }, 100);
   });
   }
 }

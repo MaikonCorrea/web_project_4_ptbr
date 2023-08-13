@@ -27,7 +27,7 @@ const clientAPI = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05",
   token: "e2bad784-3e1f-478a-b640-635d640e7341",
 });
-
+setTimeout(updateLikeData, 120);
 clientAPI
   .getUsers()
   .then((res) => {
@@ -85,7 +85,7 @@ const popupWhithForm = new PopupWhithForm((item) => {
     });
 }, popupCard);
 
-setTimeout(updateLikeData, 80);
+
 
 updatePageData();
 export function updatePageData() {

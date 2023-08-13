@@ -71,13 +71,10 @@ export default class Card {
       }
   });
 
-
-
     this._buttonDeleteCard.addEventListener("click", (event)=> {
       popupDelete.classList.add("popup_opened")
       document.addEventListener("keydown", this._handleEscClose);
       handleCardId(event)
     })
-
   };
 };
