@@ -1,4 +1,4 @@
-import {confirmDelete} from "../pages/index.js"
+import {confirmDeleteCard} from "../pages/index.js"
 
 
 export default class PopupDeleteCard {
@@ -47,7 +47,7 @@ export default class PopupDeleteCard {
     });
     this._confirmDelete.addEventListener("click", (evt)=> {
            this.close(evt);
-           confirmDelete(evt);
+           confirmDeleteCard(evt);
 
     })
 

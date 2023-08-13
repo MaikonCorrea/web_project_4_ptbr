@@ -1,3 +1,4 @@
+import { updatePageData } from "../pages/index.js";
 import Popup from "./Popup.js";
 import { buttonSaveNewCard, openPopupButtonCard } from "../utils/constants.js";
 
@@ -36,6 +37,9 @@ export default class PopupWhithForm extends Popup {
       super.close(evt);
       const formData = this._getInputValues();
       this._submitCallback(formData);
-    });
+      setTimeout(() => {
+          updatePageData();
+      }, 100);
+  });
   }
 }

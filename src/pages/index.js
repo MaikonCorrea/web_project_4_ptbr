@@ -28,47 +28,12 @@ const clientAPI = new Api({
   token: "e2bad784-3e1f-478a-b640-635d640e7341",
 });
 
-let cardList;
-
-clientAPI
-  .getCards()
-  .then((res) => {
-    if(res.ok) {
-
-      return res.json();
-    }else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  })
-  .then((res) => {
-    console.log(res)
-    cardList = new Section(
-      {
-        items: res,
-        render: (item) => {
-
-          const card = new Card({
-            item: item,
-            templateSelector: ".place",
-          });
-          const cardElement = card.generateCard();
-          cardList.addItem(cardElement);
-        },
-      },
-      cardsContainer
-    );
-    cardList.renderer();
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
 clientAPI
   .getUsers()
   .then((res) => {
-    if(res.ok) {
+    if (res.ok) {
       return res.json();
-    }else {
+    } else {
       return Promise.reject(`Error: ${res.status}`);
     }
   })
@@ -84,19 +49,20 @@ clientAPI
     console.log(err);
   });
 
+let cardList;
 const popupWhithForm = new PopupWhithForm((item) => {
   clientAPI
     .createCards({
-      "likes": [],
-      "name": inputTitleInclude.value,
-      "link": inputUrlInclude.value,
-      "owner": owner,
-      "createdAt": new Date().toISOString(),
+      likes: [],
+      name: inputTitleInclude.value,
+      link: inputUrlInclude.value,
+      owner: owner,
+      createdAt: new Date().toISOString(),
     })
     .then((res) => {
-      if(res.ok) {
+      if (res.ok) {
         return res.json();
-      }else {
+      } else {
         return Promise.reject(`Error: ${res.status}`);
       }
     })
@@ -116,28 +82,131 @@ const popupWhithForm = new PopupWhithForm((item) => {
     })
     .catch((err) => {
       alert(`Error: ${err}`);
-    })
+    });
 }, popupCard);
 
+setTimeout(updateLikeData, 80);
+
+updatePageData();
+export function updatePageData() {
+  clientAPI
+    .getCards()
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.status}`);
+      }
+    })
+    .then((res) => {
+      cardList = new Section(
+        {
+          items: res,
+          render: (item) => {
+            const card = new Card({
+              item: item,
+              templateSelector: ".place",
+            });
+            const cardElement = card.generateCard();
+            cardList.addItem(cardElement);
+          },
+        },
+        cardsContainer
+      );
+      cardList.renderer();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+//função que atualiza os likes
+export function updateLikeData() {
+  const idUser = owner._id;
+
+  clientAPI
+    .getCards()
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    })
+    .then((cards) => {
+      cards.forEach((card) => {
+        if (card.likes.length > 0) {
+          const userLiked = card.likes.some((like) => like._id === idUser);
+
+          if (userLiked) {
+            const cardElement = document.getElementById(card._id);
+
+            if (cardElement) {
+              const likeButton = cardElement.querySelector(
+                ".place__button-like"
+              );
+              likeButton.classList.add("place__button-like_active");
+            }
+          }
+        }
+      });
+    });
+}
+
 let idItem;
-export function handleDeletCardId(event) {
+export function handleCardId(event) {
   const ElementId = event.target.closest(".place");
   if (ElementId) {
     idItem = ElementId.getAttribute("id");
+    console.log(idItem);
   }
 }
 
-export function confirmDelete() {
+export function confirmDeleteCard() {
   clientAPI
     .deleteCard(idItem)
     .then((res) => {
       if (res.ok) {
-        const elementToRemove = document.getElementById(idItem);
-        if (elementToRemove) {
-          elementToRemove.remove();
-        }else {
-          return Promise.reject(`Error: ${res.status}`);
-        }
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.status}`);
+      }
+    })
+    .then((res) => {
+      const elementToRemove = document.getElementById(idItem);
+      if (elementToRemove) {
+        elementToRemove.remove();
+      } else {
+        console.log("Erro ao remover Card");
+      }
+    })
+    .catch((error) => {
+      alert("Erro ao excluir o item:", error);
+    });
+}
+
+export function deleteLikeCard() {
+  clientAPI
+    .deleteLike(idItem)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.status}`);
+      }
+    })
+
+    .catch((error) => {
+      alert("Erro ao excluir o item:", error);
+    });
+}
+
+export function addLikeCard() {
+  clientAPI
+    .addLike(idItem)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.status}`);
       }
     })
     .catch((error) => {
@@ -157,9 +226,9 @@ export function getUrlNewAvatar() {
   clientAPI
     .getProfilePicture(newAvatarData)
     .then((res) => {
-      if(res.ok) {
+      if (res.ok) {
         return res.json();
-      }else {
+      } else {
         return Promise.reject(`Error: ${res.status}`);
       }
     })
@@ -178,9 +247,9 @@ export function getDescriptionPerfil() {
   clientAPI
     .updateDescriptionPerfil(newDescriptionrData)
     .then((res) => {
-      if(res.ok) {
+      if (res.ok) {
         return res.json();
-      }else {
+      } else {
         return Promise.reject(`Error: ${res.status}`);
       }
     })

@@ -30,6 +30,7 @@ export const inputUrlInclude = document.querySelector(".include__input-link");
 export const popupDelete = document.querySelector(".delete");
 export const openPopupDelete = document.querySelector(".place__button-delete");
 export const buttonDeleteCard = document.querySelector(".delete__button-save");
+export const buttonLike = document.querySelector(".place__button-like")
 
 export const owner = {
   _id: "f382bd8051d8e7242391b643",

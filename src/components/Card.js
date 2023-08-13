@@ -1,4 +1,4 @@
-import {handleDeletCardId} from "../pages/index.js"
+import {handleCardId, addLikeCard, deleteLikeCard,  updateLikeData, updatePageData} from "../pages/index.js"
 
 import { owner, popupDelete } from "../utils/constants.js";
 
@@ -56,14 +56,27 @@ export default class Card {
   }
 
   setEventListeners() {
-    this._buttonLikeElement.addEventListener("click", () => {
-      this._buttonLikeElement.classList.toggle("place__button-like_active");
-    });
+    this._buttonLikeElement.addEventListener("click", (event) => {
+      const likeNumberElement = this._buttonLikeElement.closest(".place").querySelector(".place__like-number");
+      const isLiked = this._buttonLikeElement.classList.toggle("place__button-like_active");
+
+      handleCardId(event);
+
+      if (isLiked) {
+          addLikeCard();
+          likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
+      } else {
+          deleteLikeCard();
+          likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
+      }
+  });
+
+
 
     this._buttonDeleteCard.addEventListener("click", (event)=> {
       popupDelete.classList.add("popup_opened")
       document.addEventListener("keydown", this._handleEscClose);
-      handleDeletCardId(event)
+      handleCardId(event)
     })
 
   };
