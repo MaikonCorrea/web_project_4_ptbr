@@ -84,3 +84,5 @@
 /* span */
 @import url(../blocks/span/span.css);
 @import url(../blocks/span/__error/span__error.css);
+/* loading */
+@import url(../blocks/loading/loading.css);

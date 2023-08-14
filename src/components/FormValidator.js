@@ -14,7 +14,9 @@ export default class FormValidator {
     const inputFieldsValidation = (input) => {
       input.addEventListener("input", (event) => {
         const element = event.target;
-        const messageSpan = document.querySelector(`.span_${element.name}-message`);
+        const messageSpan = document.querySelector(
+          `.span_${element.name}-message`
+        );
         if (!element.validity.valid) {
           input.classList.add(this.inputErrorClass);
           if (element.type === "url" && element.value.trim() !== "") {
@@ -36,28 +38,31 @@ export default class FormValidator {
     const disableButtons = () => {
       const saveButtonEdit = document.querySelector(this._editButtonSave);
       const saveButtonInclude = document.querySelector(this._includeButtonSave);
-      const saveButtonPhotograph = document.querySelector(this._photographButtonSave);
+      const saveButtonPhotograph = document.querySelector(
+        this._photographButtonSave
+      );
       saveButtonEdit.setAttribute("disabled", true);
       saveButtonInclude.setAttribute("disabled", true);
       saveButtonPhotograph.setAttribute("disabled", true);
       saveButtonEdit.classList.add(this._inactiveButtonSaveClass);
       saveButtonInclude.classList.add(this._inactiveButtonIncludeClass);
       saveButtonPhotograph.classList.add(this._inactiveButtonPhotographClass);
-
     };
 
     const enableButtons = () => {
       const saveButtonEdit = document.querySelector(this._editButtonSave);
       const saveButtonInclude = document.querySelector(this._includeButtonSave);
-      const saveButtonPhotograph = document.querySelector(this._photographButtonSave);
+      const saveButtonPhotograph = document.querySelector(
+        this._photographButtonSave
+      );
       saveButtonEdit.removeAttribute("disabled");
       saveButtonInclude.removeAttribute("disabled");
       saveButtonPhotograph.removeAttribute("disabled");
       saveButtonEdit.classList.remove(this._inactiveButtonSaveClass);
       saveButtonInclude.classList.remove(this._inactiveButtonIncludeClass);
-      saveButtonPhotograph.classList.remove(this._inactiveButtonPhotographClass);
-
-
+      saveButtonPhotograph.classList.remove(
+        this._inactiveButtonPhotographClass
+      );
     };
 
     const allForms = Array.from(document.forms);
@@ -77,5 +82,3 @@ export default class FormValidator {
     }
   }
 }
-
-

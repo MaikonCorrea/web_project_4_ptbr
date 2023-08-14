@@ -19,27 +19,30 @@ export const cardElement = document.querySelector(".place");
 export const popupContainerScreen = document.querySelector(".screen");
 export const popupImage = document.querySelector(".screen__image-dynamics");
 export const popupTitle = document.querySelector(".screen__popup-title");
-export const popupImagescrenn = document.querySelector(".place__image");
-export const popupTitleScreen = document.querySelector(".place__title");
-export const buttonOpenEditImageProfile = document.querySelector(".profile__button-edit-image");
-export const inputImageProfile = document.querySelector(".photograph__input-link");
-export const buttonSaveImageProfile = document.querySelector(".photograph__button-save");
+export const buttonOpenEditImageProfile = document.querySelector(
+  ".profile__button-edit-image"
+);
+export const inputImageProfile = document.querySelector(
+  ".photograph__input-link"
+);
+export const buttonSaveImageProfile = document.querySelector(
+  ".photograph__button-save"
+);
 export const photographPopup = document.querySelector(".photograph");
-export const inputTitleInclude = document.querySelector(".include__input-title");
+export const inputTitleInclude = document.querySelector(
+  ".include__input-title"
+);
 export const inputUrlInclude = document.querySelector(".include__input-link");
 export const popupDelete = document.querySelector(".delete");
-export const openPopupDelete = document.querySelector(".place__button-delete");
-export const buttonDeleteCard = document.querySelector(".delete__button-save");
-export const buttonLike = document.querySelector(".place__button-like")
 
 export const owner = {
   _id: "f382bd8051d8e7242391b643",
   name: "Maikon Corrêa",
   about: "Estudant, Developer",
-  avatar: "https://avatars.githubusercontent.com/u/121962633?u=8f6b79ed0efe033e91fa7d97adf7f41332ebc57f&v=4",
-  cohort: "web_ptbr_05"
-}
-
+  avatar:
+    "https://avatars.githubusercontent.com/u/121962633?u=8f6b79ed0efe033e91fa7d97adf7f41332ebc57f&v=4",
+  cohort: "web_ptbr_05",
+};
 
 export const configValidator = {
   inputErrorClass: "span__error",
@@ -49,4 +52,4 @@ export const configValidator = {
   inactiveButtonSaveClass: "edit__button-save_disabled",
   inactiveButtonIncludeClass: "include__button-save_disabled",
   inactiveButtonPhotographClass: "photograph__button-save_disabled",
-}
+};

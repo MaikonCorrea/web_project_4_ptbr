@@ -27,30 +27,37 @@ const clientAPI = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05",
   token: "e2bad784-3e1f-478a-b640-635d640e7341",
 });
+
 setTimeout(updateLikeData, 120);
-clientAPI
-  .getUsers()
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  })
-  .then((res) => {
-    const imagePerfil = document.querySelector(".profile__image");
-    const profileName = document.querySelector(".profile__info-name");
-    const profileAbout = document.querySelector(".profile__info-discription");
-    imagePerfil.src = res.avatar;
-    profileName.textContent = res.name;
-    profileAbout.textContent = res.about;
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+updateUsers();
+
+export function updateUsers() {
+  clientAPI
+    .getUsers()
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.status}`);
+      }
+    })
+    .then((res) => {
+      const imagePerfil = document.querySelector(".profile__image");
+      const profileName = document.querySelector(".profile__info-name");
+      const profileAbout = document.querySelector(".profile__info-discription");
+      imagePerfil.src = res.avatar;
+      profileName.textContent = res.name;
+      profileAbout.textContent = res.about;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 let cardList;
+
 const popupWhithForm = new PopupWhithForm((item) => {
+  popupWhithForm.renderLoading(true);
   clientAPI
     .createCards({
       likes: [],
@@ -82,10 +89,13 @@ const popupWhithForm = new PopupWhithForm((item) => {
     })
     .catch((err) => {
       alert(`Error: ${err}`);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        popupWhithForm.renderLoading(false);
+      }, 1000);
     });
 }, popupCard);
-
-
 
 updatePageData();
 export function updatePageData() {
@@ -120,7 +130,6 @@ export function updatePageData() {
     });
 }
 
-//função que atualiza os likes
 export function updateLikeData() {
   const idUser = owner._id;
 
@@ -161,6 +170,7 @@ export function handleCardId(event) {
 }
 
 export function confirmDeleteCard() {
+  popupDeleteCard.renderLoading(true);
   clientAPI
     .deleteCard(idItem)
     .then((res) => {
@@ -180,6 +190,11 @@ export function confirmDeleteCard() {
     })
     .catch((error) => {
       alert("Erro ao excluir o item:", error);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        popupDeleteCard.renderLoading(false);
+      }, 1000);
     });
 }
 
@@ -215,18 +230,15 @@ export function addLikeCard() {
 }
 
 export function getUrlNewAvatar() {
+  userInfoImage.renderLoading(true);
   const newUrl = document.querySelector(".photograph__input-link").value;
-  const profileName = document.querySelector(".edit__input-name").value;
-  const profileAbout = document.querySelector(".edit__input-about").value;
-  const newAvatarData = {
+  const newAvatar = {
     avatar: newUrl,
-    name: profileName,
-    about: profileAbout,
   };
   clientAPI
-    .getProfilePicture(newAvatarData)
+    .getProfilePicture(newAvatar)
     .then((res) => {
-      if (res.ok) {
+      if (res.status == 200) {
         return res.json();
       } else {
         return Promise.reject(`Error: ${res.status}`);
@@ -234,6 +246,11 @@ export function getUrlNewAvatar() {
     })
     .catch((error) => {
       alert("Erro ao alterar a foto do perfil:", `${error}`);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        userInfoImage.renderLoading(false);
+      }, 1000);
     });
 }
 
@@ -244,6 +261,7 @@ export function getDescriptionPerfil() {
     name: profileName,
     about: profileAbout,
   };
+  userInfo.renderLoading(true);
   clientAPI
     .updateDescriptionPerfil(newDescriptionrData)
     .then((res) => {
@@ -255,6 +273,11 @@ export function getDescriptionPerfil() {
     })
     .catch((error) => {
       alert("Erro ao alterar a descrição do perfil:", `${error}`);
+    })
+    .finally(() => {
+      setTimeout(() => {
+        userInfo.renderLoading(false);
+      }, 1000);
     });
 }
 
