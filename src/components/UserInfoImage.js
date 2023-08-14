@@ -1,9 +1,10 @@
 import {
   buttonSaveImageProfile,
   buttonOpenEditImageProfile,
-  inputImageProfile
-} from "../utils/constants.js"
-import {getUrlNewAvatar} from "../pages/index.js"
+  inputImageProfile,
+} from "../utils/constants.js";
+
+import { getUrlNewAvatar, updateUsers } from "../pages/index.js";
 
 export default class UserInfoImage {
   constructor(popupSelector) {
@@ -15,10 +16,9 @@ export default class UserInfoImage {
 
   open() {
     this._popup.classList.add("popup_opened");
-    buttonSaveImageProfile.classList.add("photograph__button-save_disabled")
+    buttonSaveImageProfile.classList.add("photograph__button-save_disabled");
     document.addEventListener("keydown", this._handleEscClose);
     inputImageProfile.value = "";
-
   }
 
   close(evt) {
@@ -29,10 +29,24 @@ export default class UserInfoImage {
     }, 200);
     evt.preventDefault();
     document.removeEventListener("keydown", this._handleEscClose);
+    updateUsers();
   }
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this.close(evt);
+    }
+  }
+
+  renderLoading(isLoading) {
+    const container = document.querySelector(".photograph");
+    const loading = container.querySelector(".loading-container");
+    const textButton = container.querySelector(".loading-button-text");
+    if (isLoading) {
+      textButton.classList.add("loading-closed");
+      loading.classList.add("loading-opened");
+    } else {
+      loading.classList.remove("loading-opened");
+      textButton.classList.remove("loading-closed");
     }
   }
 
@@ -46,8 +60,11 @@ export default class UserInfoImage {
     });
 
     buttonSaveImageProfile.addEventListener("click", (evt) => {
-      getUrlNewAvatar()
-      this.close(evt)
+      evt.preventDefault();
+      getUrlNewAvatar();
+      setTimeout(() => {
+        this.close(evt);
+      }, 1000);
     });
 
     this._popup.addEventListener("click", (evt) => {
@@ -57,6 +74,4 @@ export default class UserInfoImage {
       }
     });
   }
-
-
 }

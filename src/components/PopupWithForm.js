@@ -27,17 +27,32 @@ export default class PopupWhithForm extends Popup {
     this._popup.reset();
   }
 
+  renderLoading(isLoading) {
+    const container = document.querySelector(".include");
+    const textButton = container.querySelector(".loading-button-text");
+    const loading = container.querySelector(".loading-container");
+    if (isLoading) {
+      textButton.classList.add("loading-closed");
+      loading.classList.add("loading-opened");
+    } else {
+      loading.classList.remove("loading-opened");
+      textButton.classList.remove("loading-closed");
+    }
+  }
   setEventListeners() {
     super.setEventListeners();
     openPopupButtonCard.addEventListener("click", () => {
       this.open();
     });
     buttonSaveNewCard.addEventListener("click", (evt) => {
-      setTimeout(updatePageData, 100);
-      setTimeout(updateLikeData,110)
-      super.close(evt);
+      evt.preventDefault();
+      setTimeout(updatePageData, 900);
+      setTimeout(updateLikeData, 910);
       const formData = this._getInputValues();
       this._submitCallback(formData);
-  });
+      setTimeout(() => {
+        this.close(evt);
+      }, 1000);
+    });
   }
 }

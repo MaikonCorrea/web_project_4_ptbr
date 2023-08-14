@@ -1,4 +1,4 @@
-import {getDescriptionPerfil} from "../pages/index.js"
+import { getDescriptionPerfil } from "../pages/index.js";
 
 import {
   inputName,
@@ -50,6 +50,19 @@ export default class UserInfo {
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this.close(evt);
+    }
+  }
+
+  renderLoading(isLoading) {
+    const container = document.querySelector(".edit");
+    const textButton = container.querySelector(".loading-button-text");
+    const loading = container.querySelector(".loading-container");
+    if (isLoading) {
+      textButton.classList.add("loading-closed");
+      loading.classList.add("loading-opened");
+    } else {
+      loading.classList.remove("loading-opened");
+      textButton.classList.remove("loading-closed");
     }
   }
 

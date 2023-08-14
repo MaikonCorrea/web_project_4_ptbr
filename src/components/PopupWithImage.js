@@ -44,7 +44,9 @@ export default class PopupWithImage extends Popup {
       if (event.target.classList.contains("place__image")) {
         const imageURL = event.target.src;
         this._url = imageURL;
-        const titleElement = event.target.closest(".place").querySelector(".place__title");
+        const titleElement = event.target
+          .closest(".place")
+          .querySelector(".place__title");
         this._title = titleElement.textContent;
 
         this.open();

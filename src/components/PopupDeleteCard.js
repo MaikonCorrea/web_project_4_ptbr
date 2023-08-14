@@ -1,15 +1,13 @@
-import {confirmDeleteCard} from "../pages/index.js"
-
+import { confirmDeleteCard } from "../pages/index.js";
 
 export default class PopupDeleteCard {
   constructor(popupSelector) {
     this._handleEscClose = this._handleEscClose.bind(this);
-    this._popup = document.querySelector(".delete")
+    this._popup = document.querySelector(".delete");
     this._closePopup = this._popup.querySelector(".delete__button-close-popup");
-    this._confirmDelete = this._popup.querySelector(".delete__button-save")
+    this._confirmDelete = this._popup.querySelector(".delete__button-save");
     this.setEventListeners();
   }
-
 
   open() {
     this._popup.classList.add("popup_opened");
@@ -26,11 +24,22 @@ export default class PopupDeleteCard {
     document.removeEventListener("keydown", this._handleEscClose);
   }
 
-
-
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this.close(evt);
+    }
+  }
+
+  renderLoading(isLoading) {
+    const container = document.querySelector(".delete");
+    const textButton = container.querySelector(".loading-button-text");
+    const loading = container.querySelector(".loading-container");
+    if (isLoading) {
+      textButton.classList.add("loading-closed");
+      loading.classList.add("loading-opened");
+    } else {
+      loading.classList.remove("loading-opened");
+      textButton.classList.remove("loading-closed");
     }
   }
 
@@ -45,12 +54,9 @@ export default class PopupDeleteCard {
         this.close(evt);
       }
     });
-    this._confirmDelete.addEventListener("click", (evt)=> {
-           this.close(evt);
-           confirmDeleteCard(evt);
-
-    })
-
+    this._confirmDelete.addEventListener("click", (evt) => {
+      this.close(evt);
+      confirmDeleteCard(evt);
+    });
   }
-
 }
