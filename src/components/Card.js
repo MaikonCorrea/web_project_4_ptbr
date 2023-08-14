@@ -1,10 +1,9 @@
-import {handleCardId, addLikeCard, deleteLikeCard,  updateLikeData, updatePageData} from "../pages/index.js"
+import { handleCardId, addLikeCard, deleteLikeCard } from "../pages/index.js";
 
 import { owner, popupDelete } from "../utils/constants.js";
 
-
 export default class Card {
-  constructor({item, templateSelector}) {
+  constructor({ item, templateSelector }) {
     this._templateSelector = templateSelector;
     this._like = item.likes;
     this._id = item._id;
@@ -12,24 +11,34 @@ export default class Card {
     this._url = item.link;
     this._owner = item.owner;
     this._handleEscClose = this._handleEscClose.bind(this);
-  };
+  }
 
   getTemplate() {
-    const cardTemplate = document.querySelector("#gallery__card").content.querySelector(".place").cloneNode(true);
+    const cardTemplate = document
+      .querySelector("#gallery__card")
+      .content.querySelector(".place")
+      .cloneNode(true);
 
     return cardTemplate;
-  };
+  }
 
   generateCard() {
     this._element = this.getTemplate();
     this._element.setAttribute("id", this._id);
-    this._element.setAttribute("owner._id", this._owner._id)
-    this._element.querySelector(".place__image").setAttribute('src', this._url);
-    this._element.querySelector(".place__image").setAttribute('alt', this._title);
+    this._element.setAttribute("owner._id", this._owner._id);
+    this._element.querySelector(".place__image").setAttribute("src", this._url);
+    this._element
+      .querySelector(".place__image")
+      .setAttribute("alt", this._title);
     this._element.querySelector(".place__title").textContent = this._title;
-    this._element.querySelector(".place__like-number").textContent =  this._like.length.toString();
-    this._buttonLikeElement = this._element.querySelector(".place__button-like");
-    this._buttonDeleteCard = this._element.querySelector(".place__button-delete");
+    this._element.querySelector(".place__like-number").textContent =
+      this._like.length.toString();
+    this._buttonLikeElement = this._element.querySelector(
+      ".place__button-like"
+    );
+    this._buttonDeleteCard = this._element.querySelector(
+      ".place__button-delete"
+    );
 
     if (this._owner._id === owner._id) {
       this._buttonDeleteCard.style.display = "block";
@@ -57,24 +66,30 @@ export default class Card {
 
   setEventListeners() {
     this._buttonLikeElement.addEventListener("click", (event) => {
-      const likeNumberElement = this._buttonLikeElement.closest(".place").querySelector(".place__like-number");
-      const isLiked = this._buttonLikeElement.classList.toggle("place__button-like_active");
+      const likeNumberElement = this._buttonLikeElement
+        .closest(".place")
+        .querySelector(".place__like-number");
+      const isLiked = this._buttonLikeElement.classList.toggle(
+        "place__button-like_active"
+      );
 
       handleCardId(event);
 
       if (isLiked) {
-          addLikeCard();
-          likeNumberElement.textContent = parseInt(likeNumberElement.textContent) + 1;
+        addLikeCard();
+        likeNumberElement.textContent =
+          parseInt(likeNumberElement.textContent) + 1;
       } else {
-          deleteLikeCard();
-          likeNumberElement.textContent = parseInt(likeNumberElement.textContent) - 1;
+        deleteLikeCard();
+        likeNumberElement.textContent =
+          parseInt(likeNumberElement.textContent) - 1;
       }
-  });
+    });
 
-    this._buttonDeleteCard.addEventListener("click", (event)=> {
-      popupDelete.classList.add("popup_opened")
+    this._buttonDeleteCard.addEventListener("click", (event) => {
+      popupDelete.classList.add("popup_opened");
       document.addEventListener("keydown", this._handleEscClose);
-      handleCardId(event)
-    })
-  };
-};
+      handleCardId(event);
+    });
+  }
+}
