@@ -16,6 +16,8 @@ export const buttonSaveNewCard = document.querySelector(
   ".include__button-save"
 );
 export const cardElement = document.querySelector(".place");
+export const buttonDeleteCard = document.querySelector(".place__button-delete");
+
 export const popupContainerScreen = document.querySelector(".screen");
 export const popupImage = document.querySelector(".screen__image-dynamics");
 export const popupTitle = document.querySelector(".screen__popup-title");
@@ -29,11 +31,10 @@ export const buttonSaveImageProfile = document.querySelector(
   ".photograph__button-save"
 );
 export const photographPopup = document.querySelector(".photograph");
-export const inputTitleInclude = document.querySelector(
-  ".include__input-title"
-);
+export const inputTitleInclude = document.querySelector(".include__input-title");
 export const inputUrlInclude = document.querySelector(".include__input-link");
 export const popupDelete = document.querySelector(".delete");
+export const buttonConfirmDeleteCard = document.querySelector(".delete__button-save")
 
 export const owner = {
   _id: "f382bd8051d8e7242391b643",
