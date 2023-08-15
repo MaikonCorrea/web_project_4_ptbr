@@ -4,84 +4,65 @@ export default class Api {
     this._token = token;
   }
 
+  _fetch(url, options) {
+    const fullUrl = `${this._baseUrl}${url}`;
+    const headers = {
+      "Content-Type": "application/json",
+      authorization: this._token,
+    };
+
+    const mergedOptions = { headers, ...options };
+
+    return fetch(fullUrl, mergedOptions)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return Promise.reject(`Error: ${res.status}`);
+        }
+      })
+      .catch((err) => {
+        console.log(`Request failed with status ${err.status}`);
+      });
+  }
+
   getUsers() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: this._token,
-      },
-    });
+    return this._fetch("/users/me", { method: "GET" });
   }
 
   getCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: this._token,
-      },
-    });
+    return this._fetch("/cards", { method: "GET" });
   }
 
   createCards(data) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._fetch("/cards", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: this._token,
-      },
       body: JSON.stringify(data),
     });
   }
 
   updateDescriptionPerfil(data) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._fetch("/users/me", {
       method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(data),
     });
   }
 
   deleteCard(idItem) {
-    return fetch(`${this._baseUrl}/cards/${idItem}`, {
-      method: "DELETE",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
-    });
+    return this._fetch(`/cards/${idItem}`, { method: "DELETE" });
   }
 
   deleteLike(idItem) {
-    return fetch(`${this._baseUrl}/cards/likes/${idItem}`, {
-      method: "DELETE",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
-    });
+    return this._fetch(`/cards/likes/${idItem}`, { method: "DELETE" });
   }
+
   addLike(idItem) {
-    return fetch(`${this._baseUrl}/cards/likes/${idItem}`, {
-      method: "PUT",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
-    });
+    return this._fetch(`/cards/likes/${idItem}`, { method: "PUT" });
   }
 
   getProfilePicture(data) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+    return this._fetch(`/users/me/avatar`, {
       method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(data),
     });
   }
