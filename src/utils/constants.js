@@ -12,9 +12,7 @@ export const openPopupButtonCard = document.querySelector(
 );
 export const popupCard = document.querySelector(".include");
 export const cardsContainer = document.querySelector(".gallery");
-export const buttonSaveNewCard = document.querySelector(
-  ".include__button-save"
-);
+export const buttonSaveNewCard = document.querySelector(".include__button-save");
 export const cardElement = document.querySelector(".place");
 export const buttonDeleteCard = document.querySelector(".place__button-delete");
 
@@ -35,6 +33,7 @@ export const inputTitleInclude = document.querySelector(".include__input-title")
 export const inputUrlInclude = document.querySelector(".include__input-link");
 export const popupDelete = document.querySelector(".delete");
 export const buttonConfirmDeleteCard = document.querySelector(".delete__button-save")
+export const buttonOpenPopupDeleteCard = document.querySelector(".place__button-delete")
 
 export const owner = {
   _id: "f382bd8051d8e7242391b643",
