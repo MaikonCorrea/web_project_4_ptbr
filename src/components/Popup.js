@@ -26,7 +26,19 @@ export default class Popup {
     }
   }
 
-  setEventListeners() {
+  renderLoading(isLoading) {
+    const textButton = this._popup.querySelector(".loading-button-text");
+    const loading = this._popup.querySelector(".loading-container");
+    if (isLoading) {
+      textButton.classList.add("loading-closed");
+      loading.classList.add("loading-opened");
+    } else {
+      loading.classList.remove("loading-opened");
+      textButton.classList.remove("loading-closed");
+    }
+  }
+
+    setEventListeners() {
     this._closePopup.addEventListener("click", (evt) => {
       this.close(evt);
     });

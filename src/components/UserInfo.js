@@ -1,4 +1,8 @@
-import { getDescriptionPerfil } from "../pages/index.js";
+import Popup from "./Popup.js";
+
+import {
+getDescriptionPerfil,
+} from "../pages/index.js";
 
 import {
   inputName,
@@ -9,11 +13,10 @@ import {
   buttonSave,
 } from "../utils/constants.js";
 
-export default class UserInfo {
+
+export default class UserInfo extends Popup {
   constructor(popupSelector) {
-    this._handleEscClose = this._handleEscClose.bind(this);
-    this._popup = document.querySelector(".edit");
-    this._closePopup = this._popup.querySelector(".button-close-popup");
+    super(popupSelector);
     this.setEventListeners();
   }
 
@@ -25,68 +28,38 @@ export default class UserInfo {
 
   setUserInfo() {
     const { newName, newWork } = this.getUserInfo();
-
     infoName.textContent = newName;
     infoAbout.textContent = newWork;
   }
 
   open() {
-    this._popup.classList.add("popup_opened");
-    document.addEventListener("keydown", this._handleEscClose);
+    super.open();
     inputName.value = infoName.textContent;
     inputAbout.value = infoAbout.textContent;
   }
 
   close(evt) {
-    this._popup.classList.add("popup_closing");
-    setTimeout(() => {
-      this._popup.classList.remove("popup_closing");
-      this._popup.classList.remove("popup_opened");
-    }, 200);
-    evt.preventDefault();
-    document.removeEventListener("keydown", this._handleEscClose);
+   super.close(evt);
   }
 
   _handleEscClose(evt) {
-    if (evt.key === "Escape") {
-      this.close(evt);
-    }
+    super. _handleEscClose(evt);
   }
 
   renderLoading(isLoading) {
-    const container = document.querySelector(".edit");
-    const textButton = container.querySelector(".loading-button-text");
-    const loading = container.querySelector(".loading-container");
-    if (isLoading) {
-      textButton.classList.add("loading-closed");
-      loading.classList.add("loading-opened");
-    } else {
-      loading.classList.remove("loading-opened");
-      textButton.classList.remove("loading-closed");
-    }
+    super.renderLoading(isLoading);
   }
 
   setEventListeners() {
+    super.setEventListeners();
     openPopupEditButton.addEventListener("click", () => {
       this.open();
     });
-
-    this._closePopup.addEventListener("click", (evt) => {
-      this.close(evt);
-    });
-
     buttonSave.addEventListener("click", (evt) => {
       this.close(evt);
       this.getUserInfo();
       this.setUserInfo();
       getDescriptionPerfil();
-    });
-
-    this._popup.addEventListener("click", (evt) => {
-      const elementStyle = window.getComputedStyle(evt.target);
-      if (elementStyle.backgroundColor === "rgba(0, 0, 0, 0.5)") {
-        this.close(evt);
-      }
     });
   }
 }

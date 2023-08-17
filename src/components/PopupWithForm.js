@@ -28,17 +28,9 @@ export default class PopupWhithForm extends Popup {
   }
 
   renderLoading(isLoading) {
-    const container = document.querySelector(".include");
-    const textButton = container.querySelector(".loading-button-text");
-    const loading = container.querySelector(".loading-container");
-    if (isLoading) {
-      textButton.classList.add("loading-closed");
-      loading.classList.add("loading-opened");
-    } else {
-      loading.classList.remove("loading-opened");
-      textButton.classList.remove("loading-closed");
-    }
+    super.renderLoading(isLoading)
   }
+  
   setEventListeners() {
     super.setEventListeners();
     openPopupButtonCard.addEventListener("click", () => {

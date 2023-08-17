@@ -21,6 +21,7 @@ import {
   inputUrlInclude,
   popupDelete,
 } from "../utils/constants.js";
+
 import PopupDeleteCard from "../components/PopupDeleteCard";
 
 const clientAPI = new Api({
@@ -32,29 +33,15 @@ setTimeout(updateLikeData, 120);
 updateUsers();
 
 export function updateUsers() {
-  clientAPI
-    .getUsers()
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-    .then((res) => {
-      const imagePerfil = document.querySelector(".profile__image");
-      const profileName = document.querySelector(".profile__info-name");
-      const profileAbout = document.querySelector(".profile__info-discription");
-      imagePerfil.src = res.avatar;
-      profileName.textContent = res.name;
-      profileAbout.textContent = res.about;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  clientAPI.getUsers().then((res) => {
+    const imagePerfil = document.querySelector(".profile__image");
+    const profileName = document.querySelector(".profile__info-name");
+    const profileAbout = document.querySelector(".profile__info-discription");
+    imagePerfil.src = res.avatar;
+    profileName.textContent = res.name;
+    profileAbout.textContent = res.about;
+  });
 }
-
-let cardList;
 
 const popupWhithForm = new PopupWhithForm((item) => {
   popupWhithForm.renderLoading(true);
@@ -67,13 +54,6 @@ const popupWhithForm = new PopupWhithForm((item) => {
       createdAt: new Date().toISOString(),
     })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-    .then((res) => {
       const newCard = new Card({
         item: {
           likes: res.likes,
@@ -83,12 +63,11 @@ const popupWhithForm = new PopupWhithForm((item) => {
           owner,
         },
         templateSelector: ".place",
+        deleteCard: deleteCard
       });
-      const card = newCard.generateCard();
-      cardList.addItem(card);
-    })
-    .catch((err) => {
-      alert(`Error: ${err}`);
+      const card = newCard.generateCard()
+      const cardsContainer = document.querySelector(".gallery");
+      cardsContainer.appendChild(card);
     })
     .finally(() => {
       setTimeout(() => {
@@ -99,159 +78,78 @@ const popupWhithForm = new PopupWhithForm((item) => {
 
 updatePageData();
 export function updatePageData() {
-  clientAPI
-    .getCards()
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-    .then((res) => {
-      cardList = new Section(
-        {
-          items: res,
-          render: (item) => {
-            const card = new Card({
-              item: item,
-              templateSelector: ".place",
-            });
-            const cardElement = card.generateCard();
-            cardList.addItem(cardElement);
-          },
+  clientAPI.getCards().then((res) => {
+    const cardList = new Section(
+      {
+        items: res,
+        render: (item) => {
+          const card = new Card({
+            item: item,
+            templateSelector: ".place",
+            deleteCard: deleteCard,
+          });
+          const cardElement = card.generateCard();
+          cardList.addItem(cardElement);
         },
-        cardsContainer
-      );
-      cardList.renderer();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      },
+      cardsContainer
+    );
+    cardList.renderer();
+  });
 }
 
-export function updateLikeData() {
-  const idUser = owner._id;
-
-  clientAPI
-    .getCards()
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then((cards) => {
-      cards.forEach((card) => {
-        if (card.likes.length > 0) {
-          const userLiked = card.likes.some((like) => like._id === idUser);
-
-          if (userLiked) {
-            const cardElement = document.getElementById(card._id);
-
-            if (cardElement) {
-              const likeButton = cardElement.querySelector(
-                ".place__button-like"
-              );
-              likeButton.classList.add("place__button-like_active");
-            }
-          }
-        }
-      });
-    });
-}
-
-let idItem;
 export function handleCardId(event) {
   const ElementId = event.target.closest(".place");
   if (ElementId) {
     idItem = ElementId.getAttribute("id");
-    console.log(idItem);
-  }
+    }
 }
 
-export function confirmDeleteCard() {
-  popupDeleteCard.renderLoading(true);
-  clientAPI
-    .deleteCard(idItem)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
+function deleteCard() {
+console.log(this)
+}
+
+
+
+export function updateLikeData() {
+  const idUser = owner._id;
+  clientAPI.getCards().then((cards) => {
+    cards.forEach((card) => {
+      if (card.likes.length > 0) {
+        const userLiked = card.likes.some((like) => like._id === idUser);
+
+        if (userLiked) {
+          const cardElement = document.getElementById(card._id);
+
+          if (cardElement) {
+            const likeButton = cardElement.querySelector(".place__button-like");
+            likeButton.classList.add("place__button-like_active");
+          }
+        }
       }
-    })
-    .then((res) => {
-      const elementToRemove = document.getElementById(idItem);
-      if (elementToRemove) {
-        elementToRemove.remove();
-      } else {
-        console.log("Erro ao remover Card");
-      }
-    })
-    .catch((error) => {
-      alert("Erro ao excluir o item:", error);
-    })
-    .finally(() => {
-      setTimeout(() => {
-        popupDeleteCard.renderLoading(false);
-      }, 1000);
     });
+  });
 }
 
-export function deleteLikeCard() {
-  clientAPI
-    .deleteLike(idItem)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
 
-    .catch((error) => {
-      alert("Erro ao excluir o item:", error);
-    });
-}
 
-export function addLikeCard() {
-  clientAPI
-    .addLike(idItem)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-    .catch((error) => {
-      alert("Erro ao excluir o item:", error);
-    });
-}
+export function deleteLikeCard(idItem) {
+  clientAPI.deleteLike(idItem)}
+
+export function addLikeCard(idItem) {
+  clientAPI.addLike(idItem)}
 
 export function getUrlNewAvatar() {
   userInfoImage.renderLoading(true);
   const newUrl = document.querySelector(".photograph__input-link").value;
   const newAvatar = {
     avatar: newUrl,
-  };
-  clientAPI
-    .getProfilePicture(newAvatar)
-    .then((res) => {
-      if (res.status == 200) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-    .catch((error) => {
-      alert("Erro ao alterar a foto do perfil:", `${error}`);
-    })
-    .finally(() => {
-      setTimeout(() => {
-        userInfoImage.renderLoading(false);
-      }, 1000);
-    });
+  }
+  clientAPI.getProfilePicture(newAvatar).finally(() => {
+    setTimeout(() => {
+      userInfoImage.renderLoading(false);
+    }, 1000);
+  });
 }
 
 export function getDescriptionPerfil() {
@@ -262,38 +160,24 @@ export function getDescriptionPerfil() {
     about: profileAbout,
   };
   userInfo.renderLoading(true);
-  clientAPI
-    .updateDescriptionPerfil(newDescriptionrData)
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    })
-    .catch((error) => {
-      alert("Erro ao alterar a descrição do perfil:", `${error}`);
-    })
-    .finally(() => {
-      setTimeout(() => {
-        userInfo.renderLoading(false);
-      }, 1000);
-    });
+  clientAPI.updateDescriptionPerfil(newDescriptionrData).finally(() => {
+    setTimeout(() => {
+      userInfo.renderLoading(false);
+    }, 1000);
+  });
 }
 
-const popupWithImage = new PopupWithImage(popupContainerScreen);
+
+new PopupWithImage(popupContainerScreen);
 
 const userInfo = new UserInfo(popupEdit);
 
 const userInfoImage = new UserInfoImage(photographPopup);
 
-const popupDeleteCard = new PopupDeleteCard(popupDelete);
+const popupDeleteCard = new PopupDeleteCard(popupDelete)
 
-const formValidatorEdit = new FormValidator(configValidator, popupEdit);
+new FormValidator(configValidator, popupEdit);
 
-const formValidatorCard = new FormValidator(configValidator, popupCard);
+new FormValidator(configValidator, popupCard);
 
-const formValidatorPhotograph = new FormValidator(
-  configValidator,
-  photographPopup
-);
+new FormValidator(configValidator, photographPopup);

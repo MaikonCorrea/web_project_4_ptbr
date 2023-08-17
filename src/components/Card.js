@@ -18,7 +18,7 @@ export default class Card {
     this._owner = item.owner;
     this.deleteCard = deleteCard;
     this.idItem = null;
-    /* this._handleEscClose = this._handleEscClose.bind(this); */
+    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   getTemplate() {
@@ -51,11 +51,6 @@ export default class Card {
     return this._element;
   }
 
-  openPopupConfirmDelete() {
-    popupDelete.classList.add("popup_opened")
-    document.addEventListener("keydown", this._handleEscClose);
-  }
-
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this.close(evt);
@@ -70,7 +65,6 @@ export default class Card {
       return this.idItem
   }
 
-
   close(evt) {
     popupDelete.classList.add("popup_closing");
     setTimeout(() => {
@@ -81,7 +75,7 @@ export default class Card {
     document.removeEventListener("keydown", this._handleEscClose);
   }
 
-  likeNumberApi(event){
+  likeCounter(event){
     const likeNumberElement = this._buttonLikeElement.closest(".place").querySelector(".place__like-number");
     const isLiked = this._buttonLikeElement.classList.toggle("place__button-like_active");
 
@@ -96,24 +90,25 @@ export default class Card {
     }
   }
 
- /*  deleteCardId() {
+  openPopupConfirmDelete() {
+    popupDelete.classList.add("popup_opened")
+    document.addEventListener("keydown", this._handleEscClose);
+  }
+
+  removeCard(event) {
+    this.openPopupConfirmDelete(event);
     this.deleteCard()
   }
- */
-  open() {
-    this._popup.classList.add("popup_opened");
-
-  }
-
 
   setEventListeners() {
     this._buttonLikeElement.addEventListener("click", (event) => {
-      this.likeNumberApi(event)
+      this.likeCounter(event)
     });
 
     this._buttonDeleteCard.addEventListener("click", (event)=> {
-      this.openPopupConfirmDelete(event);
+      this.removeCard()
 
     })
+
   }
 }
