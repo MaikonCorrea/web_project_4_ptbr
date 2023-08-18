@@ -26,19 +26,24 @@ export default class PopupDeleteCard extends Popup {
     super._handleEscClose(isLoading);
   }
   openConfirmDeleteCard(id) {
-    console.log(id)
-    this.open()
-
-  }
-
-  cardDeletionConfirmed() {
-
+    this.open();
+    const idItem = id;
+    document.getElementById("delete-button").addEventListener("click", (evt) => {
+      const elementToDelete = document.getElementById(idItem);
+      if (elementToDelete) {
+        elementToDelete.remove();
+      }
+      deleteCardApi(idItem);
+    });
   }
 
   setEventListeners() {
     super.setEventListeners();
     this.buttonConfirmDelete.addEventListener("click", (evt) => {
-      this.close(evt);
+      evt.preventDefault()
+       setTimeout(() => {
+        this.close(evt);
+      }, 1000);
     });
   }
 }

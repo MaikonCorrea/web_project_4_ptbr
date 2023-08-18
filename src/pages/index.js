@@ -6,9 +6,9 @@ import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import PopupWhithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupDeleteCard from "../components/PopupDeleteCard";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
-
 import {
   owner,
   cardsContainer,
@@ -21,8 +21,6 @@ import {
   inputUrlInclude,
   popupDelete,
 } from "../utils/constants.js";
-
-import PopupDeleteCard from "../components/PopupDeleteCard";
 
 const clientAPI = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05",
@@ -40,7 +38,7 @@ export function updateUsers() {
     imagePerfil.src = res.avatar;
     profileName.textContent = res.name;
     profileAbout.textContent = res.about;
-  });
+  })
 }
 
 const popupWhithForm = new PopupWhithForm((item) => {
@@ -101,6 +99,27 @@ export function updatePageData() {
 
 function deleteCard(id) {
 popupDeleteCard.openConfirmDeleteCard(id)
+}
+
+export function deleteCardApi(idItem) {
+  popupDeleteCard.renderLoading(true)
+  clientAPI
+  .deleteCard(idItem)
+  .then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error: ${res.status}`);
+    }
+  })
+  .catch((err) => {
+    alert(`Falha na solicitação com status ${err.status}`);
+  })
+  .finally(() => {
+    setTimeout(() => {
+      popupDeleteCard.renderLoading(false);
+    }, 1000);
+  });
 
 }
 
