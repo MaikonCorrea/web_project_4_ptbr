@@ -49,8 +49,12 @@ Começamos a trabalhar com Programação Orientada a Objetos em  JavaScript e Ja
 Precisei refatorar o código para a utilização de classes, já no JS modular, precisei separar o código e aplicar os conhecimentos adquiridos sobre exportação e importação, para que tudo funcionar da forma correta.
 
 #### _Na quinta parte:_
-Trabalhado com classes JS, precisei refatorar o código já existente para que a implementação de cada classe ocorrece da forma desejada, refatorado a classe Section para que ela tivessem um acoplamento fraco, sendo mais flexível, funcionando em diferentes situações.
+Trabalando com classes JS, precisei refatorar o código já existente para que a implementação de cada classe ocorrece da forma desejada, refatorado a classe Section para que ela tivessem um acoplamento fraco, sendo mais flexível, funcionando em diferentes situações.
 Trabalhado os conceitos de Herança, Encapsulamento e Polimorfismo.
+
+#### _Na sexta parte:_
+Nesta etapa trabalhei com API, alterando a página para que ela tivesse algumas funcionalidades como: edição da foto de pergil, alteração de nome e descrição, a esclusão e adição de cards e o botão de curtidas sendo implementado no seu total, dando vida  a página, foi realmente um desafio fazer todas as implementações se comunicarem com a API. trabalhando também a parte de UX, para uma experiência de qualidade.
+
 ---
 
 **Figma**
