@@ -3,10 +3,7 @@ import {
   deleteLikeCard,
 } from "../pages/index.js";
 
-import {
-  owner,
-  popupDelete,
-} from "../utils/constants.js";
+import { owner } from "../utils/constants.js";
 
 export default class Card {
   constructor({ item, templateSelector, deleteCard}) {
@@ -17,8 +14,6 @@ export default class Card {
     this._url = item.link;
     this._owner = item.owner;
     this.deleteCard = deleteCard;
-    this.idItem = null;
-    this._handleEscClose = this._handleEscClose.bind(this);
   }
 
   getTemplate() {
@@ -51,40 +46,16 @@ export default class Card {
     return this._element;
   }
 
-  _handleEscClose(evt) {
-    if (evt.key === "Escape") {
-      this.close(evt);
-    }
-  }
-
-  handleCardId(event) {
-    const ElementId = event.target.closest(".place");
-    if (ElementId) {
-      this.idItem = ElementId.getAttribute("id");
-      }
-      return this.idItem
-  }
-
-  close(evt) {
-    popupDelete.classList.add("popup_closing");
-    setTimeout(() => {
-      popupDelete.classList.remove("popup_closing");
-      popupDelete.classList.remove("popup_opened");
-    }, 200);
-    evt.preventDefault();
-    document.removeEventListener("keydown", this._handleEscClose);
-  }
-
   likeCounter(event){
     const likeNumberElement = this._buttonLikeElement.closest(".place").querySelector(".place__like-number");
     const isLiked = this._buttonLikeElement.classList.toggle("place__button-like_active");
 
     if (isLiked) {
-      addLikeCard(this.handleCardId(event, this.idItem));
+      addLikeCard(this._id);
       likeNumberElement.textContent =
         parseInt(likeNumberElement.textContent) + 1;
     } else {
-      deleteLikeCard(this.handleCardId(event, this.idItem));
+      deleteLikeCard(this._id);
       likeNumberElement.textContent =
         parseInt(likeNumberElement.textContent) - 1;
     }
@@ -95,9 +66,9 @@ export default class Card {
     document.addEventListener("keydown", this._handleEscClose);
   }
 
-  removeCard(event) {
-    this.openPopupConfirmDelete(event);
-    this.deleteCard()
+  removeCard() {
+    this.deleteCard(this._id)
+
   }
 
   setEventListeners() {
@@ -107,7 +78,6 @@ export default class Card {
 
     this._buttonDeleteCard.addEventListener("click", (event)=> {
       this.removeCard()
-
     })
 
   }

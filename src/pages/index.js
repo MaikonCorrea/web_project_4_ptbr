@@ -98,16 +98,13 @@ export function updatePageData() {
   });
 }
 
-export function handleCardId(event) {
-  const ElementId = event.target.closest(".place");
-  if (ElementId) {
-    idItem = ElementId.getAttribute("id");
-    }
+
+function deleteCard(id) {
+popupDeleteCard.openConfirmDeleteCard(id)
+
 }
 
-function deleteCard() {
-console.log(this)
-}
+
 
 
 

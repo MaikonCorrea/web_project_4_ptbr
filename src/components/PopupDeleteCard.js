@@ -1,12 +1,18 @@
 import Popup from "./Popup.js";
-
+import { deleteCardApi } from "../pages/index.js";
 export default class PopupDeleteCard extends Popup {
-  constructor(popupSelector) {
-    super(popupSelector)
+  constructor(popupSelector, submitCallback) {
+    super(popupSelector);
+    this.buttonConfirmDelete = this._popup.querySelector(
+      ".delete__button-save"
+    );
+    this._submitCallback = submitCallback;
     this.setEventListeners();
   }
 
-  
+  open() {
+    super.open();
+  }
 
   close(evt) {
     super.close(evt);
@@ -19,8 +25,20 @@ export default class PopupDeleteCard extends Popup {
   renderLoading(isLoading) {
     super._handleEscClose(isLoading);
   }
+  openConfirmDeleteCard(id) {
+    console.log(id)
+    this.open()
+
+  }
+
+  cardDeletionConfirmed() {
+
+  }
 
   setEventListeners() {
     super.setEventListeners();
+    this.buttonConfirmDelete.addEventListener("click", (evt) => {
+      this.close(evt);
+    });
   }
 }
