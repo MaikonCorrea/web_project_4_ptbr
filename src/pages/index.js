@@ -102,19 +102,9 @@ popupDeleteCard.openConfirmDeleteCard(id)
 }
 
 export function deleteCardApi(idItem) {
-  popupDeleteCard.renderLoading(true)
+
   clientAPI
   .deleteCard(idItem)
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-  })
-  .catch((err) => {
-    alert(`Falha na solicitação com status ${err.status}`);
-  })
   .finally(() => {
     setTimeout(() => {
       popupDeleteCard.renderLoading(false);
