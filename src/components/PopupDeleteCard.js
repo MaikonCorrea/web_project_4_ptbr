@@ -29,7 +29,6 @@ export default class PopupDeleteCard extends Popup {
     this.open();
     const idItem = id;
     document.getElementById("delete-button").addEventListener("click", (evt) => {
-     renderLoading(true)
       const elementToDelete = document.getElementById(idItem);
       if (elementToDelete) {
         elementToDelete.remove();

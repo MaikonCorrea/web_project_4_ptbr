@@ -102,7 +102,7 @@ popupDeleteCard.openConfirmDeleteCard(id)
 }
 
 export function deleteCardApi(idItem) {
-
+  popupDeleteCard.renderLoading(true)
   clientAPI
   .deleteCard(idItem)
   .finally(() => {
