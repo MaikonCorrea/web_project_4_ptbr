@@ -6,36 +6,33 @@ import {
   inputImageProfile,
 } from "../utils/constants.js";
 
-import {
-  getUrlNewAvatar,
-  updateUsers
-} from "../pages/index.js";
+import { getUrlNewAvatar, updateUsers } from "../pages/index.js";
 
 export default class UserInfoImage extends Popup {
   constructor(popupSelector) {
-    super(popupSelector)
+    super(popupSelector);
     this.setEventListeners();
   }
 
   open() {
-    super.open()
+    super.open();
     inputImageProfile.value = "";
   }
 
   close(evt) {
-    super.close(evt)
+    super.close(evt);
     updateUsers();
   }
   _handleEscClose(evt) {
-    super._handleEscClose(evt)
+    super._handleEscClose(evt);
   }
 
   renderLoading(isLoading) {
-    super.renderLoading(isLoading)
+    super.renderLoading(isLoading);
   }
 
   setEventListeners() {
-    super.setEventListeners()
+    super.setEventListeners();
     buttonOpenEditImageProfile.addEventListener("click", () => {
       this.open();
     });
@@ -47,6 +44,5 @@ export default class UserInfoImage extends Popup {
         this.close(evt);
       }, 1000);
     });
-
   }
 }

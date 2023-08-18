@@ -1,8 +1,6 @@
 import Popup from "./Popup.js";
 
-import {
-getDescriptionPerfil,
-} from "../pages/index.js";
+import { getDescriptionPerfil } from "../pages/index.js";
 
 import {
   inputName,
@@ -12,7 +10,6 @@ import {
   openPopupEditButton,
   buttonSave,
 } from "../utils/constants.js";
-
 
 export default class UserInfo extends Popup {
   constructor(popupSelector) {
@@ -39,11 +36,11 @@ export default class UserInfo extends Popup {
   }
 
   close(evt) {
-   super.close(evt);
+    super.close(evt);
   }
 
   _handleEscClose(evt) {
-    super. _handleEscClose(evt);
+    super._handleEscClose(evt);
   }
 
   renderLoading(isLoading) {
@@ -56,7 +53,10 @@ export default class UserInfo extends Popup {
       this.open();
     });
     buttonSave.addEventListener("click", (evt) => {
-      this.close(evt);
+      evt.preventDefault();
+      setTimeout(() => {
+        this.close(evt);
+      }, 1000);
       this.getUserInfo();
       this.setUserInfo();
       getDescriptionPerfil();

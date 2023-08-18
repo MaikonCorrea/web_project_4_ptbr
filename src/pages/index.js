@@ -38,7 +38,7 @@ export function updateUsers() {
     imagePerfil.src = res.avatar;
     profileName.textContent = res.name;
     profileAbout.textContent = res.about;
-  })
+  });
 }
 
 const popupWhithForm = new PopupWhithForm((item) => {
@@ -61,9 +61,9 @@ const popupWhithForm = new PopupWhithForm((item) => {
           owner,
         },
         templateSelector: ".place",
-        deleteCard: deleteCard
+        deleteCard: deleteCard,
       });
-      const card = newCard.generateCard()
+      const card = newCard.generateCard();
       const cardsContainer = document.querySelector(".gallery");
       cardsContainer.appendChild(card);
     })
@@ -96,26 +96,27 @@ export function updatePageData() {
   });
 }
 
-
 function deleteCard(id) {
-popupDeleteCard.openConfirmDeleteCard(id)
+  popupDeleteCard.openConfirmDeleteCard(id);
 }
 
 export function deleteCardApi(idItem) {
-  popupDeleteCard.renderLoading(true)
+  popupDeleteCard.renderLoading(true);
+  console.log(idItem);
   clientAPI
-  .deleteCard(idItem)
-  .finally(() => {
-    setTimeout(() => {
-      popupDeleteCard.renderLoading(false);
-    }, 1000);
-  });
-
+    .deleteCard(idItem)
+    .then(() => {
+      const elementToDelete = document.getElementById(idItem);
+      if (elementToDelete) {
+        elementToDelete.remove();
+      }
+    })
+    .finally(() => {
+      setTimeout(() => {
+        popupDeleteCard.renderLoading(false);
+      }, 1000);
+    });
 }
-
-
-
-
 
 export function updateLikeData() {
   const idUser = owner._id;
@@ -137,20 +138,20 @@ export function updateLikeData() {
   });
 }
 
-
-
 export function deleteLikeCard(idItem) {
-  clientAPI.deleteLike(idItem)}
+  clientAPI.deleteLike(idItem);
+}
 
 export function addLikeCard(idItem) {
-  clientAPI.addLike(idItem)}
+  clientAPI.addLike(idItem);
+}
 
 export function getUrlNewAvatar() {
   userInfoImage.renderLoading(true);
   const newUrl = document.querySelector(".photograph__input-link").value;
   const newAvatar = {
     avatar: newUrl,
-  }
+  };
   clientAPI.getProfilePicture(newAvatar).finally(() => {
     setTimeout(() => {
       userInfoImage.renderLoading(false);
@@ -173,14 +174,13 @@ export function getDescriptionPerfil() {
   });
 }
 
-
 new PopupWithImage(popupContainerScreen);
 
 const userInfo = new UserInfo(popupEdit);
 
 const userInfoImage = new UserInfoImage(photographPopup);
 
-const popupDeleteCard = new PopupDeleteCard(popupDelete)
+const popupDeleteCard = new PopupDeleteCard(popupDelete);
 
 new FormValidator(configValidator, popupEdit);
 

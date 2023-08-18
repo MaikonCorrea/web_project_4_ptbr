@@ -1,12 +1,9 @@
 import Popup from "./Popup.js";
 import { deleteCardApi } from "../pages/index.js";
 export default class PopupDeleteCard extends Popup {
-  constructor(popupSelector, submitCallback) {
+  constructor(popupSelector) {
     super(popupSelector);
-    this.buttonConfirmDelete = this._popup.querySelector(
-      ".delete__button-save"
-    );
-    this._submitCallback = submitCallback;
+    this.idItem = null;
     this.setEventListeners();
   }
 
@@ -23,27 +20,26 @@ export default class PopupDeleteCard extends Popup {
   }
 
   renderLoading(isLoading) {
-    super._handleEscClose(isLoading);
+    super.renderLoading(isLoading);
   }
   openConfirmDeleteCard(id) {
     this.open();
-    const idItem = id;
-    document.getElementById("delete-button").addEventListener("click", (evt) => {
-      const elementToDelete = document.getElementById(idItem);
-      if (elementToDelete) {
-        elementToDelete.remove();
-      }
-      deleteCardApi(idItem);
-    });
+    this.idItem = id;
+
+    const deleteButton = document.getElementById("delete-button");
+    const deleteHandler = (evt) => {
+      deleteCardApi(this.idItem);
+      evt.preventDefault();
+      setTimeout(() => {
+        this.close(evt);
+      }, 1000);
+      deleteButton.removeEventListener("click", deleteHandler);
+      this.idItem = null;
+    };
+    deleteButton.addEventListener("click", deleteHandler);
   }
 
   setEventListeners() {
     super.setEventListeners();
-    this.buttonConfirmDelete.addEventListener("click", (evt) => {
-      evt.preventDefault()
-       setTimeout(() => {
-        this.close(evt);
-      }, 1000);
-    });
   }
 }

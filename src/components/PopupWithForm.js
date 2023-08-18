@@ -28,9 +28,9 @@ export default class PopupWhithForm extends Popup {
   }
 
   renderLoading(isLoading) {
-    super.renderLoading(isLoading)
+    super.renderLoading(isLoading);
   }
-  
+
   setEventListeners() {
     super.setEventListeners();
     openPopupButtonCard.addEventListener("click", () => {
@@ -38,8 +38,8 @@ export default class PopupWhithForm extends Popup {
     });
     buttonSaveNewCard.addEventListener("click", (evt) => {
       evt.preventDefault();
-      setTimeout(updatePageData, 900);
-      setTimeout(updateLikeData, 910);
+      setTimeout(updatePageData, 700);
+      setTimeout(updateLikeData, 710);
       const formData = this._getInputValues();
       this._submitCallback(formData);
       setTimeout(() => {
