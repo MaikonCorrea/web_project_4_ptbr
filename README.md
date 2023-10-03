@@ -57,13 +57,6 @@ Nesta etapa trabalhei com API, alterando a página para que ela tivesse algumas 
 
 ---
 
-**Figma**
-
-* [Link para o projeto no Figma parte 1](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
-
-* [Link para o projeto no Figma parte 2](https://www.figma.com/file/UEBC9WrjCqc74O4zfGn8ed/Web_Brief_Sprint_5_PT-%7C-Ao-redor-dos-E.U.A-%7C-desktop-%2B-mobile?type=design&node-id=0-1&t=CQda8aXfbfsR36ld-0)
-
-* [Link para o projeto no Figma parte 3](https://www.figma.com/file/2lYBAAE2NJmfoD2q5j710S/Web_Brief_Sprint_6_PT-%7C-Ao-redor-dos-E.U.A?type=design&node-id=0-1&t=lO92YXwpumviEFUw-0)
 
 **Site Around the U.S.**
 
